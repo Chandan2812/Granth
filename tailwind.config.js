@@ -1,12 +1,14 @@
-/** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
+  darkMode: "class", // ✅ this is the key setting
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}", // make sure all relevant paths are included
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        raleway: ["Raleway", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
-
+};
