@@ -42,7 +42,7 @@ const ListProperty = () => {
 
             <button
               onClick={() => setShowForm(true)}
-              className="border px-6 py-3 transition mb-8 border-[var(--primary-color)] text-[var(--primary-color)] btn-gradient-hover"
+              className="border px-6 py-3 transition mb-8 border-[var(--primary-color)] text-[var(--primary-color)] bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black hover:opacity-80"
             >
               List Your Property
             </button>

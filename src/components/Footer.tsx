@@ -7,6 +7,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
+import { IoMdSend } from "react-icons/io";
 
 const Footer = () => {
   return (
@@ -33,10 +34,32 @@ const Footer = () => {
       {/* Mid horizontal line */}
       <div className="md:max-w-7xl mx-auto border-t border-gray-300 dark:border-gray-700 w-full mb-8" />
 
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between px-6 sm:px-12 lg:px-6 gap-8 pb-10 font-light dark:font-thin ">
-        {/* Left: Navigation Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      {/* Main content with 3 columns */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 px-6 sm:px-12 lg:px-6 pb-10 font-light dark:font-thin">
+        {/* Left: Newsletter */}
+        <div className="w-full max-w-[300px]">
+          <h3 className="text-lg mb-4 font-semibold">
+            Subscribe to our Newsletter
+          </h3>
+          <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">
+            Don’t miss our future updates! Get Subscribed Today!
+          </p>
+          <form className="flex items-center">
+            <input
+              type="email"
+              placeholder="Your email here"
+              className="flex-grow px-4 py-[7px] text-sm text-black rounded-l-full outline-none bg-white dark:bg-gray-100"
+            />
+            <button
+              type="submit"
+              className="bg-[var(--primary-color)] px-4 py-2 rounded-r-full text-white text-sm uppercase hover:opacity-90 transition"
+            >
+              <IoMdSend className="text-black text-lg" />
+            </button>
+          </form>
+        </div>
+        {/* Center: Quick Links */}
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 justify-center">
           {[
             [
               { label: "Buy Properties", path: "/buy" },
@@ -76,57 +99,51 @@ const Footer = () => {
               href="mailto:info@Granthproperties.ae"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaEnvelope />
             </a>
-
             <a
               href="https://www.facebook.com/p/Granth-Group-61554982800603"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaFacebookF />
             </a>
-
             <a
               href="https://www.linkedin.com/company/Granthproperties"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaLinkedinIn />
             </a>
-
             <a
               href="https://wa.me/971521110795"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaWhatsapp />
             </a>
-
             <a
               href="https://www.instagram.com/Granthproperties/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaInstagram />
             </a>
-
             <a
               href="https://www.youtube.com/@GranthPropertiesOfficial"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:opacity-80  p-2 rounded"
+              className="hover:opacity-80 p-2 rounded"
             >
               <FaYoutube />
             </a>
           </div>
-
           <button className="mt-4 border border-[var(--primary-color)] text-black hover:opacity-80 px-6 py-2 uppercase tracking-wide bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] transition">
             <a href="tel:+971521110794">Call Us</a>
           </button>
