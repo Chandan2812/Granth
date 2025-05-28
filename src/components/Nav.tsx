@@ -76,14 +76,14 @@ const Navbar = () => {
     <>
       <nav className="bg-white dark:bg-black text-black dark:text-white font-raleway font-light dark:font-thin w-full fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800 transition-colors">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
+          <div className="flex justify-between h-24 items-center">
             {/* Mobile View */}
             <div className="flex items-center w-full justify-between md:hidden">
               <a href="/">
                 <img
                   src={logo}
                   alt="Mondus Logo"
-                  className="w-1/3"
+                  className="h-20"
                   draggable="false"
                 />
               </a>
@@ -211,7 +211,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden fixed inset-0 z-[9999] bg-white dark:bg-black flex flex-col pl-2 pr-5 pb-6 pt-3">
             <div className="flex justify-between items-center mb-6">
-              <img src={logo} alt="Mondus Logo" className="w-48" />
+              <img src={logo} alt="Mondus Logo" className="w-28" />
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-2xl text-inherit"
