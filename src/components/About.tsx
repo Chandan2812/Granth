@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import about from "../assets/about.png";
+import EnquireNowForm from "./EnquireNowForm"; // Make sure this path is correct
 
 const About: React.FC = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
-    <div className="bg-white text-black dark:bg-black dark:text-white transition-colors font-raleway ">
+    <div className="relative bg-white text-black dark:bg-black dark:text-white transition-colors font-raleway">
+      {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch justify-between p-4 md:px-6 md:py-16 gap-6">
         {/* Image section */}
-        <div className="w-full md:w-1/2 flex justify-center items-center md:max-h-[500px] overflow-hidden ">
+        <div className="w-full md:w-1/2 flex justify-center items-center md:max-h-[500px] overflow-hidden">
           <img
             src={about}
             alt="Real Estate Experts"
-            className="w-full h-auto  object-contain"
+            className="w-full h-auto object-contain"
             draggable="false"
           />
         </div>
 
         {/* Text section */}
-        <div className="w-full md:w-1/2 flex flex-col bg-white dark:bg-black p-4 md:p-8 shadow-lg ">
+        <div className="w-full md:w-1/2 flex flex-col bg-white dark:bg-black p-4 md:p-8 shadow-lg">
           <div>
             <h2 className="text-3xl md:text-4xl font-light mb-4">
               Welcome to Granth Dream Homes
@@ -38,13 +42,29 @@ const About: React.FC = () => {
               every home tells a story of trust and excellence.
             </p>
           </div>
-          <a href="/contact">
-            <button className="w-fit border px-6 py-3 transition border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 mt-auto">
-              Enquire now
-            </button>
-          </a>
+          <button
+            onClick={() => setShowPopup(true)}
+            className="w-fit border px-6 py-3 transition border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 mt-auto"
+          >
+            Enquire now
+          </button>
         </div>
       </div>
+
+      {/* Popup Modal */}
+      {showPopup && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
+          <div className="relative w-full max-w-5xl">
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-2 right-2 z-10 text-white bg-black bg-opacity-50 hover:bg-opacity-75 px-3 py-1 rounded-full"
+            >
+              ✕
+            </button>
+            <EnquireNowForm />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

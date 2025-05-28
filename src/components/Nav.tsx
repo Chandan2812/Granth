@@ -45,6 +45,7 @@ const Navbar = () => {
     { label: "Off-Plan", path: "/offplan" },
     { label: "Blogs", path: "/blogs" },
     { label: "About Us", path: "/about" },
+    { label: "Contact Us", path: "/contact" },
   ];
 
   useEffect(() => {

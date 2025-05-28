@@ -39,10 +39,10 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {[
             [
-              { label: "Buy", path: "/buy" },
-              { label: "Rent", path: "/rent" },
-              { label: "Sell", path: "/sell" },
-              { label: "Off-Plan", path: "/offplan" },
+              { label: "Buy Properties", path: "/buy" },
+              { label: "Rent Properties", path: "/rent" },
+              { label: "Sell Properties", path: "/sell" },
+              { label: "Off-Plan Properties", path: "/offplan" },
             ],
             [
               { label: "Catalogs", path: "/catalogs" },
