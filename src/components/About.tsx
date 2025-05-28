@@ -8,7 +8,7 @@ const About: React.FC = () => {
   const [showDownloadPopup, setShowDownloadPopup] = useState(false);
 
   return (
-    <div className="relative bg-white text-black dark:bg-black dark:text-white transition-colors font-raleway">
+    <div className="relative bg-white text-black dark:bg-black dark:text-white transition-colors">
       {/* Main Content */}
       <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-stretch justify-between p-4 md:px-6 md:py-16 gap-6">
         {/* Image section */}

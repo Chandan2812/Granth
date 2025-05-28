@@ -11,7 +11,7 @@ import { IoMdSend } from "react-icons/io";
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-black text-black dark:text-white font-raleway text-sm">
+    <footer className="bg-white dark:bg-black text-black dark:text-white  text-sm">
       {/* Top horizontal line */}
       <div className="border-t border-gray-300 dark:border-gray-700 w-full" />
 
@@ -35,7 +35,7 @@ const Footer = () => {
       <div className="md:max-w-7xl mx-auto border-t border-gray-300 dark:border-gray-700 w-full mb-8" />
 
       {/* Main content with 3 columns */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 px-6 sm:px-12 lg:px-6 pb-10 font-light dark:font-thin">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 px-6 sm:px-12 lg:px-6 pb-10 ">
         {/* Left: Newsletter */}
         <div className="w-full max-w-[300px]">
           <h3 className="text-lg mb-4 font-semibold">

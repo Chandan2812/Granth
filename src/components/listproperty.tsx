@@ -24,7 +24,7 @@ const ListProperty = () => {
           </div>
 
           {/* Right Side: Content */}
-          <div className="w-full lg:w-1/2 font-raleway font-thin">
+          <div className="w-full lg:w-1/2 ">
             <h2 className="text-3xl md:text-4xl font-light mb-6 text-black dark:text-gray-100">
               List Your Property
             </h2>
