@@ -14,8 +14,8 @@ function Landing() {
     <div>
       <Nav />
       <Hero />
-      <Exclusives />
       <About />
+      <Exclusives />
       <WhatWeDoSection />
       <ListProperty />
       <ReviewSection />
