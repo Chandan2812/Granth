@@ -47,10 +47,6 @@ const Footer = () => {
             [
               { label: "Catalogs", path: "/catalogs" },
               { label: "Area Guides", path: "/area-guides" },
-              { label: "Developers", path: "/developers" },
-            ],
-            [
-              { label: "Careers", path: "/careers" },
               { label: "Contact Us", path: "/contact" },
             ],
           ].map((group, idx) => (
@@ -71,16 +67,16 @@ const Footer = () => {
 
         {/* Right: Contact Info */}
         <div className="space-y-4 lg:text-right">
-          <h3 className="text-lg">Dubai, UAE</h3>
+          <h3 className="text-lg">Goa</h3>
           <p className="text-gray-700 dark:text-gray-200">
-            Granth Group Iris Bay 2402 , Business Bay , Dubai
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
           </p>
           <div className="flex justify-start lg:justify-end gap-4 pt-2 text-[var(--primary-color)] text-xl">
             <a
               href="mailto:info@Granthproperties.ae"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaEnvelope />
             </a>
@@ -89,7 +85,7 @@ const Footer = () => {
               href="https://www.facebook.com/p/Granth-Group-61554982800603"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaFacebookF />
             </a>
@@ -98,7 +94,7 @@ const Footer = () => {
               href="https://www.linkedin.com/company/Granthproperties"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaLinkedinIn />
             </a>
@@ -107,7 +103,7 @@ const Footer = () => {
               href="https://wa.me/971521110795"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaWhatsapp />
             </a>
@@ -116,7 +112,7 @@ const Footer = () => {
               href="https://www.instagram.com/Granthproperties/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaInstagram />
             </a>
@@ -125,13 +121,13 @@ const Footer = () => {
               href="https://www.youtube.com/@GranthPropertiesOfficial"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:bg-gray-700 p-2 rounded"
+              className="hover:opacity-80  p-2 rounded"
             >
               <FaYoutube />
             </a>
           </div>
 
-          <button className="mt-4 border border-[var(--primary-color)] text-[var(--primary-color)] px-6 py-2 uppercase tracking-wide hover:bg-gradient-to-r from-[#C29579] via-[#e3c5b5] to-[#C29579] hover:text-white dark:hover:text-black hover:font-light transition">
+          <button className="mt-4 border border-[var(--primary-color)] text-black hover:opacity-80 px-6 py-2 uppercase tracking-wide bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] transition">
             <a href="tel:+971521110794">Call Us</a>
           </button>
         </div>
