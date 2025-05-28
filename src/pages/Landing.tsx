@@ -5,6 +5,7 @@ import LifeStyleSection from "../components/LifestyleSection";
 import ListProperty from "../components/listproperty";
 import Nav from "../components/Nav";
 import ReviewSection from "../components/review";
+import ScrollToTopButton from "../components/ScrollToTopButton";
 import WhatWeDoSection from "../components/WhatWeDoSection";
 
 function Landing() {
@@ -18,6 +19,7 @@ function Landing() {
       <ReviewSection />
       <LifeStyleSection />
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 }
