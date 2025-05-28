@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiSun, FiMoon, FiPhone } from "react-icons/fi";
-import logo from "../assets/react.svg";
+import logo from "../assets/logo.png";
 import {
   FaFacebook,
   FaInstagram,

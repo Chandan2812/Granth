@@ -1,5 +1,5 @@
 import { useState } from "react";
-import hero from "../assets/react.svg";
+import hero from "../assets/hero.png";
 import "../index.css";
 
 export default function Hero() {

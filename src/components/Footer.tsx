@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
-import logo from "../assets/react.svg";
+import logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
@@ -19,7 +19,11 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start">
           <div className="flex items-center gap-4">
             <div className="w-16 border-t border-[var(--primary-color)]" />
-            <img src={logo} alt="Logo" className="w-44 h-auto object-contain" />
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-24 h-auto object-contain py-2"
+            />
             <div className="w-20 border-t border-[var(--primary-color)]" />
           </div>
         </div>
