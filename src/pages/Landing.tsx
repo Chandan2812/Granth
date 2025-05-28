@@ -1,4 +1,5 @@
 import About from "../components/About";
+import Exclusives from "../components/Exclusives";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import LifeStyleSection from "../components/LifestyleSection";
@@ -13,6 +14,7 @@ function Landing() {
     <div>
       <Nav />
       <Hero />
+      <Exclusives />
       <About />
       <WhatWeDoSection />
       <ListProperty />

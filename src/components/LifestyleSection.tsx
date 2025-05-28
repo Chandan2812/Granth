@@ -39,7 +39,7 @@ const LifeStyleSection = () => {
     <div className="bg-white dark:bg-black text-black dark:text-white py-10">
       <div className="max-w-7xl mx-auto px-6 overflow-hidden">
         <h2 className="text-center text-3xl md:text-4xl font-light mb-2 text-black dark:text-gray-100">
-          LIFESTYLE
+          LIFESTYLE IN GOA
         </h2>
         <p className="text-center text-gray-700 dark:text-gray-300 mb-8">
           Wide range options for any lifestyle. Make your choice with us
