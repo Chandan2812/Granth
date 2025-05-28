@@ -20,7 +20,7 @@ const AcasaLandingPage = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-white dark:bg-black text-black dark:text-white">
       <Navbar />
       <div
         className="relative h-[80vh] bg-cover bg-center mt-24"
@@ -28,7 +28,7 @@ const AcasaLandingPage = () => {
           backgroundImage: `url('https://www.samava.in/acasa/images/header.png')`,
         }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
+        <div className="absolute inset-0 text-white bg-opacity-50 flex flex-col justify-center items-center  text-center">
           <h1 className="text-4xl md:text-6xl font-semibold">
             An epitome of elegance.
           </h1>
@@ -37,7 +37,7 @@ const AcasaLandingPage = () => {
           </p>
         </div>
       </div>
-      <div className="font-sans text-gray-800 max-w-7xl mx-auto ">
+      <div className="font-sans  max-w-7xl mx-auto ">
         {/* Hero Section */}
 
         {/* Intro Section */}
@@ -53,9 +53,7 @@ const AcasaLandingPage = () => {
               offers a harmonious blend of Balinese architecture and Goan
               serenity.
             </p>
-            <button className="bg-black text-white px-4 py-2 text-sm">
-              Book a Site Visit
-            </button>
+            <button className=" px-4 py-2 text-sm">Book a Site Visit</button>
           </div>
           <div>
             <img
@@ -67,7 +65,7 @@ const AcasaLandingPage = () => {
         </div>
 
         {/* Furnishing Section */}
-        <div className="bg-gray-100 p-8">
+        <div className=" p-8">
           <div className="mb-8">
             <img
               src="https://www.samava.in/acasa/images/banner.png"
@@ -110,9 +108,7 @@ const AcasaLandingPage = () => {
           </div>
 
           <div className="text-center mt-4">
-            <button className="bg-black text-white px-4 py-2 text-sm">
-              Request Catalogue
-            </button>
+            <button className=" px-4 py-2 text-sm">Request Catalogue</button>
           </div>
         </div>
 
@@ -141,7 +137,7 @@ const AcasaLandingPage = () => {
         </div>
 
         {/* Features & Amenities */}
-        <div className="bg-gray-100 p-8">
+        <div className=" p-8">
           <h3 className="text-lg font-semibold mb-4 text-center">
             Features & Amenities
           </h3>
