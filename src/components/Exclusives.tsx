@@ -4,30 +4,64 @@ import goa from "../assets/Untitled (784 x 994 px).png";
 
 const properties = [
   {
-    image: goa, // Replace with actual image path
+    image: goa,
     title: "Marina Living",
     location: "Goa",
-    roi: "7–8%",
-    paymentPlan: "Post-handover payment plan – 30% over 2 years",
-    locationDetails:
-      "Parallel to Sheikh Zayed Road, 5 minutes to Jumeirah Beach",
     design: "Designed in the style of American resorts of Miami",
-    description:
-      "One of the last new developments in the area with growing capital value – Dubai Marina. Just a few minutes’ away from Marina Beach, Ain Dubai, and the world-famous promenade, The Walk.",
-    handover: "June 30, 2025",
+    interiorDetails: [
+      "Designer Furnishings – Fully Furnished Living, Dining & Bedrooms",
+      "Modular Kitchen",
+      "Designer Tiles for Bathrooms",
+      "Door Access Control System",
+      "Artefacts & Furnishings",
+    ],
+    featuresAmenities: [
+      "Infinity Pool",
+      "Fully Equipped Gym",
+      "24/7 Security",
+      "Covered Parking",
+      "Kids Play Area",
+    ],
+    nearby: {
+      restaurants: [
+        "The Fisherman's Wharf",
+        "Olive Bar & Kitchen",
+        "Cafe Alchemia",
+      ],
+      utilities: [
+        "Hospital – Healthway Hospital",
+        "Supermarket – Big Bazaar",
+        "Pharmacy – Apollo",
+      ],
+    },
   },
   {
-    image: "https://fnst.axflare.com/community/WEBP/uYHqVeSOBZ.webp", // Replace with actual image path
-    title: "Marina Living",
+    image: "https://fnst.axflare.com/community/WEBP/uYHqVeSOBZ.webp",
+    title: "Ocean Breeze Residences",
     location: "Goa",
-    roi: "7–8%",
-    paymentPlan: "Post-handover payment plan – 30% over 2 years",
-    locationDetails:
-      "Parallel to Sheikh Zayed Road, 5 minutes to Jumeirah Beach",
-    design: "Designed in the style of American resorts of Miami",
-    description:
-      "One of the last new developments in the area with growing capital value – Dubai Marina. Just a few minutes’ away from Marina Beach, Ain Dubai, and the world-famous promenade, The Walk.",
-    handover: "June 30, 2025",
+    design: "Modern tropical style with eco-friendly materials",
+    interiorDetails: [
+      "Spacious Balconies with Ocean View",
+      "Smart Home Automation",
+      "Italian Marble Flooring",
+      "Energy Efficient Lighting",
+      "Custom Kitchen Cabinets",
+    ],
+    featuresAmenities: [
+      "Rooftop Infinity Pool",
+      "Yoga and Meditation Deck",
+      "Children’s Play Zone",
+      "24/7 CCTV Surveillance",
+      "Dedicated Visitor Parking",
+    ],
+    nearby: {
+      restaurants: ["Viva Panjim", "Bomra's", "Mum’s Kitchen"],
+      utilities: [
+        "Airport – Goa International Airport",
+        "Mall – Mall De Goa",
+        "Clinic – Dr. Paulo’s Clinic",
+      ],
+    },
   },
 ];
 
@@ -42,7 +76,7 @@ const Exclusives = () => {
     if (index + 1 < properties.length) setIndex(index + 1);
   };
 
-  const offset = index * 100; // one full card per scroll
+  const offset = index * 100;
 
   return (
     <section className="bg-white dark:bg-black text-black dark:text-white py-10 px-2 md:px-28 font-raleway font-thin custom-gradient-lines relative">
@@ -102,40 +136,72 @@ const Exclusives = () => {
                 </div>
 
                 {/* Details section */}
-                <div className="w-full md:w-1/2 p-6 flex flex-col gap-4">
+                <div className="w-full md:w-1/2 p-6 flex flex-col gap-6 font-raleway font-thin">
+                  {/* Interior Details */}
                   <div>
-                    <h4 className="text-lg font-light mb-1">ROI</h4>
-                    <p className="text-sm font-light dark:font-thin">
-                      Expected ROI – {property.roi}
-                    </p>
+                    <h4 className="text-lg font-semibold mb-2 border-b pb-1 border-gray-300 dark:border-gray-700">
+                      Interior Highlights
+                    </h4>
+                    <ul className="list-disc list-inside text-sm space-y-1 font-light dark:font-thin">
+                      {property.interiorDetails.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
+
+                  {/* Features & Amenities */}
                   <div>
-                    <h4 className="text-lg font-light mb-1">PRIME LOCATION</h4>
-                    <p className="text-sm font-light dark:font-thin">
-                      {property.locationDetails}
-                    </p>
+                    <h4 className="text-lg font-semibold mb-2 border-b pb-1 border-gray-300 dark:border-gray-700">
+                      Features & Amenities
+                    </h4>
+                    <ul className="list-disc list-inside text-sm space-y-1 font-light dark:font-thin">
+                      {property.featuresAmenities.map((item, i) => (
+                        <li key={i}>{item}</li>
+                      ))}
+                    </ul>
                   </div>
+
+                  {/* Nearby Places */}
                   <div>
-                    <h4 className="text-lg font-light mb-1">PAYMENT PLAN</h4>
-                    <p className="text-sm font-light dark:font-thin">
-                      {property.paymentPlan}
-                    </p>
+                    <h4 className="text-lg font-semibold mb-2 border-b pb-1 border-gray-300 dark:border-gray-700">
+                      Nearby Places
+                    </h4>
+                    <div className="text-sm mb-2">
+                      <strong className="block mb-1 text-[var(--primary-color)]">
+                        Restaurants:
+                      </strong>
+                      <div className="flex flex-wrap gap-2">
+                        {property.nearby.restaurants.map((place, i) => (
+                          <span
+                            key={i}
+                            className="bg-gray-200 dark:bg-[#333] text-xs px-3 py-1 rounded-full"
+                          >
+                            {place}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="text-sm">
+                      <strong className="block mb-1 text-[var(--primary-color)]">
+                        Utilities:
+                      </strong>
+                      <div className="flex flex-wrap gap-2">
+                        {property.nearby.utilities.map((place, i) => (
+                          <span
+                            key={i}
+                            className="bg-gray-200 dark:bg-[#333] text-xs px-3 py-1 rounded-full"
+                          >
+                            {place}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-light mb-1">DESIGN</h4>
-                    <p className="text-sm font-light dark:font-thin">
-                      {property.design}
-                    </p>
-                  </div>
-                  <p className="text-sm font-light dark:font-thin">
-                    {property.description}
-                  </p>
-                  <p className="text-sm font-light dark:font-thin">
-                    Handover date: {property.handover}
-                  </p>
-                  <div className="mt-4 flex gap-4">
+
+                  {/* CTA Button */}
+                  <div className="pt-4">
                     <a href="/goa">
-                      <button className="border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-gradient-to-r from-[#C29579] via-[#e3c5b5] to-[#C29579] font-light hover:text-black px-6 py-2">
+                      <button className="border border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 transition-all font-medium px-6 py-2 ">
                         Explore now
                       </button>
                     </a>
