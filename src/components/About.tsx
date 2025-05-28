@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import about from "../assets/about.png";
 import EnquireNowForm from "./EnquireNowForm"; // Make sure this path is correct
+import DownloadBrochureForm from "./DownloadBrochureForm";
 
 const About: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showDownloadPopup, setShowDownloadPopup] = useState(false);
 
   return (
     <div className="relative bg-white text-black dark:bg-black dark:text-white transition-colors font-raleway">
@@ -42,12 +44,20 @@ const About: React.FC = () => {
               every home tells a story of trust and excellence.
             </p>
           </div>
-          <button
-            onClick={() => setShowPopup(true)}
-            className="w-fit border px-6 py-3 transition border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 mt-auto"
-          >
-            Enquire now
-          </button>
+          <div className="flex gap-4 flex-wrap mt-auto">
+            <button
+              onClick={() => setShowPopup(true)}
+              className="w-fit border px-6 py-3 transition border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 mt-auto"
+            >
+              Enquire now
+            </button>
+            <button
+              onClick={() => setShowDownloadPopup(true)}
+              className="w-fit border px-6 py-3 transition border-[var(--primary-color)] text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] hover:opacity-80 mt-auto"
+            >
+              Download Brochure
+            </button>
+          </div>
         </div>
       </div>
 
@@ -63,6 +73,12 @@ const About: React.FC = () => {
             </button>
             <EnquireNowForm />
           </div>
+        </div>
+      )}
+
+      {showDownloadPopup && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
+          <DownloadBrochureForm onClose={() => setShowDownloadPopup(false)} />
         </div>
       )}
     </div>
