@@ -22,23 +22,23 @@ const AcasaLandingPage = () => {
   return (
     <div>
       <Navbar />
-      <div className="font-sans text-gray-800 max-w-7xl mx-auto mt-24 ">
-        {/* Hero Section */}
-        <div
-          className="relative h-[80vh] bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://www.samava.in/acasa/images/header.png')`,
-          }}
-        >
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
-            <h1 className="text-4xl md:text-6xl font-semibold">
-              An epitome of elegance.
-            </h1>
-            <p className="mt-4 text-lg">
-              Fully furnished, Bali-inspired villas for sale in Corjuem, Goa
-            </p>
-          </div>
+      <div
+        className="relative h-[80vh] bg-cover bg-center mt-24"
+        style={{
+          backgroundImage: `url('https://www.samava.in/acasa/images/header.png')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
+          <h1 className="text-4xl md:text-6xl font-semibold">
+            An epitome of elegance.
+          </h1>
+          <p className="mt-4 text-lg">
+            Fully furnished, Bali-inspired villas for sale in Corjuem, Goa
+          </p>
         </div>
+      </div>
+      <div className="font-sans text-gray-800 max-w-7xl mx-auto ">
+        {/* Hero Section */}
 
         {/* Intro Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 items-center">
@@ -119,7 +119,7 @@ const AcasaLandingPage = () => {
         {/* Aerial View Section */}
         <div className="p-8">
           <img
-            src="/images/aerial.jpg"
+            src="https://www.samava.in/acasa/images/banner2.png"
             alt="Aerial View"
             className="w-full rounded"
           />
