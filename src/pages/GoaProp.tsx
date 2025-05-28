@@ -1,11 +1,34 @@
+import Footer from "../components/Footer";
+import Navbar from "../components/Nav";
+
 const AcasaLandingPage = () => {
+  const imageUrls = [
+    "https://www.samava.in/acasa/images/gallery-img1.jpg",
+    "https://www.samava.in/acasa/images/gallery-img2.jpg",
+    "https://www.samava.in/acasa/images/gallery-img3.jpg",
+    "https://www.samava.in/acasa/images/gallery-img4.jpg",
+    "https://www.samava.in/acasa/images/gallery-img5.jpg",
+    "https://www.samava.in/acasa/images/gallery-img6.jpg",
+    "https://www.samava.in/acasa/images/gallery-img6.jpg",
+    "https://www.samava.in/acasa/images/gallery-img6.jpg",
+  ];
+
+  const planImages = [
+    "https://www.samava.in/acasa/images/floor-plan1.jpg",
+    "https://www.samava.in/acasa/images/floor-plan2.jpg",
+    "https://www.samava.in/acasa/images/floor-plan3.jpg",
+  ];
+
   return (
     <div>
-      <div className="font-sans text-gray-800 max-w-7xl mx-auto ">
+      <Navbar />
+      <div className="font-sans text-gray-800 max-w-7xl mx-auto mt-24 ">
         {/* Hero Section */}
         <div
           className="relative h-[80vh] bg-cover bg-center"
-          style={{ backgroundImage: `url('/images/hero.jpg')` }}
+          style={{
+            backgroundImage: `url('https://www.samava.in/acasa/images/header.png')`,
+          }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
             <h1 className="text-4xl md:text-6xl font-semibold">
@@ -36,7 +59,7 @@ const AcasaLandingPage = () => {
           </div>
           <div>
             <img
-              src="/images/intro.jpg"
+              src="https://www.samava.in/acasa/images/about-img.png"
               alt="Intro"
               className="w-full rounded"
             />
@@ -47,7 +70,7 @@ const AcasaLandingPage = () => {
         <div className="bg-gray-100 p-8">
           <div className="mb-8">
             <img
-              src="/images/furnishing-main.jpg"
+              src="https://www.samava.in/acasa/images/banner.png"
               alt="Furnishing"
               className="w-full rounded"
             />
@@ -61,11 +84,11 @@ const AcasaLandingPage = () => {
             <li>Architect's Furnishings</li>
           </ul>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+            {imageUrls.map((url, index) => (
               <img
-                key={n}
-                src={`/images/furnish-${n}.jpg`}
-                alt={`Furnish ${n}`}
+                key={index}
+                src={url}
+                alt={`Furnish ${index + 1}`}
                 className="rounded"
               />
             ))}
@@ -75,16 +98,17 @@ const AcasaLandingPage = () => {
         {/* Plans Section */}
         <div className="p-8">
           <h3 className="text-lg font-semibold mb-4">Plans</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {["layout", "type-a", "type-b", "type-c"].map((plan) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {planImages.map((url, index) => (
               <img
-                key={plan}
-                src={`/images/${plan}.jpg`}
-                alt={plan}
-                className="rounded"
+                key={index}
+                src={url}
+                alt={`Plan ${index + 1}`}
+                className="rounded shadow-lg"
               />
             ))}
           </div>
+
           <div className="text-center mt-4">
             <button className="bg-black text-white px-4 py-2 text-sm">
               Request Catalogue
@@ -169,10 +193,15 @@ const AcasaLandingPage = () => {
                 <li>Goa Airport - 33km</li>
               </ul>
             </div>
-            <img src="/images/map.jpg" alt="Map" className="w-full rounded" />
+            <img
+              src="https://www.samava.in/acasa/images/map-img.png"
+              alt="Map"
+              className="w-full rounded"
+            />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

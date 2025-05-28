@@ -134,7 +134,7 @@ const Exclusives = () => {
                     Handover date: {property.handover}
                   </p>
                   <div className="mt-4 flex gap-4">
-                    <a href="/contact">
+                    <a href="/goa">
                       <button className="border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-gradient-to-r from-[#C29579] via-[#e3c5b5] to-[#C29579] font-light hover:text-black px-6 py-2">
                         Explore now
                       </button>
