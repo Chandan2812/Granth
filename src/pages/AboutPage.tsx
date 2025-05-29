@@ -2,6 +2,7 @@ import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
 import mission from "../assets/our-mission-png-1.png";
 import vision from "../assets/our-vision-png.png";
+import Stats from "../components/Stats";
 
 function AboutPage() {
   return (
@@ -122,6 +123,7 @@ function AboutPage() {
           className="rounded-lg w-full object-cover order-2 md:order-1"
         />
       </section>
+      <Stats />
 
       <section className="py-12 px-6 max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-4">Join Our Journey</h2>
