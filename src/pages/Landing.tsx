@@ -1,5 +1,6 @@
 import About from "../components/About";
-import Exclusives from "../components/Exclusives";
+import { Exclusives } from "../components/Exclusives";
+
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import LeadPopupForm from "../components/LeadPopUp";

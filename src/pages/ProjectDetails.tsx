@@ -1,11 +1,15 @@
-import About from "../components/About";
 import Footer from "../components/Footer";
 import Navbar from "../components/Nav";
 import { projectPageData } from "../data/PropertyData";
+import { useParams } from "react-router-dom";
 
-const AcasaLandingPage = () => {
-  const projectKey = "acasa"; // or "baliHeights"
-  const data = projectPageData[projectKey];
+const ProjectDetails = () => {
+  const { key } = useParams();
+  const data = key
+    ? projectPageData[key as keyof typeof projectPageData]
+    : null;
+
+  if (!data) return <div>Project not found</div>;
 
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white">
@@ -167,10 +171,9 @@ const AcasaLandingPage = () => {
           </div>
         </div>
       </div>
-      <About />
       <Footer />
     </div>
   );
 };
 
-export default AcasaLandingPage;
+export default ProjectDetails;
