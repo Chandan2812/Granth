@@ -11,6 +11,7 @@ import Nav from "../components/Nav";
 import PromptConsultation from "../components/PromptConsultation";
 import ReviewSection from "../components/review";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import Stats from "../components/Stats";
 import WhatWeDoSection from "../components/WhatWeDoSection";
 
 function Landing() {
@@ -18,6 +19,7 @@ function Landing() {
     <div>
       <Nav />
       <Hero />
+      <Stats />
       <AboutSection />
       <WhatWeDoSection />
       <Exclusives />

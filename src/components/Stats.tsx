@@ -39,7 +39,10 @@ export default function Stats() {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   return (
-    <section ref={ref} className="py-12 px-4 sm:px-6 lg:px-8">
+    <section
+      ref={ref}
+      className="py-12 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black text-black dark:text-white"
+    >
       <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6">
         {statsData.map((item, index) => (
           <div

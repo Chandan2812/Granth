@@ -13,7 +13,7 @@ function AboutPage() {
 
       <section className="relative overflow-hidden">
         <div className="relative z-10 text-center py-12 px-6  ">
-          <h1 className="text-4xl md:text-5xl font-bold ">
+          <h1 className="text-4xl md:text-5xl font-raleway  ">
             Welcome to Granth Dream Homes
           </h1>
           <p className="text-lg mt-4 max-w-3xl mx-auto font-light">
