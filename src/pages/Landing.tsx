@@ -1,4 +1,4 @@
-import About from "../components/About";
+import AboutSection from "../components/AboutSection";
 import BlogPreview from "../components/BlogPreview";
 import { Exclusives } from "../components/Exclusives";
 
@@ -8,6 +8,7 @@ import LeadPopupForm from "../components/LeadPopUp";
 import LifeStyleSection from "../components/LifestyleSection";
 import ListProperty from "../components/listproperty";
 import Nav from "../components/Nav";
+import PromptConsultation from "../components/PromptConsultation";
 import ReviewSection from "../components/review";
 import ScrollToTopButton from "../components/ScrollToTopButton";
 import WhatWeDoSection from "../components/WhatWeDoSection";
@@ -17,13 +18,14 @@ function Landing() {
     <div>
       <Nav />
       <Hero />
-      <About />
-      <Exclusives />
+      <AboutSection />
       <WhatWeDoSection />
-      <ListProperty />
-      <ReviewSection />
-      <BlogPreview />
+      <Exclusives />
       <LifeStyleSection />
+      <ReviewSection />
+      <ListProperty />
+      <BlogPreview />
+      <PromptConsultation />
       <Footer />
       <ScrollToTopButton />
       <LeadPopupForm />

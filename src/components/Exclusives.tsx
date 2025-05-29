@@ -44,9 +44,9 @@ export const Exclusives: React.FC = () => {
     navigate(`/projects/${currentProjectKey}`);
   };
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white">
+    <div className="bg-white dark:bg-black text-black dark:text-white md:py-10">
       <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway">
-        Our Projects
+        Our Exclusive Projects
       </h2>
       <div className=" min-h-[500px] flex items-center justify-center p-4 relative ">
         {/* Arrows outside the content box */}
