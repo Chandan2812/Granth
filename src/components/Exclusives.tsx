@@ -82,10 +82,10 @@ export const Exclusives: React.FC = () => {
               {/* Section Title and Description */}
               <div>
                 <h3 className="text-2xl  mb-1">{project.about.sectionTitle}</h3>
-                <p className="text-xl text-gray-600 dark:text-gray-400 text-justify pt-8">
+                <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">
                   {project.about.description}
                 </p>
-                <p className="text-xl text-gray-600 dark:text-gray-400 text-justify pt-10">
+                <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">
                   {project.location.description}
                 </p>
               </div>
