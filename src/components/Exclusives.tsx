@@ -79,30 +79,33 @@ export const Exclusives: React.FC = () => {
               {/* Section Title and Description */}
               <div>
                 <h3 className="text-2xl  mb-1">{project.about.sectionTitle}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-xl text-gray-600 dark:text-gray-400 text-justify pt-8">
                   {project.about.description}
+                </p>
+                <p className="text-xl text-gray-600 dark:text-gray-400 text-justify pt-10">
+                  {project.location.description}
                 </p>
               </div>
 
               {/* Features & Amenities */}
-              <section>
+              {/* <section>
                 <h4 className="text-lg  mb-2">
                   {project.featuresAndAmenities.sectionTitle}
                 </h4>
                 <ul className="flex flex-wrap gap-2">
                   {renderLimitedList(project.featuresAndAmenities.features)}
                 </ul>
-              </section>
+              </section> */}
 
               {/* Designer Furnishings */}
-              <section>
+              {/* <section>
                 <h4 className="text-lg  mb-2">
                   {project.designerFurnishings.sectionTitle}
                 </h4>
                 <ul className="flex flex-wrap gap-2 mb-3">
                   {renderLimitedList(project.designerFurnishings.features)}
                 </ul>
-              </section>
+              </section> */}
 
               {/* Explore Button */}
               <div className="pt-3">
