@@ -1,6 +1,7 @@
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
 import ListProperty from "../components/listproperty";
+import PromptConsultation from "../components/PromptConsultation";
 
 const Sell = () => {
   return (
@@ -119,6 +120,7 @@ const Sell = () => {
         </div>
       </section>
       <ListProperty />
+      <PromptConsultation />
       <Footer />
     </div>
   );

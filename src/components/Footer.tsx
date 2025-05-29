@@ -48,7 +48,7 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Your email here"
-              className="flex-grow px-4 py-[7px] text-sm text-black rounded-l-full outline-none bg-white dark:bg-gray-100"
+              className="flex-grow px-4 py-[7px] text-sm text-black rounded-l-full outline-none bg-white dark:bg-gray-100 border border-[var(--primary-color)]"
             />
             <button
               type="submit"
@@ -152,7 +152,7 @@ const Footer = () => {
 
       {/* Footer Bottom Links */}
       <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 py-6 text-xs text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row justify-between gap-2">
-        <span>Granth ©2025 All Rights Reserved</span>
+        <span>Granth Dream Homes ©2025 All Rights Reserved</span>
         <div className="flex gap-4">
           {["Terms of Use", "Privacy Policy"].map((item, idx) => (
             <a

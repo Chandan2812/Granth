@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { projectPageData } from "../data/PropertyData";
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
+import PromptConsultation from "../components/PromptConsultation";
 
 const projectKeys = Object.keys(projectPageData) as (
   | "sawantwadi"
@@ -62,6 +63,7 @@ export const RentProjects: React.FC = () => {
           })}
         </div>
       </div>
+      <PromptConsultation />
       <Footer />
     </div>
   );
