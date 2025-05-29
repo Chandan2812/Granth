@@ -1,5 +1,5 @@
 // BlogDetails.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { blogs } from "../data/blogs"; // adjust path
 import Navbar from "./Nav";
@@ -12,6 +12,10 @@ const BlogDetails: React.FC = () => {
 
   if (!blog)
     return <div className="text-white text-center py-20">Blog not found.</div>;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div className="">

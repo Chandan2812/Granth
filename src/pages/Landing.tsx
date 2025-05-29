@@ -1,4 +1,5 @@
 import About from "../components/About";
+import BlogPreview from "../components/BlogPreview";
 import { Exclusives } from "../components/Exclusives";
 
 import Footer from "../components/Footer";
@@ -21,6 +22,7 @@ function Landing() {
       <WhatWeDoSection />
       <ListProperty />
       <ReviewSection />
+      <BlogPreview />
       <LifeStyleSection />
       <Footer />
       <ScrollToTopButton />
