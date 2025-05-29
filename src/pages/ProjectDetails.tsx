@@ -102,21 +102,8 @@ const ProjectDetails = () => {
             {data.designerFurnishings.sectionTitle}
           </h3>
 
-          {/* Image Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            {data.designerFurnishings.images.map((img, index) => (
-              <div key={index} className="overflow-hidden rounded-lg shadow-md">
-                <img
-                  src={img}
-                  alt={`Furnish ${index + 1}`}
-                  className="object-cover w-full h-48"
-                />
-              </div>
-            ))}
-          </div>
-
           {/* Features in Box */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {data.designerFurnishings.features.map((feature, index) => (
               <div
                 key={index}
@@ -129,10 +116,23 @@ const ProjectDetails = () => {
               </div>
             ))}
           </div>
+
+          {/* Image Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-5">
+            {data.designerFurnishings.images.map((img, index) => (
+              <div key={index} className="overflow-hidden rounded-lg shadow-md">
+                <img
+                  src={img}
+                  alt={`Furnish ${index + 1}`}
+                  className="object-cover w-full h-48"
+                />
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* Features & Amenities Section */}
-        <section className="px-6 py-12 mx-auto max-w-7xl">
+        <section className="px-6 mx-auto max-w-7xl">
           <h3 className="text-3xl font-semibold text-center text-gray-900 dark:text-white mb-10">
             {data.featuresAndAmenities.sectionTitle}
           </h3>

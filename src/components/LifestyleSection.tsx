@@ -58,7 +58,7 @@ const LifeStyleSection = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-[350px] md:w-full h-[230px] object-cover"
+                  className="w-[350px] md:w-full h-[230px] object-cover border border-red-600"
                   draggable="false"
                 />
                 <div className="bg-white bg-opacity-70 dark:bg-black dark:bg-opacity-70 text-center py-2">
