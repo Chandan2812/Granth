@@ -1,22 +1,13 @@
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
-import bull from "../assets/Untitled (784 x 994 px).png";
+import bull from "../assets/Your paragraph text (300 x 400 px) (400 x 500 px).png";
 
 function Contact() {
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
       <Navbar />
-      <section
-        className="relative bg-black text-white py-12 px-6 mt-20"
-        style={{
-          backgroundImage:
-            "url('https://www.arrowtradefx.com/assets/images/png/regulationss.jpeg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      <section className="relative bg-black text-white py-12 px-6 mt-20">
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/70 z-0" />
 
@@ -68,6 +59,20 @@ function Contact() {
             />
           </div>
         </div>
+      </section>
+      {/* Embedded Map */}
+      div
+      <section className="max-w-7xl h-[400px] dark:bg-black mx-auto my-5">
+        <iframe
+          title="Google Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492479.18763210607!2d74.0066944!3d15.349728450000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1748522402955!5m2!1sen!2sin" // replace with your actual map URL
+          width="100%"
+          height="100%"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="border-0 w-full h-full rounded-md"
+        ></iframe>
       </section>
       <Footer />
     </div>

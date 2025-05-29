@@ -1,7 +1,7 @@
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
-import mission from "../assets/our-mission-png-1.png";
-import vision from "../assets/our-vision-png.png";
+import mission from "../assets/mission.png";
+import vision from "../assets/visson (1).png";
 import Stats from "../components/Stats";
 
 function AboutPage() {
@@ -22,6 +22,8 @@ function AboutPage() {
           </p>
         </div>
       </section>
+
+      <Stats />
 
       <section className="max-w-7xl mx-auto py-12 px-6 grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
@@ -103,7 +105,7 @@ function AboutPage() {
         <img
           src={mission}
           alt="Mission"
-          className="rounded-lg w-full object-cover order-2 md:order-none"
+          className="rounded-lg w-[90%] object-cover order-2 md:order-none"
         />
       </section>
 
@@ -120,10 +122,9 @@ function AboutPage() {
         <img
           src={vision}
           alt="Vision"
-          className="rounded-lg w-full object-cover order-2 md:order-1"
+          className="rounded-lg w-[90%] object-cover order-2 md:order-1"
         />
       </section>
-      <Stats />
 
       <section className="py-12 px-6 max-w-5xl mx-auto text-center">
         <h2 className="text-3xl font-semibold mb-4">Join Our Journey</h2>
