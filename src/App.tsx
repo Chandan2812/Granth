@@ -5,6 +5,7 @@ import Sell from "./pages/Sell";
 import Blog from "./components/Blog";
 import BlogDetails from "./components/BlogDetails";
 import ProjectDetails from "./pages/ProjectDetails";
+import { BuyProjects } from "./pages/Buy";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Sell" element={<Sell />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="/buy" element={<BuyProjects />} />
       </Routes>
     </Router>
   );

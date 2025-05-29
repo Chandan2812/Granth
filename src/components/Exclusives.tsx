@@ -25,7 +25,7 @@ export const Exclusives: React.FC = () => {
   if (!project) return <div>Project not found</div>;
 
   const liClass =
-    "bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded shadow-sm border border-gray-300 dark:border-gray-700 text-sm";
+    "bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded shadow-sm border border-gray-300 dark:border-gray-700 text-sm";
 
   const renderLimitedList = (items: string[]) => {
     const limited = items.slice(0, MAX_ITEMS);
@@ -44,11 +44,11 @@ export const Exclusives: React.FC = () => {
     navigate(`/projects/${currentProjectKey}`);
   };
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white font-raleway">
-      <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center">
+    <div className="bg-white dark:bg-black text-black dark:text-white">
+      <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway">
         Our Projects
       </h2>
-      <div className=" min-h-[500px] flex items-center justify-center p-4 relative font-raleway">
+      <div className=" min-h-[500px] flex items-center justify-center p-4 relative ">
         {/* Arrows outside the content box */}
         <button
           onClick={prevProject}

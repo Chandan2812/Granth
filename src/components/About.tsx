@@ -24,7 +24,7 @@ const About: React.FC = () => {
         {/* Text section */}
         <div className="w-full md:w-1/2 flex flex-col bg-white dark:bg-black p-4 md:p-8 shadow-lg">
           <div>
-            <h2 className="text-3xl md:text-4xl font-light mb-4">
+            <h2 className="text-3xl md:text-4xl font-light mb-4 font-raleway">
               Welcome to Granth Dream Homes
             </h2>
             <h3 className="text-xl font-medium mb-6 text-[var(--primary-color)]">
