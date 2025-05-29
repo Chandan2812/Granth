@@ -62,10 +62,7 @@ const BlogPreview: React.FC = () => {
       </div>
 
       <div className="text-center mt-10">
-        <a
-          href="/blog"
-          className="text-[var(--primary-color)] underline font-semibold"
-        >
+        <a href="/blog" className="text-[var(--primary-color)] e font-semibold">
           View All Blogs →
         </a>
       </div>
