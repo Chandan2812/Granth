@@ -111,7 +111,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <div className="h-20 pr-6 mr-6 border-r border-gray-600 dark:border-gray-400 flex items-center">
                   <a href="/">
-                    <img src={logo} alt="AX Logo" className="h-20" />
+                    <img src={logo} alt="AX Logo" className="h-16" />
                   </a>
                 </div>
                 <div className="flex items-center gap-8">
