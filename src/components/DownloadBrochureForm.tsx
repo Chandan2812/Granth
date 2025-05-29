@@ -1,5 +1,6 @@
 // src/components/DownloadBrochureForm.tsx
 import React, { useState } from "react";
+import brochurePDF from "../assets/brochure.pdf"; // ✅ Import the PDF
 
 interface Props {
   onClose: () => void;
@@ -19,9 +20,11 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
 
     // Trigger brochure download
     const link = document.createElement("a");
-    link.href = "/Branded Homes.pdf";
-    link.download = "Branded Homes.pdf";
+    link.href = brochurePDF;
+    link.download = "Brochure_Granth.pdf";
+    document.body.appendChild(link); // Required for some browsers like Firefox
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -40,7 +43,7 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
           value={formData.name}
           required
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
+          className="w-full p-2 border  border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
         />
         <input
           type="email"

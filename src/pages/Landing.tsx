@@ -2,6 +2,7 @@ import About from "../components/About";
 import Exclusives from "../components/Exclusives";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import LeadPopupForm from "../components/LeadPopUp";
 import LifeStyleSection from "../components/LifestyleSection";
 import ListProperty from "../components/listproperty";
 import Nav from "../components/Nav";
@@ -22,6 +23,7 @@ function Landing() {
       <LifeStyleSection />
       <Footer />
       <ScrollToTopButton />
+      <LeadPopupForm />
     </div>
   );
 }
