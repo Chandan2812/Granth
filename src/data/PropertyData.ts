@@ -1,7 +1,7 @@
 // acasaPageData.ts
 
 export const projectPageData = {
-  acasa: {
+  sawantwadi: {
     hero: {
       title: "An epitome of elegance.",
       subtitle:
@@ -9,9 +9,9 @@ export const projectPageData = {
       backgroundImage: "https://www.samava.in/acasa/images/header.png",
     },
     about: {
-      sectionTitle: "Discover Balinese Living in the quietude of Goa",
+      sectionTitle: "Welcome To Sawantwadi",
       description:
-        "This enclave of tranquility is tucked away in lush coconut groves and the picturesque terrain of Corjuem, just minutes from Mapusa. These luxurious, Bali-inspired villas come fully furnished and are designed to transport you to the serenity of Ubud. Enjoy private plunge pools, open-plan living spaces, designer furnishings, and a community that fosters peaceful, tropical living.",
+        "Sawantwadi, one of the upcoming under-construction housing societies in Sawantwadi. This society will have all basic facilities and amenities to suit homebuyer’s needs and requirements. Brought to you by Ankit Projexcel, Perto De Goa is scheduled for possession in Dec, 2026.",
       ctaText: "Book A Site Visit",
       image: "https://www.samava.in/acasa/images/about-img.png",
     },
@@ -35,7 +35,7 @@ export const projectPageData = {
       ],
     },
     plans: {
-      sectionTitle: "Plans",
+      sectionTitle: "Floor Plan",
       ctaText: "Request Catalogue",
       layouts: [
         {
@@ -81,9 +81,9 @@ export const projectPageData = {
       ],
     },
     location: {
-      title: "Never feel far away. Where is Acasa?",
+      title: "Never feel far away. Where is Sawantwadi?",
       description:
-        "ACASA is in Corjuem, North Goa. It’s a premium location that combines serene surroundings with excellent connectivity. Just minutes from Mapusa and close to popular beaches and restaurants, Acasa makes life both peaceful and practical.",
+        "Sawantwadi is in Corjuem, North Goa. It’s a premium location that combines serene surroundings with excellent connectivity. Just minutes from Mapusa and close to popular beaches and restaurants, Acasa makes life both peaceful and practical.",
       beachesNearby: [
         "Morjim Beach – 12km",
         "Anjuna Beach – 10km",

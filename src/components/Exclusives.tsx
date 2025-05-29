@@ -3,7 +3,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { projectPageData } from "../data/PropertyData";
 import { useNavigate } from "react-router-dom";
 
-const projectKeys = Object.keys(projectPageData) as ("acasa" | "baliHeights")[];
+const projectKeys = Object.keys(projectPageData) as (
+  | "sawantwadi"
+  | "baliHeights"
+)[];
 
 // const MAX_ITEMS = 5;
 

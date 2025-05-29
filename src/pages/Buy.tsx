@@ -4,7 +4,10 @@ import { projectPageData } from "../data/PropertyData";
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
 
-const projectKeys = Object.keys(projectPageData) as ("acasa" | "baliHeights")[];
+const projectKeys = Object.keys(projectPageData) as (
+  | "sawantwadi"
+  | "baliHeights"
+)[];
 
 export const BuyProjects: React.FC = () => {
   const navigate = useNavigate();
@@ -51,7 +54,7 @@ export const BuyProjects: React.FC = () => {
                     }}
                     className="mt-auto w-fit px-4 py-2 text-sm bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black rounded hover:opacity-90 transition"
                   >
-                    View Details
+                    Explore More
                   </button>
                 </div>
               </div>
