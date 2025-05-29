@@ -7,6 +7,8 @@ import BlogDetails from "./components/BlogDetails";
 import ProjectDetails from "./pages/ProjectDetails";
 import { BuyProjects } from "./pages/Buy";
 import AboutPage from "./pages/AboutPage";
+import { RentProjects } from "./pages/Rent";
+import { OffPlan } from "./pages/OffPlan";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/buy" element={<BuyProjects />} />
+        <Route path="/rent" element={<RentProjects />} />
+        <Route path="/offPlan" element={<OffPlan />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
