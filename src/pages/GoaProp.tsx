@@ -1,91 +1,71 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Nav";
+import { acasaPageData } from "../data/PropertyData";
 
 const AcasaLandingPage = () => {
-  const imageUrls = [
-    "https://www.samava.in/acasa/images/gallery-img1.jpg",
-    "https://www.samava.in/acasa/images/gallery-img2.jpg",
-    "https://www.samava.in/acasa/images/gallery-img3.jpg",
-    "https://www.samava.in/acasa/images/gallery-img4.jpg",
-    "https://www.samava.in/acasa/images/gallery-img5.jpg",
-    "https://www.samava.in/acasa/images/gallery-img6.jpg",
-    "https://www.samava.in/acasa/images/gallery-img6.jpg",
-    "https://www.samava.in/acasa/images/gallery-img6.jpg",
-  ];
-
-  const planImages = [
-    "https://www.samava.in/acasa/images/floor-plan1.jpg",
-    "https://www.samava.in/acasa/images/floor-plan2.jpg",
-    "https://www.samava.in/acasa/images/floor-plan3.jpg",
-  ];
-
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white">
       <Navbar />
+      {/* Hero Section */}
       <div
         className="relative h-[80vh] bg-cover bg-center mt-24"
         style={{
-          backgroundImage: `url('https://www.samava.in/acasa/images/header.png')`,
+          backgroundImage: `url('${acasaPageData.hero.backgroundImage}')`,
         }}
       >
-        <div className="absolute inset-0 text-white bg-opacity-50 flex flex-col justify-center items-center  text-center">
+        <div className="absolute inset-0 text-white bg-opacity-50 flex flex-col justify-center items-center text-center">
           <h1 className="text-4xl md:text-6xl font-semibold">
-            An epitome of elegance.
+            {acasaPageData.hero.title}
           </h1>
-          <p className="mt-4 text-lg">
-            Fully furnished, Bali-inspired villas for sale in Corjuem, Goa
-          </p>
+          <p className="mt-4 text-lg">{acasaPageData.hero.subtitle}</p>
         </div>
       </div>
-      <div className="font-sans  max-w-7xl mx-auto ">
-        {/* Hero Section */}
 
-        {/* Intro Section */}
+      <div className="font-sans max-w-7xl mx-auto">
+        {/* About Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-8 items-center">
           <div>
             <h2 className="text-xl font-semibold mb-4">
-              Discover Balinese Living in the quietude of Goa
+              {acasaPageData.about.sectionTitle}
             </h2>
-            <p className="mb-4 text-sm">
-              This design philosophy of laid-back tropical charm and
-              sophisticated elegance is reflected in every detail — from the
-              open-plan living areas to the private landscaped gardens. Acasa
-              offers a harmonious blend of Balinese architecture and Goan
-              serenity.
-            </p>
-            <button className=" px-4 py-2 text-sm">Book a Site Visit</button>
+            <p className="mb-4 text-sm">{acasaPageData.about.description}</p>
+            <button className="px-4 py-2 text-sm">
+              {acasaPageData.about.ctaText}
+            </button>
           </div>
           <div>
             <img
-              src="https://www.samava.in/acasa/images/about-img.png"
+              src={`${acasaPageData.about.image}`}
               alt="Intro"
               className="w-full rounded"
             />
           </div>
         </div>
 
-        {/* Furnishing Section */}
-        <div className=" p-8">
+        {/* Designer Furnishings Section */}
+        <div className="p-8">
           <div className="mb-8">
             <img
-              src="https://www.samava.in/acasa/images/banner.png"
+              src={`${acasaPageData.designerFurnishings.FurnishingImg}`}
               alt="Furnishing"
               className="w-full rounded"
             />
           </div>
-          <h3 className="text-lg font-semibold mb-2">Designer Furnishings</h3>
+          <h3 className="text-lg font-semibold mb-2">
+            {acasaPageData.designerFurnishings.sectionTitle}
+          </h3>
           <ul className="text-sm mb-6">
-            <li>Fully Furnished: Living, Dining & Bedrooms</li>
-            <li>Modular Kitchen</li>
-            <li>Designer Tiles for Bathrooms</li>
-            <li>False Ceiling with Cove Lighting</li>
-            <li>Architect's Furnishings</li>
+            {acasaPageData.designerFurnishings.features.map(
+              (feature, index) => (
+                <li key={index}>{feature}</li>
+              )
+            )}
           </ul>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {imageUrls.map((url, index) => (
+            {acasaPageData.designerFurnishings.images.map((img, index) => (
               <img
                 key={index}
-                src={url}
+                src={`${img}`}
                 alt={`Furnish ${index + 1}`}
                 className="rounded"
               />
@@ -95,39 +75,47 @@ const AcasaLandingPage = () => {
 
         {/* Plans Section */}
         <div className="p-8">
-          <h3 className="text-lg font-semibold mb-4">Plans</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            {acasaPageData.plans.sectionTitle}
+          </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {planImages.map((url, index) => (
+            {acasaPageData.plans.layouts.map((layout, index) => (
               <img
                 key={index}
-                src={url}
-                alt={`Plan ${index + 1}`}
+                src={`${layout.image}`}
+                alt={layout.title}
                 className="rounded shadow-lg"
               />
             ))}
           </div>
-
           <div className="text-center mt-4">
-            <button className=" px-4 py-2 text-sm">Request Catalogue</button>
+            <button className="px-4 py-2 text-sm">
+              {acasaPageData.plans.ctaText}
+            </button>
           </div>
         </div>
 
-        {/* Aerial View Section */}
+        {/* Site Layout View Section */}
         <div className="p-8">
           <img
-            src="https://www.samava.in/acasa/images/banner2.png"
-            alt="Aerial View"
+            src={`${acasaPageData.siteView.image}`}
+            alt="Site View"
             className="w-full rounded"
           />
         </div>
 
-        {/* Model Villa Video */}
+        {/* Model Villa Section */}
         <div className="p-8 text-center">
-          <h3 className="text-lg font-semibold mb-4">Model Villa</h3>
+          <h3 className="text-lg font-semibold mb-4">
+            {acasaPageData.modelVilla.sectionTitle}
+          </h3>
           <div className="flex justify-center">
             <iframe
               className="w-full md:w-2/3 h-64 md:h-96"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src={acasaPageData.modelVilla.videoUrl.replace(
+                "watch?v=",
+                "embed/"
+              )}
               title="Model Villa"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -137,24 +125,12 @@ const AcasaLandingPage = () => {
         </div>
 
         {/* Features & Amenities */}
-        <div className=" p-8">
+        <div className="p-8">
           <h3 className="text-lg font-semibold mb-4 text-center">
-            Features & Amenities
+            {acasaPageData.featuresAndAmenities.sectionTitle}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            {[
-              "Rental Management",
-              "Housekeeping",
-              "Reception and Front Desk",
-              "24x7 Security and CCTV",
-              "WiFi & Backup",
-              "Single Car Park",
-              "Landscaped Garden",
-              "Common Swimming Pool",
-              "Fitness Centre",
-              "Meditation Pavilion",
-              "Cafeteria",
-            ].map((item, idx) => (
+            {acasaPageData.featuresAndAmenities.features.map((item, idx) => (
               <div key={idx} className="flex items-center gap-2">
                 <span className="bg-yellow-400 p-2 rounded-full"></span>
                 <span>{item}</span>
@@ -166,34 +142,35 @@ const AcasaLandingPage = () => {
         {/* Location Section */}
         <div className="p-8">
           <h3 className="text-lg font-semibold mb-2">
-            Never feel far away. Where is Acasa?
+            {acasaPageData.location.title}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="text-sm">
-              <p className="mb-2">
-                ACASA is in Corjuem North Goa in close proximity to Aldona,
-                Mapusa, and other main attractions. It’s a peaceful and private
-                neighborhood, close to schools, supermarkets, and beaches.
-              </p>
+              <p className="mb-2">{acasaPageData.location.description}</p>
               <h4 className="font-semibold mt-4">Beaches</h4>
-              <ul className="mb-2">
-                <li>Anjuna Beach - 13km</li>
-                <li>Vagator Beach - 14km</li>
-                <li>Morjim Beach - 18km</li>
-                <li>Ashwem Beach - 20km</li>
+              <ul className="mb-2 list-disc pl-5">
+                {acasaPageData.location.beachesNearby.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
               <h4 className="font-semibold mt-2">Utilities</h4>
-              <ul>
-                <li>Mapusa Market - 4.5km</li>
-                <li>Thivim Railway Station - 6.5km</li>
-                <li>Goa Airport - 33km</li>
+              <ul className="list-disc pl-5">
+                {acasaPageData.location.utilitiesNearby.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
-            <img
-              src="https://www.samava.in/acasa/images/map-img.png"
-              alt="Map"
-              className="w-full rounded"
-            />
+
+            <div className="w-full h-64 md:h-full">
+              <iframe
+                src={acasaPageData.location.mapEmbedUrl}
+                className="w-full h-full rounded"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
