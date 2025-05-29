@@ -84,7 +84,7 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="Mondus Logo"
-                  className="h-20"
+                  className="h-14"
                   draggable="false"
                 />
               </a>
@@ -212,7 +212,7 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden fixed inset-0 z-[9999] bg-white dark:bg-black flex flex-col pl-2 pr-5 pb-6 pt-3">
             <div className="flex justify-between items-center mb-6">
-              <img src={logo} alt="Mondus Logo" className="w-28" />
+              <img src={logo} alt="Mondus Logo" className="w-36" />
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-2xl text-inherit"
