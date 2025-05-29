@@ -1,4 +1,4 @@
-import hero from "../assets/hero.png";
+import hero from "../assets/milin-john-aQV-nqJpq7g-unsplash.jpg";
 import "../index.css";
 
 export default function Hero() {
@@ -14,11 +14,13 @@ export default function Hero() {
       />
 
       {/* Left Content */}
-      <div className="font-raleway font-thin relative z-10 w-full sm:w-1/2 lg:w-1/3 px-4 sm:px-6 md:px-10 mb-8 lg:mb-0">
+      <div className="font-raleway font-light relative z-10 w-full sm:w-1/2 lg:w-1/3 px-4 sm:px-6 md:px-10 mb-8 lg:mb-0">
         <h1 className="text-3xl sm:text-4xl leading-snug mb-6">
           INVEST IN GOA <br />
           REAL ESTATE WITH{" "}
-          <span className="text-[var(--primary-color)]">GRANTH</span>
+          <span className="text-[var(--primary-color)] font-semibold">
+            GRANTH
+          </span>
         </h1>
         <p className="text-lg mb-8 text-white/80">
           We bring <span className="font-semibold">Due Diligence</span> at Your

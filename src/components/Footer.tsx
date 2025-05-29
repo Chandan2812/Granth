@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo2.png";
 import { IoMdSend } from "react-icons/io";
 
 const Footer = () => {
@@ -23,12 +23,12 @@ const Footer = () => {
             <img
               src={logo}
               alt="Logo"
-              className="w-24 h-auto object-contain py-2"
+              className="w-24 md:w-40 h-auto object-contain py-2"
             />
             <div className="w-20 border-t border-[var(--primary-color)]" />
           </div>
         </div>
-        <h2 className="text-2xl font-thin mt-10 md:mt-0">CONTACTS</h2>
+        <h2 className="text-2xl font-thin mt-5 md:mt-0">CONTACTS</h2>
       </div>
 
       {/* Mid horizontal line */}
