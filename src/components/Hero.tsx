@@ -30,37 +30,43 @@ export default function Hero() {
 
       {/* Right Form */}
       {/* Lead Generation Form */}
-      <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-[#121212]/90 p-8 shadow-xl border border-[#333] backdrop-blur-md space-y-6 mt-5 font-raleway font-thin">
+      <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-white dark:bg-[#121212]/90 p-8 shadow-xl border border-gray-200 dark:border-[#333] backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
         {/* User Details */}
         <div className="space-y-4">
           <div>
-            <label className="text-sm mb-1 block">Full Name</label>
+            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
+              Full Name
+            </label>
             <input
               type="text"
               placeholder="Enter your name"
-              className="w-full bg-[#1f1f1f] p-3  text-white border border-gray-700"
+              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
           <div>
-            <label className="text-sm mb-1 block">Email</label>
+            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
+              Email
+            </label>
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full bg-[#1f1f1f] p-3  text-white border border-gray-700"
+              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
           <div>
-            <label className="text-sm mb-1 block">Phone Number</label>
+            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
+              Phone Number
+            </label>
             <input
               type="tel"
               placeholder="Enter your phone"
-              className="w-full bg-[#1f1f1f] p-3  text-white border border-gray-700"
+              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
         </div>
 
         {/* Submit Button */}
-        <button className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-3  hover:opacity-90 transition">
+        <button className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black dark:text-white py-3 hover:opacity-90 transition">
           Submit Interest
         </button>
       </div>

@@ -5,19 +5,16 @@ import bull from "../assets/Your paragraph text (300 x 400 px) (400 x 500 px).pn
 
 function Contact() {
   return (
-    <div className="bg-white dark:bg-black">
+    <div className="bg-white dark:bg-black text-black dark:text-white">
       <Navbar />
-      <section className="relative bg-black text-white py-12 px-6 mt-20">
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70 z-0" />
-
+      <section className="relative  py-12 px-6 mt-20">
         <div className="relative z-10 w-11/12 mx-auto flex flex-col lg:flex-row gap-12 items-center font-light">
           {/* Left: Contact Info */}
           <div className="flex-1">
             <h2 className="text-3xl md:text-4xl font-semibold mb-6 relative inline-block after:content-[''] after:block after:h-1 after:w-20 after:mt-2 after:bg-[var(--primary-color)]">
               Let's Connect
             </h2>
-            <p className="text-base md:text-lg text-gray-300 mb-10">
+            <p className="text-base md:text-lg text-gray-800 dark:text-gray-300 mb-10">
               We’d love to hear from you. Reach out and let’s start a
               conversation.
             </p>
@@ -50,7 +47,7 @@ function Contact() {
           </div>
 
           {/* Right: Image */}
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 justify-center hidden md:flex">
             <img
               src={bull}
               alt="Contact Us"
@@ -61,7 +58,7 @@ function Contact() {
         </div>
       </section>
       {/* Embedded Map */}
-      div
+
       <section className="max-w-7xl h-[400px] dark:bg-black mx-auto my-5">
         <iframe
           title="Google Map"
@@ -96,12 +93,12 @@ const ContactItem = ({ icon, label, content, href }: ContactItemProps) => {
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
     >
-      <div className="p-3 bg-[var(--primary-color)] text-white rounded-full hover:shadow-[0_0_10px_var(--primary-color)]">
+      <div className="p-3 bg-[var(--primary-color)] text-black dark:text-white rounded-full hover:shadow-[0_0_10px_var(--primary-color)]">
         {icon}
       </div>
       <div>
-        <p className="text-sm text-gray-300">{label}</p>
-        <p className="text-lg  text-white">{content}</p>
+        <p className="text-sm text-gray-800 dark:text-gray-300">{label}</p>
+        <p className="text-lg  text-black dark:text-white">{content}</p>
       </div>
     </Wrapper>
   );

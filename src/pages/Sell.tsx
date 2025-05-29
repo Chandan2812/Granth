@@ -23,7 +23,7 @@ const Sell = () => {
             Entire process is on us, from evaluation to a deal
           </p>
           <a href="/contact">
-            <button className="border border-[var(--primary-color)] text-[var(--primary-color)] px-4 py-2 mt-2">
+            <button className="border border-[var(--primary-color)] text-[var(--primary-color)] px-4 py-2 mt-2 font-light">
               CONTACT US
             </button>
           </a>

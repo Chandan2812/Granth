@@ -84,7 +84,7 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="Mondus Logo"
-                  className="h-14"
+                  className="h-12"
                   draggable="false"
                 />
               </a>

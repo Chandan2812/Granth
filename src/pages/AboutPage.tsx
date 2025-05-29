@@ -23,8 +23,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <Stats />
-
       <section className="max-w-7xl mx-auto py-12 px-6 grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <h2 className="text-3xl font-semibold font-raleway">Who We Are</h2>
@@ -90,6 +88,8 @@ function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Stats />
 
       {/* Mission Section */}
       <section className="max-w-7xl mx-auto py-12 px-6 flex flex-col md:grid md:grid-cols-2 gap-10 items-center">
