@@ -1,3 +1,4 @@
+import About from "../components/About";
 import Footer from "../components/Footer";
 import Navbar from "../components/Nav";
 import { projectPageData } from "../data/PropertyData";
@@ -166,6 +167,7 @@ const AcasaLandingPage = () => {
           </div>
         </div>
       </div>
+      <About />
       <Footer />
     </div>
   );
