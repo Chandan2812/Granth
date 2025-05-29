@@ -1,5 +1,5 @@
 import React from "react";
-import contactImg from "../assets/hero.png"; // Replace with your image path
+import contactImg from "../assets/popup.jpg"; // Replace with your image path
 
 const EnquireNowForm: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const EnquireNowForm: React.FC = () => {
         <img
           src={contactImg}
           alt="Contact"
-          className="w-full h-full object-cover"
+          className="w-full h-[520px] object-cover"
         />
       </div>
 
