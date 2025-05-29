@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 const projectKeys = Object.keys(projectPageData) as ("acasa" | "baliHeights")[];
 
-const MAX_ITEMS = 5;
+// const MAX_ITEMS = 5;
 
 export const Exclusives: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,21 +24,21 @@ export const Exclusives: React.FC = () => {
 
   if (!project) return <div>Project not found</div>;
 
-  const liClass =
-    "bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded shadow-sm border border-gray-300 dark:border-gray-700 text-sm";
+  // const liClass =
+  //   "bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded shadow-sm border border-gray-300 dark:border-gray-700 text-sm";
 
-  const renderLimitedList = (items: string[]) => {
-    const limited = items.slice(0, MAX_ITEMS);
-    return (
-      <>
-        {limited.map((item, idx) => (
-          <li key={idx} className={liClass}>
-            {item}
-          </li>
-        ))}
-      </>
-    );
-  };
+  // const renderLimitedList = (items: string[]) => {
+  //   const limited = items.slice(0, MAX_ITEMS);
+  //   return (
+  //     <>
+  //       {limited.map((item, idx) => (
+  //         <li key={idx} className={liClass}>
+  //           {item}
+  //         </li>
+  //       ))}
+  //     </>
+  //   );
+  // };
 
   const goToDetailsPage = () => {
     navigate(`/projects/${currentProjectKey}`);
