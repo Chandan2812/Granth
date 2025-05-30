@@ -48,7 +48,7 @@ export const Exclusives: React.FC = () => {
   };
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white md:py-10">
-      <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway">
+      <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway under">
         Our Exclusive Projects
       </h2>
       <div className=" min-h-[500px] flex items-center justify-center p-4 relative ">
@@ -81,7 +81,9 @@ export const Exclusives: React.FC = () => {
             <div className="md:w-1/2 space-y-6">
               {/* Section Title and Description */}
               <div>
-                <h3 className="text-2xl  mb-1">{project.about.sectionTitle}</h3>
+                <h3 className="text-3xl  mb-1 underline text-[var(--primary-color)]">
+                  {project.about.sectionTitle}
+                </h3>
                 <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">
                   {project.about.description}
                 </p>

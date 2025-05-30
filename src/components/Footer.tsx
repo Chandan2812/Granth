@@ -151,7 +151,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Links */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 py-6 text-xs text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row justify-between gap-2">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 pb-16 md:pb-6 text-xs text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row justify-between gap-2">
         <span>Granth Dream Homes ©2025 All Rights Reserved</span>
         <div className="flex gap-4">
           {["Terms of Use", "Privacy Policy"].map((item, idx) => (

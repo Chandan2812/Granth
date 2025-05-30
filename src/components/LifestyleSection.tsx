@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import image1 from "../assets/Untitled design (2).png";
 import image2 from "../assets/Untitled design (3).png";
@@ -18,78 +18,92 @@ const lifestyleData = [
 
 const LifeStyleSection = () => {
   const [startIndex, setStartIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(3);
+
+  // Set visible count based on screen width
+  useEffect(() => {
+    const updateVisibleCount = () => {
+      setVisibleCount(window.innerWidth < 768 ? 1 : 3);
+    };
+    updateVisibleCount();
+    window.addEventListener("resize", updateVisibleCount);
+    return () => window.removeEventListener("resize", updateVisibleCount);
+  }, []);
+
+  const maxIndex = lifestyleData.length - visibleCount;
 
   const handleNext = () => {
-    if (startIndex + 3 < lifestyleData.length) {
-      setStartIndex(startIndex + 1);
-    }
+    if (startIndex < maxIndex) setStartIndex(startIndex + 1);
   };
 
   const handlePrev = () => {
-    if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
-    }
+    if (startIndex > 0) setStartIndex(startIndex - 1);
   };
 
-  const cardWidth = 400; // px
-  const gap = 24; // Tailwind gap-6 = 1.5rem = 24px
-  const totalOffset = (cardWidth + gap) * startIndex;
-
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white py-10">
-      <div className="max-w-7xl mx-auto px-6 overflow-hidden">
-        <h2 className="text-center text-3xl md:text-4xl font-light mb-2 text-black dark:text-gray-100 font-raleway">
-          Lifestyle in Goa
-        </h2>
-        <p className="text-center text-gray-700 dark:text-gray-300 mb-8">
-          Wide range options for any lifestyle. Make your choice with us
-        </p>
+    <div className="bg-white dark:bg-black text-black dark:text-white py-12 relative">
+      <h2 className="text-center text-3xl md:text-4xl font-light mb-2 text-black dark:text-gray-100 font-raleway">
+        Lifestyle in Goa
+      </h2>
+      <p className="text-center text-gray-700 dark:text-gray-300 mb-8">
+        Wide range options for any lifestyle. Make your choice with us
+      </p>
 
-        <div className="relative">
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* Left Arrow */}
+        <button
+          onClick={handlePrev}
+          disabled={startIndex === 0}
+          className={`absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-20 bg-[var(--primary-color)] border border-gray-300 dark:border-gray-700 p-2 shadow-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
+        >
+          <ChevronLeft />
+        </button>
+
+        {/* Carousel */}
+        <div className="overflow-hidden">
           <div
-            className="flex gap-6 transition-transform duration-500"
-            style={{ transform: `translateX(-${totalOffset}px)` }}
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${(100 / visibleCount) * startIndex}%)`,
+            }}
           >
-            {lifestyleData.map((item, index) => (
+            {lifestyleData.map((item, idx) => (
               <div
-                key={index}
-                className="w-[400px] h-[300px] bg-white dark:bg-neutral-900 text-black dark:text-white shadow-md dark:shadow-lg flex-shrink-0 flex flex-col justify-between"
+                key={idx}
+                className="w-full  md:w-1/3 flex-shrink-0 px-3"
+                style={{ flex: `0 0 ${100 / visibleCount}%` }}
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-[350px] md:w-full h-[230px] object-cover border border-red-600"
-                  draggable="false"
-                />
-                <div className="bg-white bg-opacity-70 dark:bg-black dark:bg-opacity-70 text-center py-2">
-                  <h3 className="text-lg mb-1">{item.title}</h3>
-                  <button className="text-sm border-t pt-1 border-gray-300 dark:border-gray-600 w-full hover:text-gray-600 dark:hover:text-gray-300">
-                    EXPLORE
-                  </button>
+                <div className="bg-white dark:bg-[#111] rounded-lg shadow-md overflow-hidden h-full flex flex-col">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4 flex-1 flex flex-col">
+                    <h3 className="text-xl font-semibold text-center mb-2">
+                      {item.title}
+                    </h3>
+                    <hr className="border-gray-300 dark:border-gray-600 mb-3" />
+                    <div className="mt-auto mx-auto">
+                      <button className="text-md text-[var(--primary-color)] text-center">
+                        Explore
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="flex justify-between mt-8 px-2 sm:px-6 text-gray-600 dark:text-gray-400">
-          <button
-            onClick={handlePrev}
-            disabled={startIndex === 0}
-            className="flex items-center gap-2 hover:text-black dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            <ChevronLeft size={20} />
-            PREV
-          </button>
-          <button
-            onClick={handleNext}
-            disabled={startIndex + 3 >= lifestyleData.length}
-            className="flex items-center gap-2 hover:text-black dark:hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
-          >
-            NEXT
-            <ChevronRight size={20} />
-          </button>
-        </div>
+        {/* Right Arrow */}
+        <button
+          onClick={handleNext}
+          disabled={startIndex >= maxIndex}
+          className={`absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-20 bg-[var(--primary-color)] border border-gray-300 dark:border-gray-700 p-2 shadow-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
+        >
+          <ChevronRight />
+        </button>
       </div>
     </div>
   );

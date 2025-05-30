@@ -15,10 +15,10 @@ export default function Hero() {
 
       {/* Left Content */}
       <div className="font-raleway font-light relative z-10 w-full sm:w-1/2 lg:w-1/3 px-4 sm:px-6 md:px-10 mb-8 lg:mb-0">
-        <h1 className="text-3xl sm:text-4xl leading-snug mb-6">
+        <h1 className="text-4xl  leading-snug mb-6">
           INVEST IN GOA <br />
           REAL ESTATE WITH{" "}
-          <span className="text-[var(--primary-color)] font-semibold">
+          <span className="text-[var(--primary-color)] text-5xl font-semibold">
             GRANTH
           </span>
         </h1>
@@ -30,37 +30,35 @@ export default function Hero() {
 
       {/* Right Form */}
       {/* Lead Generation Form */}
-      <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-white dark:bg-[#121212]/90 p-8 shadow-xl border border-gray-200 dark:border-[#333] backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
+      <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-transparent p-8 shadow-xl  backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
         {/* User Details */}
         <div className="space-y-4">
           <div>
-            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
+            <label className="text-sm mb-1 block text-gray-300">
               Full Name
             </label>
             <input
               type="text"
               placeholder="Enter your name"
-              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
+              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
             />
           </div>
           <div>
-            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
-              Email
-            </label>
+            <label className="text-sm mb-1 block text-gray-300">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
+              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
             />
           </div>
           <div>
-            <label className="text-sm mb-1 block text-gray-700 dark:text-gray-300">
+            <label className="text-sm mb-1 block text-gray-300">
               Phone Number
             </label>
             <input
               type="tel"
               placeholder="Enter your phone"
-              className="w-full bg-white dark:bg-[#1f1f1f] p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-400 dark:placeholder-gray-500"
+              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
             />
           </div>
         </div>
