@@ -2,6 +2,7 @@ import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
 import ListProperty from "../components/listproperty";
 import PromptConsultation from "../components/PromptConsultation";
+import sell from "../assets/sell.jpg";
 
 const Sell = () => {
   return (
@@ -11,7 +12,7 @@ const Sell = () => {
       {/* Hero Image with Overlay Text */}
       <section className="relative h-screen w-full">
         <img
-          src="https://www.axcapital.ae/_ipx/s_1920x960/img/sell/sell-banner.webp" // Replace with your actual image path
+          src={sell} // Replace with your actual image path
           alt="Off Plan Hero"
           className="h-full w-full object-cover"
         />
