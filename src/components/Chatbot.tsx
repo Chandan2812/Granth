@@ -147,7 +147,7 @@ const Chatbot: React.FC = () => {
 
       {/* Chat Window */}
       {open && (
-        <div className="fixed bottom-20 right-6 w-80 max-h-[500px] bg-white rounded-lg shadow-lg flex flex-col z-50">
+        <div className="fixed bottom-36 right-6 w-80 max-h-[500px] bg-white rounded-lg shadow-lg flex flex-col z-50">
           <div className="bg-[var(--primary-color)] text-white px-4 py-2 font-bold rounded-t-lg">
             Chat with Granth Properties
           </div>

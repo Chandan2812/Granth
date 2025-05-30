@@ -21,9 +21,10 @@ function Landing() {
       <AboutSection />
       <WhatWeDoSection />
       <Exclusives />
+      <ListProperty />
       <LifeStyleSection />
       <ReviewSection />
-      <ListProperty />
+
       <BlogPreview />
       <PromptConsultation />
       <Footer />
