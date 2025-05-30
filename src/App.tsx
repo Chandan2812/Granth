@@ -12,6 +12,7 @@ import { OffPlan } from "./pages/OffPlan";
 import Contact from "./pages/Contact";
 import { FiPhone } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
           </a>
         </div>
       </div>
+      <Chatbot />
     </Router>
   );
 }
