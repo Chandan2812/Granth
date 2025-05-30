@@ -49,6 +49,8 @@ const ReviewSection = () => {
     slidesToScroll: 1,
     swipeToSlide: true,
     arrows: false,
+    autoplay: true, // Enable autoplay
+    autoplaySpeed: 3000, // Time between each slide in ms (e.g., 3 seconds)
     responsive: [
       {
         breakpoint: 1024,
