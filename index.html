@@ -9,6 +9,23 @@
       rel="stylesheet"
     />
     <title>Granth</title>
+    <style>
+      body > .skiptranslate {
+        display: none;
+      }
+
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+      }
+      @media print {
+        #google_translate_element {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
