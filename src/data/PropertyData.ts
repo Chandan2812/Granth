@@ -8,7 +8,11 @@ export const projectPageData = {
         "Fully furnished, Bali-inspired villas for sale in Corjuem, Goa",
       backgroundImage: "https://www.samava.in/acasa/images/header.png",
     },
+
     about: {
+      unitType: "3/4 BHK Villas",
+      plotArea: "3174-6833 sq.ft",
+      builtArea: "2529-3228 sq.ft",
       sectionTitle: "Welcome To Sawantwadi",
       description:
         "Sawantwadi, one of the upcoming under-construction housing societies in Sawantwadi. This society will have all basic facilities and amenities to suit homebuyer’s needs and requirements. Brought to you by Ankit Projexcel, Perto De Goa is scheduled for possession in Dec, 2026.",
@@ -108,6 +112,9 @@ export const projectPageData = {
       backgroundImage: "https://www.samava.in/acasa/images/header.png",
     },
     about: {
+      unitType: "3/4 BHK Villas",
+      plotArea: "3174-6833 sq.ft",
+      builtArea: "2529-3228 sq.ft",
       sectionTitle: "Discover Balinese Living in the quietude of Goa",
       description:
         "This enclave of tranquility is tucked away in lush coconut groves and the picturesque terrain of Corjuem, just minutes from Mapusa. These luxurious, Bali-inspired villas come fully furnished and are designed to transport you to the serenity of Ubud. Enjoy private plunge pools, open-plan living spaces, designer furnishings, and a community that fosters peaceful, tropical living.",
@@ -207,6 +214,9 @@ export const projectPageData = {
       backgroundImage: "https://www.samava.in/acasa/images/header.png",
     },
     about: {
+      unitType: "3/4 BHK Villas",
+      plotArea: "3174-6833 sq.ft",
+      builtArea: "2529-3228 sq.ft",
       sectionTitle: "Experience Regal Luxury by the Shores of Goa",
       description:
         "This enclave of tranquility is tucked away in lush coconut groves and the picturesque terrain of Corjuem, just minutes from Mapusa. These luxurious, Bali-inspired villas come fully furnished and are designed to transport you to the serenity of Ubud. Enjoy private plunge pools, open-plan living spaces, designer furnishings, and a community that fosters peaceful, tropical living.",

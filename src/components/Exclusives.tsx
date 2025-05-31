@@ -81,7 +81,7 @@ export const Exclusives: React.FC = () => {
             <div className="md:w-1/2 space-y-6">
               {/* Section Title and Description */}
               <div>
-                <h3 className="text-3xl  mb-1 underline text-[var(--primary-color)]">
+                <h3 className="text-3xl  mb-1 text-[var(--primary-color)]">
                   {project.about.sectionTitle}
                 </h3>
                 <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">

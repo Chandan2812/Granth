@@ -1,7 +1,7 @@
 import React from "react";
 import { Building2, Handshake, School } from "lucide-react"; // Lucide icons (or use any icon set)
-import { FaHouseFlag } from "react-icons/fa6";
 import { MdVilla } from "react-icons/md";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 type Service = {
   icon: React.ReactNode;
@@ -12,35 +12,39 @@ type Service = {
 
 const services: Service[] = [
   {
-    icon: <Building2 size={32} className="text-[var(--primary-color)]" />,
-    label: "Offplan Properties",
-    title: "Luxury Residential Sales",
-    description: "Find your dream home in Goa’s prime locations.",
-  },
-  {
-    icon: <Handshake size={32} className="text-[var(--primary-color)]" />,
-    label: "Ready Properties",
-    title: "Property Management",
+    icon: <FaMapMarkedAlt size={32} className="text-[var(--primary-color)]" />,
+    label: "Plots",
+    title: "Prime Plots in Goa",
     description:
-      "Hassle-free ownership with our end-to-end management solutions.",
+      "Secure your slice of paradise with clear-title land in top Goa locations.",
   },
   {
-    icon: <School size={32} className="text-[var(--primary-color)]" />,
-    label: "Rental Properties",
-    title: "Investment Advisory",
-    description: "Make informed decisions with our expert market insights.",
-  },
-  {
-    icon: <FaHouseFlag size={32} className="text-[var(--primary-color)]" />,
-    label: "Rental Properties",
-    title: "Vacation Homes & Rentals",
-    description: "Earn passive income with short-term rental properties.",
+    icon: <Building2 size={32} className="text-[var(--primary-color)]" />,
+    label: "Apartments",
+    title: "Modern Apartments",
+    description:
+      "Comprehensive help with shortlisting, inspecting, and negotiating apartment deals.",
   },
   {
     icon: <MdVilla size={32} className="text-[var(--primary-color)]" />,
-    label: "Rental Properties",
-    title: "Custom Villa Projects",
-    description: "Design and build bespoke villas with high-end finishes.",
+    label: "Villas",
+    title: "Luxury Villas in Goa",
+    description:
+      "Expert support in planning, customizing, and acquiring villa developments.",
+  },
+  {
+    icon: <Handshake size={32} className="text-[var(--primary-color)]" />,
+    label: "Property Management",
+    title: "Property Management",
+    description:
+      "From maintenance to rentals, we manage your property stress-free.",
+  },
+  {
+    icon: <School size={32} className="text-[var(--primary-color)]" />,
+    label: "Investment Advisory",
+    title: "Investment Advisory",
+    description:
+      "Get expert guidance on high-yield investment opportunities in Goa.",
   },
 ];
 
@@ -53,7 +57,7 @@ const WhatWeDoSection: React.FC = () => {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-light text-black dark:text-gray-100">
-            We Help You Find and Buy Your Exact Match
+            We Help You Find and Buy Your Dream Homes
           </h2>
         </div>
 

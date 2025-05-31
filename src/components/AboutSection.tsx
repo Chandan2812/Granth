@@ -19,8 +19,8 @@ export default function AboutSection() {
 
           <p className="text-sm md:text-base mb-6">
             Welcome to Granth Dream Homes – your gateway to luxurious living in
-            Goa. After making a mark in Dubai’s real estate landscape with over
-            $1B in sales, we now bring our global expertise, integrity, and
+            Goa. After making a mark in Dubai & Goa's real estate landscape with
+            over 5B+ in sales, we now bring our global expertise, integrity, and
             commitment to excellence to India’s most desirable destination.
           </p>
 
@@ -60,7 +60,7 @@ export default function AboutSection() {
                   Why Choose Granth Dream Homes?
                 </h3>
                 <ul className="list-disc list-inside ml-4">
-                  <li>Over $1 Billion in successful real estate sales</li>
+                  <li>Over 5B in successful real estate sales</li>
                   <li>Expertise rooted in Dubai’s competitive market</li>
                   <li>100% transparent transactions and ethical guidance</li>
                   <li>

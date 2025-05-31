@@ -207,7 +207,7 @@ const Footer = () => {
         {/* Mobile View (visible on small screens only) */}
         <div className="flex flex-col sm:hidden gap-2">
           <div className="flex flex-row justify-between items-center flex-wrap gap-2">
-            <span>Mondus ©2025 All Rights Reserved</span>
+            <span>Granth ©2025 All Rights Reserved</span>
             <div className="flex gap-4">
               {["Terms of Use", "Privacy Policy"].map((item, idx) => (
                 <a
@@ -234,7 +234,7 @@ const Footer = () => {
 
         {/* Desktop View (hidden on small screens) */}
         <div className="hidden sm:flex flex-row justify-between items-center w-full">
-          <span>Mondus ©2025 All Rights Reserved</span>
+          <span>Granth ©2025 All Rights Reserved</span>
           <a
             href="https://www.bigwigdigital.in/"
             target="_blank"

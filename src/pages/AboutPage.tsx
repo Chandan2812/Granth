@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import mission from "../assets/mission1.png";
 import vision from "../assets/vision.png";
 import Stats from "../components/Stats";
+import hero from "../assets/sell.jpg";
 
 function AboutPage() {
   return (
@@ -10,12 +11,8 @@ function AboutPage() {
       <Navbar />
 
       <section className="relative h-screen w-full">
-        <img
-          src="https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="About"
-          className="h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/40 dark:bg-black/70 flex flex-col items-center justify-end py-5 text-center px-4">
+        <img src={hero} alt="About" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-black/40 dark:bg-black/70 flex flex-col items-center justify-center py-5 text-center px-4">
           <h1 className="text-3xl md:text-4xl text-white mb-4 font-thin">
             Welcome to Granth Dream Homes
           </h1>
@@ -32,7 +29,7 @@ function AboutPage() {
           <p className="text-lg font-light text-gray-600 dark:text-gray-300">
             Granth Dream Homes LLP isn't just a real estate company — we’re
             architects of aspiration. After achieving over{" "}
-            <strong>$1 Billion in sales</strong> with our parent firm, Mondus
+            <strong>5 Billion in sales</strong> with our parent firm, Mondus
             Properties in Dubai, we bring a world-class standard to Indian real
             estate. Now anchored in the heart of Goa, we blend international
             expertise with local insight to offer lifestyle-oriented investment
