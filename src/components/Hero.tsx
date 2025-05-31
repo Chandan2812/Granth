@@ -7,6 +7,38 @@ export default function Hero() {
   const images = [hero, hero2];
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch(
+        "https://granth-backend.onrender.com/api/prompt",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await response.json();
+      if (response.ok) {
+        setMessage("✅" + data.message);
+        setFormData({ name: "", email: "", phone: "" });
+      } else {
+        setMessage(`❌ ${data.error || "Submission failed."}`);
+      }
+    } catch (err) {
+      setMessage("❌ An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,7 +99,7 @@ export default function Hero() {
 
       {/* Right Form */}
       <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-transparent p-8 shadow-xl backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
-        <div className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="text-sm mb-1 block text-gray-300">
               Full Name
@@ -75,7 +107,11 @@ export default function Hero() {
             <input
               type="text"
               placeholder="Enter your name"
+              value={formData.name}
               className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
             />
           </div>
           <div>
@@ -84,6 +120,10 @@ export default function Hero() {
               type="email"
               placeholder="Enter your email"
               className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
           </div>
           <div>
@@ -94,13 +134,21 @@ export default function Hero() {
               type="tel"
               placeholder="Enter your phone"
               className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
+              value={formData.phone}
+              onChange={(e) =>
+                setFormData({ ...formData, phone: e.target.value })
+              }
             />
           </div>
-        </div>
-
-        <button className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black dark:text-white py-3 hover:opacity-90 transition">
-          Submit Interest
-        </button>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black dark:text-white py-3 hover:opacity-90 transition"
+          >
+            {loading ? "Submitting..." : "Submit Interest"}
+          </button>
+          {message && <p className="text-sm mt-2">{message}</p>}
+        </form>
       </div>
     </div>
   );

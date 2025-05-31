@@ -1,6 +1,5 @@
-// src/components/DownloadBrochureForm.tsx
 import React, { useState } from "react";
-import brochurePDF from "../assets/brochure.pdf"; // ✅ Import the PDF
+import brochurePDF from "../assets/brochure.pdf";
 
 interface Props {
   onClose: () => void;
@@ -12,19 +11,44 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
     email: "",
     phone: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleDownloadSubmit = (e: React.FormEvent) => {
+  const handleDownloadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
+    setLoading(true);
 
-    onClose(); // Close popup
+    try {
+      const response = await fetch(
+        "https://granth-backend.onrender.com/api/prompt",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    // Trigger brochure download
-    const link = document.createElement("a");
-    link.href = brochurePDF;
-    link.download = "Brochure_Granth.pdf";
-    document.body.appendChild(link); // Required for some browsers like Firefox
-    link.click();
-    document.body.removeChild(link);
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Submission failed.");
+      }
+
+      // ✅ Close the popup and trigger download
+      onClose();
+
+      const link = document.createElement("a");
+      link.href = brochurePDF;
+      link.download = "Brochure_Granth.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error: any) {
+      setErrorMsg(error.message || "Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,6 +60,7 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
         ✕
       </button>
       <h3 className="text-xl font-semibold mb-4">Get the Brochure</h3>
+
       <form onSubmit={handleDownloadSubmit} className="space-y-4">
         <input
           type="text"
@@ -43,7 +68,7 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
           value={formData.name}
           required
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="w-full p-2 border  border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
+          className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
         />
         <input
           type="email"
@@ -61,11 +86,17 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
         />
+
+        {errorMsg && (
+          <p className="text-sm text-red-500 text-center">{errorMsg}</p>
+        )}
+
         <button
           type="submit"
+          disabled={loading}
           className="w-full py-2 bg-[var(--primary-color)] text-white hover:opacity-90 rounded"
         >
-          Submit & Download
+          {loading ? "Submitting..." : "Submit & Download"}
         </button>
       </form>
     </div>

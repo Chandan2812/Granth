@@ -22,7 +22,7 @@ const PromptConsultation = () => {
 
     try {
       const response = await fetch(
-        "https://mondus-backend.onrender.com/api/prompt",
+        "https://granth-backend.onrender.com/api/prompt",
         {
           method: "POST",
           headers: {
@@ -35,7 +35,7 @@ const PromptConsultation = () => {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage("✅ Form submitted successfully!");
+        setMessage(data.message);
         setFormData({ name: "", phone: "", email: "" }); // Reset
       } else {
         setMessage("❌ " + (data.error || "Something went wrong."));
@@ -113,11 +113,7 @@ const PromptConsultation = () => {
               rel="noopener noreferrer"
               className="text-[var(--primary-color)] inline-flex items-center gap-1 hover:underline"
             >
-              <FaWhatsapp
-                size={18}
-                className="align-middle relative top-[1px]"
-              />
-              WhatsApp
+              <FaWhatsapp size={20} /> WhatsApp
             </a>
           </p>
         </div>
