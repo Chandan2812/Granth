@@ -238,7 +238,7 @@ const NewsletterForm = () => {
           {form.ctaText && (
             <a
               href={form.ctaUrl || "#"}
-              className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-[#ac7072] via-[#e6d2d1] to-[#ad7173] text-black font-semibold"
+              className="inline-block mt-4 px-4 py-2 bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black font-semibold"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -241,7 +241,7 @@ const Emailer = () => {
                 href={form.ctaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-2 bg-gradient-to-r from-[#ac7072] via-[#e6d2d1] to-[#ad7173] text-black px-4 py-2 rounded hover:opacity-80"
+                className="inline-block mt-2 bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black px-4 py-2 rounded hover:opacity-80"
               >
                 {form.ctaText}
               </a>
