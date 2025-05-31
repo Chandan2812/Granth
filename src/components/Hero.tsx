@@ -84,10 +84,10 @@ export default function Hero() {
 
       {/* Left Content */}
       <div className="font-raleway font-light relative z-10 w-full sm:w-1/2 lg:w-2/5 px-4 sm:px-6 md:px-10 mb-8 lg:mb-0">
-        <h1 className="text-3xl leading-snug mb-6">
-          Find Your Perfect Home or Invest Smartly in Goa with <br />
-          <span className="text-[var(--primary-color)] text-4xl font-semibold">
-            Granth Properties
+        <h1 className="text-4xl leading-snug mb-6 uppercase">
+          Find Your Perfect Home or Invest in Goa with <br />
+          <span className="text-[var(--primary-color)] text-5xl font-semibold">
+            Granth Dream homes
           </span>
         </h1>
         <p className="text-lg mb-8 text-white/80">

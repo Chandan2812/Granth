@@ -145,7 +145,7 @@ const Footer = () => {
             </a>
           </div>
           <button className="mt-4 border border-[var(--primary-color)] text-black hover:opacity-80 px-6 py-2 uppercase tracking-wide bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] transition">
-            <a href="tel:+971521110794">Call Us</a>
+            <a href="tel:+919220956525">Call Us</a>
           </button>
         </div>
       </div>

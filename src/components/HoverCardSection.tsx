@@ -11,7 +11,7 @@ const sections: Section[] = [
   {
     title: "Quality",
     image: "https://www.rivieragoa.com/wp-content/uploads/2021/06/quality.jpg",
-    content: `At Granth Properties, quality is the cornerstone of everything we build. From hand-picking premium locations in Goa to adopting meticulous construction practices and sourcing the finest materials, we never compromise. Every home we deliver is crafted with precision and built to stand the test of time.`,
+    content: `At Granth Dream Homes, quality is the cornerstone of everything we build. From hand-picking premium locations in Goa to adopting meticulous construction practices and sourcing the finest materials, we never compromise. Every home we deliver is crafted with precision and built to stand the test of time.`,
   },
   {
     title: "Locations",
@@ -28,12 +28,12 @@ const sections: Section[] = [
   {
     title: "Timeless",
     image: "https://www.rivieragoa.com/wp-content/uploads/2021/07/ttt-1.jpg",
-    content: `Homes by Granth Properties are designed to remain timeless. We focus on classic architectural aesthetics, enduring materials, and thoughtful layouts that stay relevant for generations—enhancing not just your lifestyle but the entire neighborhood.`,
+    content: `Homes by Granth Dream Homes are designed to remain timeless. We focus on classic architectural aesthetics, enduring materials, and thoughtful layouts that stay relevant for generations—enhancing not just your lifestyle but the entire neighborhood.`,
   },
   {
     title: "Relationships",
     image: "https://www.rivieragoa.com/wp-content/uploads/2021/07/ttt.jpg",
-    content: `At Granth Properties, we prioritize relationships just as much as real estate. Whether you're buying your first home, investing in a vacation villa, or exploring Goa for a retirement destination—we're with you at every step, offering transparent advice, reliable support, and a long-term commitment.`,
+    content: `At Granth Dream Homes, we prioritize relationships just as much as real estate. Whether you're buying your first home, investing in a vacation villa, or exploring Goa for a retirement destination—we're with you at every step, offering transparent advice, reliable support, and a long-term commitment.`,
   },
 ];
 
@@ -43,7 +43,7 @@ const HoverCardSection: React.FC = () => {
       {/* Section Heading */}
       <div className="text-center mb-10 px-4">
         <h1 className="text-3xl md:text-4xl font-light mb-4 text-black dark:text-white font-raleway">
-          What Defines Granth Properties
+          What Defines Granth Dream Homes
         </h1>
         <p className="text-gray-700 dark:text-gray-300 max-w-xl mx-auto">
           We build homes that reflect the spirit of Goa and the values of
@@ -52,7 +52,7 @@ const HoverCardSection: React.FC = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="flex flex-col md:flex-row flex-wrap w-full text-white">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row flex-wrap w-full text-white">
         {sections.map((section, index) => (
           <div
             key={index}
