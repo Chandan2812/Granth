@@ -9,9 +9,8 @@ const BlogPreview: React.FC = () => {
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold">
-          Featured{" "}
-          <span className="text-[var(--primary-color)] italic">Blogs</span>
+        <h2 className="text-3xl md:text-4xl font-light mb-6 text-black dark:text-gray-100 text-center">
+          Featured Blogs
         </h2>
         <p className="mt-2 text-black dark:text-gray-300 max-w-2xl mx-auto">
           Catch up on the latest highlights from the trading and real estate
@@ -62,8 +61,11 @@ const BlogPreview: React.FC = () => {
       </div>
 
       <div className="text-center mt-10">
-        <a href="/blog" className="text-[var(--primary-color)] e font-semibold">
-          View All Blogs →
+        <a
+          href="/blog"
+          className="w-fit px-4 text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] py-3 hover:opacity-90 transition"
+        >
+          View All Blogs
         </a>
       </div>
     </div>

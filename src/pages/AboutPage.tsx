@@ -7,16 +7,19 @@ import Stats from "../components/Stats";
 function AboutPage() {
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white ">
-      <div className="mb-16">
-        <Navbar />
-      </div>
+      <Navbar />
 
-      <section className="relative overflow-hidden">
-        <div className="relative z-10 text-center py-12 px-6  ">
-          <h1 className="text-4xl md:text-5xl font-raleway  ">
+      <section className="relative h-screen w-full">
+        <img
+          src="https://images.unsplash.com/photo-1560179406-1c6c60e0dc76?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="About"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40 dark:bg-black/70 flex flex-col items-center justify-end py-5 text-center px-4">
+          <h1 className="text-3xl md:text-4xl text-white mb-4 font-thin">
             Welcome to Granth Dream Homes
           </h1>
-          <p className="text-lg mt-4 max-w-3xl mx-auto font-light">
+          <p className="text-lg md:text-xl text-gray-300">
             Where luxury meets legacy — delivering curated living experiences
             rooted in trust, quality, and vision.
           </p>

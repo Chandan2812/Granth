@@ -113,7 +113,11 @@ const PromptConsultation = () => {
               rel="noopener noreferrer"
               className="text-[var(--primary-color)] inline-flex items-center gap-1 hover:underline"
             >
-              <FaWhatsapp size={20} /> WhatsApp
+              <FaWhatsapp
+                size={18}
+                className="align-middle relative top-[1px]"
+              />
+              WhatsApp
             </a>
           </p>
         </div>

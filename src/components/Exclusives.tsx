@@ -47,16 +47,16 @@ export const Exclusives: React.FC = () => {
     navigate(`/projects/${currentProjectKey}`);
   };
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white md:py-10">
+    <div className="bg-white dark:bg-black text-black dark:text-white md:py-10 relative">
       <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway under">
         Our Exclusive Projects
       </h2>
-      <div className=" min-h-[500px] flex items-center justify-center p-4 relative ">
+      <div className=" min-h-[500px] flex items-center justify-center p-4  ">
         {/* Arrows outside the content box */}
         <button
           onClick={prevProject}
           aria-label="Previous Project"
-          className="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 text-[var(--primary-color)] hover:opacity-80 z-20"
+          className="absolute left-0 md:left-10 top-1/2 -translate-y-1/2 text-[var(--primary-color)] hover:opacity-80 z-20"
         >
           <ChevronLeft size={80} />
         </button>
@@ -92,26 +92,6 @@ export const Exclusives: React.FC = () => {
                 </p>
               </div>
 
-              {/* Features & Amenities */}
-              {/* <section>
-                <h4 className="text-lg  mb-2">
-                  {project.featuresAndAmenities.sectionTitle}
-                </h4>
-                <ul className="flex flex-wrap gap-2">
-                  {renderLimitedList(project.featuresAndAmenities.features)}
-                </ul>
-              </section> */}
-
-              {/* Designer Furnishings */}
-              {/* <section>
-                <h4 className="text-lg  mb-2">
-                  {project.designerFurnishings.sectionTitle}
-                </h4>
-                <ul className="flex flex-wrap gap-2 mb-3">
-                  {renderLimitedList(project.designerFurnishings.features)}
-                </ul>
-              </section> */}
-
               {/* Explore Button */}
               <div className="pt-3">
                 <button
@@ -129,7 +109,7 @@ export const Exclusives: React.FC = () => {
         <button
           onClick={nextProject}
           aria-label="Next Project"
-          className="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 p-3  text-[var(--primary-color)] hover:opacity-80  z-20"
+          className="absolute right-0 md:right-10 top-1/2 -translate-y-1/2 p-3  text-[var(--primary-color)] hover:opacity-80  z-20"
         >
           <ChevronRight size={80} />
         </button>

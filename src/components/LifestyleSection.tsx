@@ -41,22 +41,22 @@ const LifeStyleSection = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white py-12 relative">
+    <div className=" relative bg-white dark:bg-black text-black dark:text-white py-12">
       <h2 className="text-center text-3xl md:text-4xl font-light mb-2 text-black dark:text-gray-100 font-raleway">
-        Lifestyle in Goa
+        Goa Lifestyle
       </h2>
       <p className="text-center text-gray-700 dark:text-gray-300 mb-8">
         Wide range options for any lifestyle. Make your choice with us
       </p>
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className=" max-w-7xl mx-auto px-6">
         {/* Left Arrow */}
         <button
           onClick={handlePrev}
           disabled={startIndex === 0}
-          className={`absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-20 bg-[var(--primary-color)] border border-gray-300 dark:border-gray-700 p-2 shadow-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
+          className={`absolute -left-2 md:left-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)] disabled:opacity-50 disabled:cursor-not-allowed`}
         >
-          <ChevronLeft />
+          <ChevronLeft size={80} />
         </button>
 
         {/* Carousel */}
@@ -100,9 +100,9 @@ const LifeStyleSection = () => {
         <button
           onClick={handleNext}
           disabled={startIndex >= maxIndex}
-          className={`absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-20 bg-[var(--primary-color)] border border-gray-300 dark:border-gray-700 p-2 shadow-md rounded-full disabled:opacity-50 disabled:cursor-not-allowed`}
+          className={`absolute right-0 md:right-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)]  disabled:opacity-50 disabled:cursor-not-allowed`}
         >
-          <ChevronRight />
+          <ChevronRight size={80} />
         </button>
       </div>
     </div>

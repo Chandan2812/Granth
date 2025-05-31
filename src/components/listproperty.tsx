@@ -12,16 +12,6 @@ const ListProperty = () => {
       <section className="bg-white dark:bg-black text-black dark:text-white py-10  ">
         <div className="max-w-7xl mx-auto container px-4 flex flex-col lg:flex-row items-center gap-10">
           {/* Left Side: Image */}
-          <div className="w-full lg:w-1/2">
-            <img
-              src={Image}
-              alt="List Property"
-              width={800}
-              height={600}
-              draggable={false}
-              className="rounded-lg object-cover w-full h-full transition-transform duration-500 ease-in-out transform hover:scale-105"
-            />
-          </div>
 
           {/* Right Side: Content */}
           <div className="w-full lg:w-1/2 ">
@@ -46,6 +36,17 @@ const ListProperty = () => {
             >
               List Your Property
             </button>
+          </div>
+
+          <div className="w-full lg:w-1/2">
+            <img
+              src={Image}
+              alt="List Property"
+              width={800}
+              height={600}
+              draggable={false}
+              className="rounded-lg object-cover w-full h-full transition-transform duration-500 ease-in-out transform hover:scale-105"
+            />
           </div>
         </div>
       </section>

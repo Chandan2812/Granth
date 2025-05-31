@@ -151,18 +151,57 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom Links */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 pb-16 md:pb-6 text-xs text-gray-600 dark:text-gray-400 flex flex-col sm:flex-row justify-between gap-2">
-        <span>Granth Dream Homes ©2025 All Rights Reserved</span>
-        <div className="flex gap-4">
-          {["Terms of Use", "Privacy Policy"].map((item, idx) => (
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 py-6 text-xs text-gray-600 dark:text-gray-400 flex flex-col gap-2">
+        {/* Mobile View (visible on small screens only) */}
+        <div className="flex flex-col sm:hidden gap-2">
+          <div className="flex flex-row justify-between items-center flex-wrap gap-2">
+            <span>Mondus ©2025 All Rights Reserved</span>
+            <div className="flex gap-4">
+              {["Terms of Use", "Privacy Policy"].map((item, idx) => (
+                <a
+                  key={idx}
+                  href="#"
+                  className="cursor-pointer hover:text-[var(--primary-color)] transition"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="w-full flex justify-center mt-2">
             <a
-              key={idx}
-              href="#"
-              className="cursor-pointer hover:text-[var(--primary-color)] transition"
+              href="https://www.bigwigdigital.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-[var(--primary-color)] text-[var(--primary-color)] px-4 py-3 mb-12 uppercase text-xs tracking-widest  text-center"
             >
-              {item}
+              Made & Marketed with ❤️ by Bigwig Digital
             </a>
-          ))}
+          </div>
+        </div>
+
+        {/* Desktop View (hidden on small screens) */}
+        <div className="hidden sm:flex flex-row justify-between items-center w-full">
+          <span>Mondus ©2025 All Rights Reserved</span>
+          <a
+            href="https://www.bigwigdigital.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-[var(--primary-color)] text-[var(--primary-color)] px-4 py-3 uppercase text-sm tracking-widest  text-center"
+          >
+            Made & Marketed with ❤️ by Bigwig Digital
+          </a>
+          <div className="flex gap-4">
+            {["Terms of Use", "Privacy Policy"].map((item, idx) => (
+              <a
+                key={idx}
+                href="#"
+                className="cursor-pointer hover:text-[var(--primary-color)] transition"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
