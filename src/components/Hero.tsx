@@ -7,51 +7,75 @@ export default function Hero() {
   const images = [hero, hero2];
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [otp, setOtp] = useState("");
+  const [step, setStep] = useState(1); // 1 = enter details, 2 = enter OTP
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % images.length);
+        setIsAnimating(false);
+      }, 1000);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
 
     try {
-      const response = await fetch(
-        "https://granth-backend.onrender.com/api/prompt",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        }
-      );
-
+      const response = await fetch("http://localhost:8000/api/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: formData.email }),
+      });
       const data = await response.json();
       if (response.ok) {
-        setMessage("✅" + data.message);
-        setFormData({ name: "", email: "", phone: "" });
+        setStep(2);
+        setMessage("✅ OTP sent to your email.");
       } else {
-        setMessage(`❌ ${data.error || "Submission failed."}`);
+        setMessage(`❌ ${data.error || "Failed to send OTP."}`);
       }
     } catch (err) {
-      setMessage("❌ An error occurred. Please try again.");
+      setMessage("❌ An error occurred while sending OTP.");
     } finally {
       setLoading(false);
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
+  const handleVerifyOtp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
 
-      setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % images.length);
-        setIsAnimating(false);
-      }, 1000); // match duration below
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
+    try {
+      const response = await fetch("http://localhost:8000/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, otp }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setMessage("✅ OTP verified. Form submitted successfully.");
+        setFormData({ name: "", email: "", phone: "" });
+        setOtp("");
+        setStep(1);
+      } else {
+        setMessage(`❌ ${data.error || "OTP verification failed."}`);
+      }
+    } catch (err) {
+      setMessage("❌ An error occurred while verifying OTP.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const next = (current + 1) % images.length;
 
@@ -99,54 +123,84 @@ export default function Hero() {
 
       {/* Right Form */}
       <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-transparent p-8 shadow-xl backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="text-sm mb-1 block text-gray-300">
-              Full Name
-            </label>
-            <input
-              type="text"
-              placeholder="Enter your name"
-              value={formData.name}
-              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-            />
-          </div>
-          <div>
-            <label className="text-sm mb-1 block text-gray-300">Email</label>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-            />
-          </div>
-          <div>
-            <label className="text-sm mb-1 block text-gray-300">
-              Phone Number
-            </label>
-            <input
-              type="tel"
-              placeholder="Enter your phone"
-              className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700 placeholder-gray-500 dark:placeholder-gray-500"
-              value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
-            />
-          </div>
+        <form
+          onSubmit={step === 1 ? handleSendOtp : handleVerifyOtp}
+          className="space-y-4"
+        >
+          {step === 1 && (
+            <>
+              <div>
+                <label className="text-sm mb-1 block text-gray-300">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  value={formData.name}
+                  className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-1 block text-gray-300">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  placeholder="Enter your phone"
+                  value={formData.phone}
+                  className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                />
+              </div>
+              <div>
+                <label className="text-sm mb-1 block text-gray-300">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  value={formData.email}
+                  className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                />
+              </div>
+            </>
+          )}
+
+          {step === 2 && (
+            <div>
+              <label className="text-sm mb-1 block text-gray-300">
+                Enter OTP
+              </label>
+              <input
+                type="text"
+                placeholder="Enter the OTP sent to your email"
+                value={otp}
+                className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                onChange={(e) => setOtp(e.target.value)}
+              />
+            </div>
+          )}
+
           <button
             type="submit"
             disabled={loading}
             className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black dark:text-white py-3 hover:opacity-90 transition"
           >
-            {loading ? "Submitting..." : "Submit Interest"}
+            {loading
+              ? "Please wait..."
+              : step === 1
+              ? "Send OTP"
+              : "Verify OTP & Submit"}
           </button>
+
           {message && <p className="text-sm mt-2">{message}</p>}
         </form>
       </div>
