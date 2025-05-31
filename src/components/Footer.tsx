@@ -8,8 +8,46 @@ import {
 } from "react-icons/fa";
 import logo from "../assets/logo2.png";
 import { IoMdSend } from "react-icons/io";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email) {
+      setMessage("Please enter your email address.");
+      return;
+    }
+
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const res = await fetch("https://granth-backend.onrender.com/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setMessage(data.message);
+        setEmail("");
+      } else {
+        setMessage(data.error || "Subscription failed.");
+      }
+    } catch (err) {
+      setMessage("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-white dark:bg-black text-black dark:text-white  text-sm">
       {/* Top horizontal line */}
@@ -44,19 +82,33 @@ const Footer = () => {
           <p className="text-sm mb-4 text-gray-600 dark:text-gray-400">
             Don’t miss our future updates! Get Subscribed Today!
           </p>
-          <form className="flex items-center">
+          <form onSubmit={handleSubscribe} className="flex items-center">
             <input
               type="email"
               placeholder="Your email here"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              disabled={loading}
               className="flex-grow px-4 py-[7px] text-sm text-black rounded-l-full outline-none bg-white dark:bg-gray-100 border border-[var(--primary-color)]"
             />
             <button
               type="submit"
+              disabled={loading}
               className="bg-[var(--primary-color)] px-4 py-2 rounded-r-full text-white text-sm uppercase hover:opacity-90 transition"
             >
-              <IoMdSend className="text-black text-lg" />
+              {loading ? (
+                <div className="w-4 h-4 border-2 border-t-transparent border-black rounded-full animate-spin" />
+              ) : (
+                <IoMdSend className="text-black text-lg" />
+              )}
             </button>
           </form>
+          {message && (
+            <p className="text-sm mt-2 text-[var(--primary-color)]">
+              {message}
+            </p>
+          )}
         </div>
         {/* Center: Quick Links */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-6 justify-center">
