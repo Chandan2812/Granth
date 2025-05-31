@@ -13,6 +13,8 @@ import Contact from "./pages/Contact";
 import { FiPhone } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import Chatbot from "./components/Chatbot";
+import NewsletterForm from "./pages/Newsletter";
+import Emailer from "./pages/Emailer";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/offPlan" element={<OffPlan />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/newsletter" element={<NewsletterForm />} />
+        <Route path="/emailer" element={<Emailer />} />
       </Routes>
       {/* Bottom Buttons */}
       <div className=" fixed bottom-0 left-0 w-full flex md:hidden">
