@@ -18,9 +18,9 @@ export default function AboutSection() {
           </h2>
 
           <p className="text-sm md:text-base mb-6">
-            Welcome to Granth Dream Homes LLP – your gateway to luxurious living
-            in Goa. After making a mark in Dubai’s real estate landscape with
-            over $1B in sales, we now bring our global expertise, integrity, and
+            Welcome to Granth Dream Homes – your gateway to luxurious living in
+            Goa. After making a mark in Dubai’s real estate landscape with over
+            $1B in sales, we now bring our global expertise, integrity, and
             commitment to excellence to India’s most desirable destination.
           </p>
 

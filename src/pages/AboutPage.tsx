@@ -1,7 +1,7 @@
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
-import mission from "../assets/mission.png";
-import vision from "../assets/visson (1).png";
+import mission from "../assets/mission1.png";
+import vision from "../assets/vision.png";
 import Stats from "../components/Stats";
 
 function AboutPage() {
@@ -52,10 +52,10 @@ function AboutPage() {
         />
       </section>
 
-      <section className="bg-neutral-100 dark:bg-neutral-900 py-12 px-6">
+      <section className=" py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-6 font-raleway">Why Goa?</h2>
-          <p className="max-w-2xl mx-auto text-lg font-light text-gray-700 dark:text-gray-300 mb-10">
+          <p className="max-w-4xl mx-auto text-lg font-light text-gray-700 dark:text-gray-300 mb-10">
             Goa isn’t just a location — it’s a lifestyle. With rising tourism,
             booming infrastructure, and a culture of laid-back luxury, it offers
             one of the most promising real estate markets in India. Whether
@@ -80,7 +80,7 @@ function AboutPage() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white dark:bg-neutral-800 p-6 rounded-lg shadow hover:shadow-md transition"
+                className="bg-white dark:bg-neutral-900 p-6 rounded-lg shadow hover:shadow-md transition"
               >
                 <h4 className="text-xl font-medium mb-2">{item.title}</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -108,12 +108,12 @@ function AboutPage() {
         <img
           src={mission}
           alt="Mission"
-          className="rounded-lg w-[90%] object-cover order-2 md:order-none"
+          className="rounded-lg w-1/2 object-cover order-2 md:order-none"
         />
       </section>
 
       {/* Vision Section */}
-      <section className="max-w-7xl mx-auto py-12 px-6 flex flex-col md:grid md:grid-cols-2 gap-10 items-center">
+      <section className="max-w-7xl mx-auto py-6 px-6 flex flex-col md:grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6 order-1 md:order-2">
           <h2 className="text-3xl font-semibold">Our Vision</h2>
           <p className="text-lg font-light text-gray-600 dark:text-gray-300">
@@ -122,11 +122,13 @@ function AboutPage() {
             sustainable developments that leave a lasting impact.
           </p>
         </div>
-        <img
-          src={vision}
-          alt="Vision"
-          className="rounded-lg w-[90%] object-cover order-2 md:order-1"
-        />
+        <div className="flex justify-center">
+          <img
+            src={vision}
+            alt="Vision"
+            className="rounded-lg w-1/2 object-cover order-2 md:order-1"
+          />
+        </div>
       </section>
 
       <section className="py-12 px-6 max-w-5xl mx-auto text-center">
