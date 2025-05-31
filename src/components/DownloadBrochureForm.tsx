@@ -31,19 +31,20 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
 
       const data = await response.json();
 
-      if (!response.ok) {
+      if (response.status === 200 || response.status === 409) {
+        // ✅ Both new and existing users allowed to download
+
+        onClose();
+
+        const link = document.createElement("a");
+        link.href = brochurePDF;
+        link.download = "Brochure_Granth.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
         throw new Error(data.error || "Submission failed.");
       }
-
-      // ✅ Close the popup and trigger download
-      onClose();
-
-      const link = document.createElement("a");
-      link.href = brochurePDF;
-      link.download = "Brochure_Granth.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     } catch (error: any) {
       setErrorMsg(error.message || "Something went wrong.");
     } finally {
