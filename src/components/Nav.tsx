@@ -241,7 +241,7 @@ const Navbar = () => {
             <div className="absolute bottom-0 left-0 w-full flex">
               <div className="w-1/2 bg-[var(--primary-color)] text-white text-center py-3">
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+919220956525"
                   className="w-full flex items-center justify-center gap-2"
                 >
                   <FiPhone size={18} />
@@ -250,7 +250,7 @@ const Navbar = () => {
               </div>
               <div className="w-1/2 bg-white text-green-500 text-center py-3 border-l border-white">
                 <a
-                  href="https://wa.me/1234567890"
+                  href="https://wa.me/+919220956525"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-2"

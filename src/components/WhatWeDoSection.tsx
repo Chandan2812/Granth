@@ -53,7 +53,7 @@ const WhatWeDoSection: React.FC = () => {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-light text-black dark:text-gray-100">
-            What We Do?
+            We Help You Find and Buy Your Exact Match
           </h2>
         </div>
 
@@ -61,7 +61,7 @@ const WhatWeDoSection: React.FC = () => {
           {services.map((service, idx) => (
             <div
               key={idx}
-              className="group bg-gray-100 dark:bg-zinc-900 hover:shadow-xl rounded-xl p-6 transition duration-300 flex flex-col space-y-4 md:space-y-6 hover:scale-[1.02]"
+              className="group bg-gray-100 dark:bg-neutral-900 border border-white/10 dark:border-gray-800 hover:shadow-xl rounded-xl p-6 transition duration-300 flex flex-col space-y-4 md:space-y-6 hover:scale-[1.02]"
             >
               <div className="flex items-center space-x-4">
                 <div className="flex-shrink-0">{service.icon}</div>

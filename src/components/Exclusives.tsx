@@ -56,9 +56,9 @@ export const Exclusives: React.FC = () => {
         <button
           onClick={prevProject}
           aria-label="Previous Project"
-          className="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[var(--primary-color)] shadow hover:opacity-80 z-20"
+          className="absolute left-2 md:left-10 top-1/2 -translate-y-1/2 text-[var(--primary-color)] hover:opacity-80 z-20"
         >
-          <ChevronLeft className="w-3 h-3 md:w-6 md:h-6 text-gray-700 dark:text-gray-300" />
+          <ChevronLeft size={80} />
         </button>
 
         <div className="max-w-6xl w-full flex items-center gap-4 shadow-lg rounded-lg bg-white dark:bg-neutral-900 p-8 relative z-10">
@@ -129,9 +129,9 @@ export const Exclusives: React.FC = () => {
         <button
           onClick={nextProject}
           aria-label="Next Project"
-          className="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 p-3 rounded-full bg-[var(--primary-color)] shadow hover:opacity-80  z-20"
+          className="absolute right-2 md:right-10 top-1/2 -translate-y-1/2 p-3  text-[var(--primary-color)] hover:opacity-80  z-20"
         >
-          <ChevronRight className="w-3 h-3 md:w-6 md:h-6 text-gray-700 dark:text-gray-300" />
+          <ChevronRight size={80} />
         </button>
       </div>
     </div>
