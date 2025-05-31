@@ -4,6 +4,7 @@ import { Exclusives } from "../components/Exclusives";
 
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
+import HoverCardSection from "../components/HoverCardSection";
 import LeadPopupForm from "../components/LeadPopUp";
 import LifeStyleSection from "../components/LifestyleSection";
 import ListProperty from "../components/listproperty";
@@ -23,6 +24,7 @@ function Landing() {
       <Exclusives />
       <ListProperty />
       <LifeStyleSection />
+      <HoverCardSection />
       <ReviewSection />
 
       <BlogPreview />
