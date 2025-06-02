@@ -42,11 +42,14 @@ export default function Hero() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/send-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: formData.email }),
-      });
+      const response = await fetch(
+        "https://granth-backend.onrender.com/api/send-otp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: formData.email }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
         setStep(2);

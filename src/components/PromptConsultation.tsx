@@ -66,11 +66,14 @@ const PromptConsultation = () => {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:8000/api/verify-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, otp }),
-      });
+      const res = await fetch(
+        "https://granth-backend.onrender.com/api/verify-otp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...formData, otp }),
+        }
+      );
 
       const data = await res.json();
 
