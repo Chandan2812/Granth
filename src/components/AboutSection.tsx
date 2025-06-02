@@ -1,13 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import EnquireNowForm from "./EnquireNowForm";
-import DownloadBrochureForm from "./DownloadBrochureForm";
 
 export default function AboutSection() {
   const [expanded, setExpanded] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-  const [showDownloadPopup, setShowDownloadPopup] = useState(false);
 
   return (
     <section className="bg-white dark:bg-black text-black dark:text-white px-4 py-12 md:py-10 flex justify-center relative overflow-hidden font-raleway font-light dark:font-thin">
@@ -98,46 +94,8 @@ export default function AboutSection() {
               </div>
             </>
           )}
-
-          {/* Action Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4">
-            <button
-              onClick={() => setShowPopup(true)}
-              className="w-fit border px-6 border-[var(--primary-color)] font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-2 rounded hover:opacity-90 transition"
-            >
-              Enquire now
-            </button>
-            <button
-              onClick={() => setShowDownloadPopup(true)}
-              className="w-fit border px-6  border-[var(--primary-color)] font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-2 rounded hover:opacity-90 transition"
-            >
-              Download Brochure
-            </button>
-          </div>
         </div>
       </div>
-
-      {/* Popup: Enquire Now */}
-      {showPopup && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-5xl">
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-2 right-2 z-10 text-white bg-black bg-opacity-50 hover:bg-opacity-75 px-3 py-1 rounded-full"
-            >
-              ✕
-            </button>
-            <EnquireNowForm />
-          </div>
-        </div>
-      )}
-
-      {/* Popup: Download Brochure */}
-      {showDownloadPopup && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
-          <DownloadBrochureForm onClose={() => setShowDownloadPopup(false)} />
-        </div>
-      )}
     </section>
   );
 }

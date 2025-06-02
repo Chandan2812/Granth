@@ -15,6 +15,12 @@ import { FaWhatsapp } from "react-icons/fa";
 import Chatbot from "./components/Chatbot";
 import NewsletterForm from "./pages/Newsletter";
 import Emailer from "./pages/Emailer";
+import AdminLayout from "./pages/admin/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import NewsletterPage from "./pages/admin/AdminNewsletter";
+import AdminSubscriber from "./pages/admin/AdminSubscriber";
+import AdminEmailer from "./pages/admin/AdminEmailer";
+import AdminLeads from "./pages/admin/AdminLeads";
 
 function App() {
   return (
@@ -32,6 +38,13 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/newsletter" element={<NewsletterForm />} />
         <Route path="/emailer" element={<Emailer />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="newsletter" element={<NewsletterPage />} />
+          <Route path="emailer" element={<AdminEmailer />} />
+          <Route path="subscriber" element={<AdminSubscriber />} />
+          <Route path="leads" element={<AdminLeads />} />
+        </Route>
       </Routes>
       {/* Bottom Buttons */}
       <div className=" fixed bottom-0 left-0 w-full flex md:hidden">

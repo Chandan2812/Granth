@@ -7,42 +7,85 @@ const PromptConsultation = () => {
     phone: "",
     email: "",
   });
-
+  const [step, setStep] = useState(1); // Step 1: user inputs, Step 2: enter OTP
+  const [otp, setOtp] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const validateEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSendOtp = async (e: any) => {
     e.preventDefault();
     setMessage("");
-    setLoading(true);
+    const { name, email, phone } = formData;
 
+    if (!name || !phone || !email) {
+      setMessage("❌ All fields are required.");
+      return;
+    }
+
+    if (!validateEmail(email)) {
+      setMessage("❌ Invalid email format.");
+      return;
+    }
+
+    setLoading(true);
     try {
-      const response = await fetch(
-        "https://granth-backend.onrender.com/api/prompt",
+      const res = await fetch(
+        "https://granth-backend.onrender.com/api/send-otp",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),
         }
       );
 
-      const data = await response.json();
+      const data = await res.json();
 
-      if (response.ok) {
-        setMessage(data.message);
-        setFormData({ name: "", phone: "", email: "" }); // Reset
+      if (res.ok) {
+        setMessage("✅ OTP sent to your email.");
+        setStep(2);
       } else {
-        setMessage("❌ " + (data.error || "Something went wrong."));
+        setMessage("❌ " + (data.error || "Failed to send OTP."));
       }
     } catch (err) {
-      console.error("Submission error:", err);
-      setMessage("❌ Failed to submit. Please try again later.");
+      setMessage("❌ Something went wrong.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleVerifyOtp = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const res = await fetch("http://localhost:8000/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, otp }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        // Store in sessionStorage
+        sessionStorage.setItem("formData", JSON.stringify(formData));
+        setMessage("✅ OTP verified. Data submitted successfully.");
+        setFormData({ name: "", phone: "", email: "" });
+        setOtp("");
+        setStep(1);
+      } else {
+        setMessage("❌ " + (data.error || "OTP verification failed."));
+      }
+    } catch (err) {
+      setMessage("❌ Something went wrong.");
     } finally {
       setLoading(false);
     }
@@ -60,42 +103,62 @@ const PromptConsultation = () => {
           </p>
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={step === 1 ? handleSendOtp : handleVerifyOtp}
             className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6"
           >
-            <input
-              type="text"
-              name="name"
-              placeholder="Your Name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
-            />
-            <input
-              type="text"
-              name="phone"
-              placeholder="Your Phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your E-Mail"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
-            />
+            {step === 1 && (
+              <>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Your Phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your E-Mail"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
+                />
+              </>
+            )}
+
+            {step === 2 && (
+              <input
+                type="text"
+                placeholder="Enter OTP"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+                required
+                className="col-span-3 bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
+              />
+            )}
+
             <button
               type="submit"
               disabled={loading}
               className="border border-[var(--primary-color)] bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] px-4 py-2 uppercase text-sm tracking-widest hover:opacity-80 text-black transition"
             >
-              {loading ? "Sending..." : "SEND"}
+              {loading
+                ? "Please wait..."
+                : step === 1
+                ? "Send OTP"
+                : "Verify OTP"}
             </button>
           </form>
 

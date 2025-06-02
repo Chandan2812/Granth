@@ -25,10 +25,21 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setMessage("");
+
+    if (!isValidEmail(formData.email)) {
+      setMessage("❌ Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
 
     try {
       const response = await fetch("http://localhost:8000/api/send-otp", {
@@ -56,13 +67,19 @@ export default function Hero() {
     setMessage("");
 
     try {
-      const response = await fetch("http://localhost:8000/api/verify-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, otp }),
-      });
+      const response = await fetch(
+        "https://granth-backend.onrender.com/api/verify-otp",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ...formData, otp }),
+        }
+      );
       const data = await response.json();
       if (response.ok) {
+        // ✅ Store form data in sessionStorage on successful submission
+        sessionStorage.setItem("formData", JSON.stringify(formData));
+
         setMessage("✅ OTP verified. Form submitted successfully.");
         setFormData({ name: "", email: "", phone: "" });
         setOtp("");
