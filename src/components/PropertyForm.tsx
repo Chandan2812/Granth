@@ -35,10 +35,32 @@ const PropertyForm: React.FC<Props> = ({ onClose }) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Submission:", formData);
-    onClose();
+
+    try {
+      const response = await fetch("http://localhost:8000/api/property/list", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit property details");
+      }
+
+      const data = await response.json();
+      alert("✅ Property listed successfully!");
+      onClose(); // close modal
+      console.log("Property listed successfully:", data);
+
+      onClose(); // close modal
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("❌ Something went wrong. Please try again.");
+    }
   };
 
   return (
