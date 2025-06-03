@@ -94,7 +94,7 @@ const NewsletterForm = () => {
     <div className="min-h-screen bg-black text-white">
       {/* Navbar */}
       <nav className="bg-gray-900 shadow px-6">
-        <a href="/">
+        <a href="admin/newsletter">
           <img
             src={logo}
             alt="Mondus Logo"

@@ -119,7 +119,8 @@ export const projectPageData = {
       description:
         "This enclave of tranquility is tucked away in lush coconut groves and the picturesque terrain of Corjuem, just minutes from Mapusa. These luxurious, Bali-inspired villas come fully furnished and are designed to transport you to the serenity of Ubud. Enjoy private plunge pools, open-plan living spaces, designer furnishings, and a community that fosters peaceful, tropical living.",
       ctaText: "Book A Site Visit",
-      image: "https://www.samava.in/acasa/images/about-img.png",
+      image:
+        "https://images.moneycontrol.com/static-mcnews/2024/11/20241108101539_1-trip-to-thailand.jpg?impolicy=website&width=770&height=431",
     },
     designerFurnishings: {
       FurnishingImg: "https://www.samava.in/acasa/images/banner.png",
@@ -211,7 +212,8 @@ export const projectPageData = {
       title: "An epitome of elegance.",
       subtitle:
         "Fully furnished, Bali-inspired villas for sale in Corjuem, Goa",
-      backgroundImage: "https://www.samava.in/acasa/images/header.png",
+      backgroundImage:
+        "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2015/04/27/1126/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.jpg/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.4x3.jpg",
     },
     about: {
       unitType: "3/4 BHK Villas",
@@ -221,7 +223,8 @@ export const projectPageData = {
       description:
         "This enclave of tranquility is tucked away in lush coconut groves and the picturesque terrain of Corjuem, just minutes from Mapusa. These luxurious, Bali-inspired villas come fully furnished and are designed to transport you to the serenity of Ubud. Enjoy private plunge pools, open-plan living spaces, designer furnishings, and a community that fosters peaceful, tropical living.",
       ctaText: "Book A Site Visit",
-      image: "https://www.samava.in/acasa/images/about-img.png",
+      image:
+        "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2015/04/27/1126/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.jpg/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.4x3.jpg",
     },
     designerFurnishings: {
       FurnishingImg: "https://www.samava.in/acasa/images/banner.png",

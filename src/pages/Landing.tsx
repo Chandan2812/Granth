@@ -22,9 +22,10 @@ function Landing() {
       <AboutSection />
       <WhatWeDoSection />
       <Exclusives />
+      <HoverCardSection />
       <ListProperty />
       <LifeStyleSection />
-      <HoverCardSection />
+
       <ReviewSection />
 
       <BlogPreview />

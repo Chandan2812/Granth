@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
-import bull from "../assets/Your paragraph text (300 x 400 px) (400 x 500 px).png";
+import bull from "../assets/anantha-krishna-a-y6NZHThhLj4-unsplash.jpg";
 
 function Contact() {
   return (
@@ -47,13 +47,14 @@ function Contact() {
           </div>
 
           {/* Right: Image */}
-          <div className="flex-1 justify-center hidden md:flex">
+          <div className="relative flex-1 justify-center hidden md:flex">
             <img
               src={bull}
               alt="Contact Us"
-              className="w-full max-w-sm h-auto rounded-xl shadow-lg"
+              className="w-full max-w-xl h-auto rounded-xl shadow-lg"
               draggable="false"
             />
+            <div className="absolute inset-0 bg-black opacity-0 dark:opacity-40 transition-opacity duration-300"></div>
           </div>
         </div>
       </section>

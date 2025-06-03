@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import contactImg from "../assets/popup.jpg";
 
 const EnquireNowForm: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -93,18 +92,9 @@ const EnquireNowForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full max-w-5xl mx-auto bg-white dark:bg-[#121212] text-black dark:text-white rounded-xl shadow-lg overflow-hidden font-raleway">
-      {/* Left Image */}
-      <div className="hidden md:block md:w-1/2">
-        <img
-          src={contactImg}
-          alt="Contact"
-          className="w-full h-[520px] object-cover"
-        />
-      </div>
-
+    <div className="flex flex-col md:flex-row w-full max-w-xl mx-auto bg-white dark:bg-[#121212] text-black dark:text-white rounded-xl shadow-lg overflow-hidden font-raleway">
       {/* Right Form */}
-      <div className="w-full md:w-1/2 p-6 md:p-10">
+      <div className="w-full  p-6 md:p-10">
         <h2 className="text-xl md:text-2xl font-semibold mb-4 text-center md:text-left">
           Get Your Dream Home
         </h2>

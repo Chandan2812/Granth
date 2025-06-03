@@ -4,6 +4,7 @@ import mission from "../assets/mission1.png";
 import vision from "../assets/vision.png";
 import Stats from "../components/Stats";
 import hero from "../assets/sell.jpg";
+import about from "../assets/sumit-sourav-eSRtxPd9q1c-unsplash.jpg";
 
 function AboutPage() {
   return (
@@ -42,11 +43,16 @@ function AboutPage() {
           </p>
         </div>
 
-        <img
-          src="https://granthdreamhomesllp.com/wp-content/uploads/2025/02/goa-beach-sand-with-coconut-water.jpg"
-          alt="Luxury Property Goa"
-          className="rounded-lg shadow-lg w-full object-cover h-[400px]"
-        />
+        {/* Image with dark overlay on dark mode */}
+        <div className="relative rounded-lg shadow-lg w-full h-[400px] overflow-hidden">
+          <img
+            src={about}
+            alt="Luxury Property Goa"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay only visible in dark mode */}
+          <div className="absolute inset-0 bg-black opacity-0 dark:opacity-50 transition-opacity duration-300"></div>
+        </div>
       </section>
 
       <section className=" py-12 px-6">

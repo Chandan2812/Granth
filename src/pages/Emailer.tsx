@@ -98,7 +98,7 @@ const Emailer = () => {
     <div className="min-h-screen bg-black text-white relative">
       {/* Navbar */}
       <nav className="bg-gray-900 shadow px-6">
-        <a href="/">
+        <a href="admin/emailer">
           <img
             src={logo}
             alt="Mondus Logo"

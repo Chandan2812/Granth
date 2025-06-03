@@ -7,7 +7,7 @@ const LeadPopupForm: React.FC = () => {
   useEffect(() => {
     const shown = sessionStorage.getItem("leadPopupShown");
     if (!shown) {
-      setTimeout(() => setIsOpen(true), 3000); // Optional delay
+      setTimeout(() => setIsOpen(true), 15000); // Optional delay
       sessionStorage.setItem("leadPopupShown", "true");
     }
   }, []);
@@ -28,7 +28,7 @@ const LeadPopupForm: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center p-4">
-      <div className="relative w-full max-w-5xl">
+      <div className="relative w-full max-w-xl">
         <button
           onClick={() => setIsOpen(false)}
           className="absolute top-2 right-2 z-10 text-white bg-black bg-opacity-50 hover:bg-opacity-75 px-3 py-1 rounded-full"

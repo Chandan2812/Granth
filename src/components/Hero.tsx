@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import hero from "../assets/milin-john-aQV-nqJpq7g-unsplash.jpg";
 import hero2 from "../assets/sell.jpg";
+import hero3 from "../assets/anantha-krishna-a-y6NZHThhLj4-unsplash.jpg";
+import hero4 from "../assets/sumit-sourav-eSRtxPd9q1c-unsplash.jpg";
 import "../index.css";
 
 export default function Hero() {
-  const images = [hero, hero2];
+  const images = [hero, hero2, hero3, hero4];
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -20,8 +22,8 @@ export default function Hero() {
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % images.length);
         setIsAnimating(false);
-      }, 1000);
-    }, 4000);
+      }, 2000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -112,6 +114,18 @@ export default function Hero() {
         >
           <img
             src={images[current]}
+            alt="current"
+            className="w-full h-full object-cover flex-shrink-0"
+            draggable="false"
+          />
+          <img
+            src={images[next]}
+            alt="next"
+            className="w-full h-full object-cover flex-shrink-0"
+            draggable="false"
+          />
+          <img
+            src={images[next]}
             alt="current"
             className="w-full h-full object-cover flex-shrink-0"
             draggable="false"

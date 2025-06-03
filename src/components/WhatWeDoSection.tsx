@@ -14,35 +14,35 @@ const services: Service[] = [
   {
     icon: <FaMapMarkedAlt size={32} className="text-[var(--primary-color)]" />,
     label: "Plots",
-    title: "Prime Plots in Goa",
+    title: "Prime Plots in GOA both Residential or Commercial",
     description:
       "Secure your slice of paradise with clear-title land in top Goa locations.",
   },
   {
     icon: <Building2 size={32} className="text-[var(--primary-color)]" />,
     label: "Apartments",
-    title: "Modern Apartments",
+    title: "Modern Apartments for Living or High Rentals",
     description:
-      "Comprehensive help with shortlisting, inspecting, and negotiating apartment deals.",
+      "Comprehensive help with shortlisting, inspecting, and negotiating your apartment deals.",
   },
   {
     icon: <MdVilla size={32} className="text-[var(--primary-color)]" />,
     label: "Villas",
-    title: "Luxury Villas in Goa",
+    title: "Luxury Villas in Prime Locations of Goa",
     description:
-      "Expert support in planning, customizing, and acquiring villa developments.",
+      "Expert support in planning, customizing, and acquiring your dream villa.",
   },
   {
     icon: <Handshake size={32} className="text-[var(--primary-color)]" />,
     label: "Property Management",
-    title: "Property Management",
+    title: "End to End Property Management",
     description:
-      "From maintenance to rentals, we manage your property stress-free.",
+      "From maintenance to rentals, we manage your property for you so you can be stress-free.",
   },
   {
     icon: <School size={32} className="text-[var(--primary-color)]" />,
     label: "Investment Advisory",
-    title: "Investment Advisory",
+    title: "Residential or Commercial Investment Advisory",
     description:
       "Get expert guidance on high-yield investment opportunities in Goa.",
   },
@@ -57,7 +57,7 @@ const WhatWeDoSection: React.FC = () => {
             Our Services
           </p>
           <h2 className="text-3xl md:text-4xl font-light text-black dark:text-gray-100">
-            We Help You Find and Buy Your Dream Homes
+            We Help You Find and Buy Your Dream Home OR Investment Property.
           </h2>
         </div>
 
