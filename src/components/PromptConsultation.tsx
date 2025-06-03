@@ -5,6 +5,7 @@ const PromptConsultation = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    countryCode: "+91", // default country code (UAE)
     email: "",
   });
   const [step, setStep] = useState(1); // Step 1: user inputs, Step 2: enter OTP
@@ -15,14 +16,19 @@ const PromptConsultation = () => {
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  const handleChange = (e: any) => {
+  // Phone validation:
+  // Allow only digits, length between 7 to 15 digits (excluding country code)
+  // You can also customize per country code if needed.
+  const validatePhone = (phone: string) => /^[0-9]{7,15}$/.test(phone);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSendOtp = async (e: any) => {
+  const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setMessage("");
-    const { name, email, phone } = formData;
+    const { name, email, phone, countryCode } = formData;
 
     if (!name || !phone || !email) {
       setMessage("❌ All fields are required.");
@@ -34,14 +40,22 @@ const PromptConsultation = () => {
       return;
     }
 
+    if (!validatePhone(phone)) {
+      setMessage(
+        "❌ Phone number must be digits only and 7 to 15 characters long."
+      );
+      return;
+    }
+
     setLoading(true);
     try {
+      // Send the combined phone with country code to backend
       const res = await fetch(
         "https://granth-backend.onrender.com/api/send-otp",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({ ...formData, phone: countryCode + phone }),
         }
       );
 
@@ -60,7 +74,7 @@ const PromptConsultation = () => {
     }
   };
 
-  const handleVerifyOtp = async (e: any) => {
+  const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
@@ -71,7 +85,11 @@ const PromptConsultation = () => {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...formData, otp }),
+          body: JSON.stringify({
+            ...formData,
+            phone: formData.countryCode + formData.phone,
+            otp,
+          }),
         }
       );
 
@@ -81,7 +99,7 @@ const PromptConsultation = () => {
         // Store in sessionStorage
         sessionStorage.setItem("formData", JSON.stringify(formData));
         setMessage("✅ OTP verified. Data submitted successfully.");
-        setFormData({ name: "", phone: "", email: "" });
+        setFormData({ name: "", phone: "", email: "", countryCode: "+971" });
         setOtp("");
         setStep(1);
       } else {
@@ -120,15 +138,39 @@ const PromptConsultation = () => {
                   required
                   className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
                 />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Your Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
-                />
+
+                <div className="flex gap-2 col-span-1 md:col-span-1">
+                  <select
+                    value={formData.countryCode}
+                    onChange={(e) =>
+                      setFormData({ ...formData, countryCode: e.target.value })
+                    }
+                    className="bg-white dark:bg-black text-black dark:text-white"
+                  >
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+61">🇦🇺 +61</option>
+                  </select>
+
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="^[0-9]{7,15}$"
+                    placeholder="Your Phone"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        setFormData({ ...formData, phone: value });
+                      }
+                    }}
+                    required
+                    className="flex-1 bg-white dark:bg-black text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400 border-b border-gray-400 dark:border-gray-500 outline-none px-2 py-2"
+                  />
+                </div>
+
                 <input
                   type="email"
                   name="email"
@@ -166,7 +208,13 @@ const PromptConsultation = () => {
           </form>
 
           {message && (
-            <p className="text-center text-sm text-green-600 dark:text-green-400 mb-4">
+            <p
+              className={`text-center text-sm mb-4 ${
+                message.startsWith("✅")
+                  ? "text-green-600 dark:text-green-400"
+                  : "text-red-600 dark:text-red-400"
+              }`}
+            >
               {message}
             </p>
           )}

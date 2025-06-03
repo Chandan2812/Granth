@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import hero from "../assets/milin-john-aQV-nqJpq7g-unsplash.jpg";
 import hero2 from "../assets/sell.jpg";
-import hero3 from "../assets/anantha-krishna-a-y6NZHThhLj4-unsplash.jpg";
-import hero4 from "../assets/sumit-sourav-eSRtxPd9q1c-unsplash.jpg";
+
+import hero3 from "../assets/sumit-sourav-eSRtxPd9q1c-unsplash.jpg";
 import "../index.css";
 
 export default function Hero() {
-  const images = [hero, hero2, hero3, hero4];
+  const images = [hero, hero2, hero3];
   const [current, setCurrent] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    countryCode: "+91", // default
+  });
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1); // 1 = enter details, 2 = enter OTP
   const [loading, setLoading] = useState(false);
@@ -77,7 +82,11 @@ export default function Hero() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...formData, otp }),
+          body: JSON.stringify({
+            ...formData,
+            phone: formData.countryCode + formData.phone, // include full phone
+            otp,
+          }),
         }
       );
       const data = await response.json();
@@ -86,7 +95,7 @@ export default function Hero() {
         sessionStorage.setItem("formData", JSON.stringify(formData));
 
         setMessage("✅ OTP verified. Form submitted successfully.");
-        setFormData({ name: "", email: "", phone: "" });
+        setFormData({ name: "", email: "", phone: "", countryCode: "" });
         setOtp("");
         setStep(1);
       } else {
@@ -127,12 +136,6 @@ export default function Hero() {
           <img
             src={images[next]}
             alt="current"
-            className="w-full h-full object-cover flex-shrink-0"
-            draggable="false"
-          />
-          <img
-            src={images[next]}
-            alt="next"
             className="w-full h-full object-cover flex-shrink-0"
             draggable="false"
           />
@@ -181,16 +184,40 @@ export default function Hero() {
                 <label className="text-sm mb-1 block text-gray-300">
                   Phone Number
                 </label>
-                <input
-                  type="tel"
-                  placeholder="Enter your phone"
-                  value={formData.phone}
-                  className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                />
+                <div className="flex gap-2">
+                  <select
+                    value={formData.countryCode}
+                    onChange={(e) =>
+                      setFormData({ ...formData, countryCode: e.target.value })
+                    }
+                    className="bg-transparent p-3 text-white  border border-gray-300 dark:border-gray-700"
+                  >
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+61">🇦🇺 +61</option>
+                  </select>
+
+                  <input
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="^[0-9]{7,15}$"
+                    placeholder="Enter your phone"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      // Allow only digits
+                      if (/^\d*$/.test(value)) {
+                        setFormData({ ...formData, phone: value });
+                      }
+                    }}
+                    className="flex-1 bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                    required
+                  />
+                </div>
               </div>
+
               <div>
                 <label className="text-sm mb-1 block text-gray-300">
                   Email
@@ -217,7 +244,7 @@ export default function Hero() {
                 type="text"
                 placeholder="Enter the OTP sent to your email"
                 value={otp}
-                className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                className="w-full bg-transparent backdrop-blur-sm p-3 text-white border border-gray-300 dark:border-gray-700"
                 onChange={(e) => setOtp(e.target.value)}
               />
             </div>
@@ -226,7 +253,7 @@ export default function Hero() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black dark:text-white py-3 hover:opacity-90 transition"
+            className="w-full font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-3 hover:opacity-90 transition"
           >
             {loading
               ? "Please wait..."

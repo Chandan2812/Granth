@@ -6,21 +6,21 @@ export default function AboutSection() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="bg-white dark:bg-black text-black dark:text-white px-4 py-12 md:py-10 flex justify-center relative overflow-hidden font-raleway font-light dark:font-thin">
+    <section className="bg-white dark:bg-black text-black dark:text-white px-4 py-12 md:py-10 flex justify-center relative overflow-hidden font-raleway font-light ">
       <div className="p-[1px] bg-gradient-to-r from-[var(--primary-color)] via-black to-[var(--primary-color)] max-w-7xl w-full">
         <div className="bg-white dark:bg-black p-6 md:p-12">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide text-[var(--primary-color)] mb-6">
             GRANTH DREAM HOMES – LUXURY REAL ESTATE IN GOA
           </h2>
 
-          <p className="text-sm md:text-base mb-6">
+          <p className="text-md  mb-6">
             Welcome to Granth Dream Homes – your gateway to luxurious living in
             Goa. After making a mark in Dubai & Goa's real estate landscape with
             over 5B+ in sales, we now bring our global expertise, integrity, and
             commitment to excellence to India’s most desirable destination.
           </p>
 
-          <p className="text-sm md:text-base mb-6">
+          <p className="text-md mb-6">
             Granth Dream Homes is redefining the real estate experience in Goa.
             Whether you're searching for your dream home or a profitable
             investment, we offer a curated selection of premium properties with
@@ -37,7 +37,7 @@ export default function AboutSection() {
             </button>
           ) : (
             <>
-              <div className="mt-6 space-y-4 text-sm md:text-base">
+              <div className="mt-6 space-y-4 text-md">
                 <p>
                   Our mission is to create a legacy where luxury meets lifestyle
                   and every home tells a story of refinement and reliability.
