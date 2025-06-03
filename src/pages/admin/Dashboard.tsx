@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
-import { FaUsers, FaNewspaper, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import {
+  FaUsers,
+  FaNewspaper,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaBuilding,
+} from "react-icons/fa";
 
 const Dashboard = () => {
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [newsletterCount, setNewsletterCount] = useState(0);
   const [emailerCount, setEmailerCount] = useState(0);
   const [contactCount, setContactCount] = useState(0);
+  const [propertyCount, setPropertyCount] = useState(0);
 
   useEffect(() => {
     fetch("https://granth-backend.onrender.com/subscribers")
@@ -23,6 +30,10 @@ const Dashboard = () => {
     fetch("https://granth-backend.onrender.com/api/leads")
       .then((res) => res.json())
       .then((data) => setContactCount(data.length));
+
+    fetch("https://granth-backend.onrender.com/api/property/list")
+      .then((res) => res.json())
+      .then((data) => setPropertyCount(data.length));
   }, []);
 
   return (
@@ -51,6 +62,12 @@ const Dashboard = () => {
           title="Leads Generated"
           count={contactCount}
           icon={<FaPhoneAlt />}
+          gradient="from-yellow-400 to-orange-500"
+        />
+        <StatCard
+          title="Property Listings"
+          count={propertyCount}
+          icon={<FaBuilding />}
           gradient="from-yellow-400 to-orange-500"
         />
       </div>

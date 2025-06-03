@@ -40,7 +40,7 @@ const AdminLeads = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-raleway p-4 sm:p-6">
+    <div className="min-h-screen bg-black text-white font-sans p-4 sm:p-6">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6">Leads</h1>
 
       {contacts.length === 0 ? (

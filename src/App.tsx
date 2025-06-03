@@ -21,6 +21,8 @@ import NewsletterPage from "./pages/admin/AdminNewsletter";
 import AdminSubscriber from "./pages/admin/AdminSubscriber";
 import AdminEmailer from "./pages/admin/AdminEmailer";
 import AdminLeads from "./pages/admin/AdminLeads";
+import ChatbotHistory from "./pages/admin/Chatbot";
+import ListProperty from "./pages/admin/ListProperty";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
           <Route path="emailer" element={<AdminEmailer />} />
           <Route path="subscriber" element={<AdminSubscriber />} />
           <Route path="leads" element={<AdminLeads />} />
+          <Route path="chatbot" element={<ChatbotHistory />} />
+          <Route path="property_listing" element={<ListProperty />} />
         </Route>
       </Routes>
       {/* Bottom Buttons */}

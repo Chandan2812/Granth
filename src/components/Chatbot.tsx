@@ -8,9 +8,32 @@ const Chatbot: React.FC = () => {
   >([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [userInfo, setUserInfo] = useState<{ name: string; email: string }>({
+    name: "",
+    email: "",
+  });
+  const [userDetailsCaptured, setUserDetailsCaptured] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleChat = () => setOpen(!open);
+  const toggleChat = () => {
+    const newState = !open;
+    setOpen(newState);
+
+    if (newState) {
+      setMessages([
+        {
+          sender: "bot",
+          text: "👋 Welcome to Granth Dream Homes! May I know your name and email to assist you better?",
+        },
+      ]);
+    } else {
+      // Reset chat on close
+      setMessages([]);
+      setInput("");
+      setUserDetailsCaptured(false);
+      setUserInfo({ name: "", email: "" });
+    }
+  };
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -19,37 +42,80 @@ const Chatbot: React.FC = () => {
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
 
-    const userMsg = { sender: "user" as const, text: input };
-    setMessages((prev) => [...prev, userMsg]);
+    const trimmedInput = input.trim();
+    const newUserMsg = { sender: "user" as const, text: trimmedInput };
+    setMessages((prev) => [...prev, newUserMsg]);
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch(
-        "https://granth-backend.onrender.com/api/chatbot",
-        {
+      let botReply = "";
+
+      if (!userDetailsCaptured) {
+        // Try to extract name and email from the input
+        const emailMatch = trimmedInput.match(
+          /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/
+        );
+        const namePart = trimmedInput.replace(emailMatch?.[0] || "", "").trim();
+
+        if (!emailMatch || !namePart) {
+          botReply =
+            "❗ Please provide both your name and a valid email in one message.";
+          setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
+          return;
+        }
+
+        // Save user info
+        const name = namePart;
+        const email = emailMatch[0];
+
+        setUserInfo({ name, email });
+        setUserDetailsCaptured(true);
+
+        botReply = `Thanks ${name}! You can now ask me anything about our properties. 😊`;
+
+        // Send user details + intro message to backend
+        await fetch("http://localhost:8000/api/chatbot", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: input }),
-        }
-      );
+          body: JSON.stringify({
+            user: { name, email },
+            message: trimmedInput,
+            isLead: true,
+            chatHistory: [...messages, newUserMsg],
+          }),
+        });
 
-      const data = await res.json();
-
-      if (res.ok) {
-        const botReply = data.reply || "Sorry, I couldn't understand that.";
         setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
       } else {
-        setMessages((prev) => [
-          ...prev,
-          { sender: "bot", text: "Error: " + data.error },
-        ]);
+        // Normal chatbot message
+        const res = await fetch(
+          "https://granth-backend.onrender.com/api/chatbot",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              user: userInfo,
+              message: trimmedInput,
+              chatHistory: [...messages, newUserMsg],
+            }),
+          }
+        );
+
+        const data = await res.json();
+
+        botReply =
+          res.ok && data.reply
+            ? data.reply
+            : "Sorry, something went wrong. Please try again.";
+
+        setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
       }
     } catch (error) {
       console.error(error);
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: "Server error. Please try again later." },
+        { sender: "bot", text: "⚠️ Server error. Please try again later." },
       ]);
     } finally {
       setLoading(false);
@@ -95,7 +161,11 @@ const Chatbot: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-              placeholder="Type your message..."
+              placeholder={
+                !userDetailsCaptured
+                  ? "e.g. John Doe john@example.com"
+                  : "Type your message..."
+              }
               disabled={loading}
             />
             <button

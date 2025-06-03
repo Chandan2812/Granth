@@ -1,4 +1,5 @@
 // acasaPageData.ts
+import image1 from "../assets/Screenshot 2025-06-03 152354.png";
 
 export const projectPageData = {
   sawantwadi: {
@@ -13,9 +14,9 @@ export const projectPageData = {
       unitType: "3/4 BHK Villas",
       plotArea: "3174-6833 sq.ft",
       builtArea: "2529-3228 sq.ft",
-      sectionTitle: "Welcome To Sawantwadi",
+      sectionTitle: "Welcome To Velvet Vista",
       description:
-        "Sawantwadi, one of the upcoming under-construction housing societies in Sawantwadi. This society will have all basic facilities and amenities to suit homebuyer’s needs and requirements. Brought to you by Ankit Projexcel, Perto De Goa is scheduled for possession in Dec, 2026.",
+        "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",
       ctaText: "Book A Site Visit",
       image: "https://www.samava.in/acasa/images/about-img.png",
     },
@@ -212,8 +213,7 @@ export const projectPageData = {
       title: "An epitome of elegance.",
       subtitle:
         "Fully furnished, Bali-inspired villas for sale in Corjuem, Goa",
-      backgroundImage:
-        "https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2015/04/27/1126/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.jpg/Grand-Hyatt-Goa-P348-Aerial-Overview-Outdoor-Pool.4x3.jpg",
+      backgroundImage: image1,
     },
     about: {
       unitType: "3/4 BHK Villas",

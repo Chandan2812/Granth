@@ -45,7 +45,7 @@ const AdminEmailer = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white font-raleway p-4 sm:p-6">
+    <div className="min-h-screen bg-black text-white font-sans p-4 sm:p-6">
       <div className="flex justify-between">
         <h1 className="text-2xl sm:text-3xl font-bold mb-6">Emailers</h1>
         <a href="/emailer">

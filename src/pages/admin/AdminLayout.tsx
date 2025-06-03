@@ -4,6 +4,8 @@ import {
   FaMailBulk,
   FaUsers,
   FaCommentDots,
+  FaRobot,
+  FaBuilding,
 } from "react-icons/fa";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo2.png";
@@ -14,10 +16,18 @@ const AdminLayout = () => {
   // Define nav items array for reuse
   const navItems = [
     { icon: <FaTachometerAlt />, label: "Dashboard", to: "/admin" },
-    { icon: <FaEnvelope />, label: "Newsletter", to: "/admin/newsletter" },
-    { icon: <FaMailBulk />, label: "Emailer", to: "/admin/emailer" },
     { icon: <FaUsers />, label: "Subscribers", to: "/admin/subscriber" },
     { icon: <FaCommentDots />, label: "Leads", to: "/admin/leads" },
+    {
+      icon: <FaBuilding />,
+      label: "Property Listings",
+      to: "/admin/property_listing",
+    },
+    { icon: <FaCommentDots />, label: "Leads", to: "/admin/leads" },
+    { icon: <FaEnvelope />, label: "Newsletter", to: "/admin/newsletter" },
+    { icon: <FaMailBulk />, label: "Emailer", to: "/admin/emailer" },
+
+    { icon: <FaRobot />, label: "Chatbot Leads", to: "/admin/chatbot" },
   ];
 
   return (

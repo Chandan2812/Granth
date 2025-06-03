@@ -190,7 +190,7 @@ export default function Hero() {
                     onChange={(e) =>
                       setFormData({ ...formData, countryCode: e.target.value })
                     }
-                    className="bg-transparent p-3 text-white  border border-gray-300 dark:border-gray-700"
+                    className="bg-black p-3  border border-gray-300 dark:border-gray-700"
                   >
                     <option value="+91">🇮🇳 +91</option>
                     <option value="+1">🇺🇸 +1</option>

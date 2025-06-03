@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import image1 from "../assets/Untitled design (2).png";
-import image2 from "../assets/Untitled design (3).png";
-import image3 from "../assets/Untitled design (4).png";
 import image4 from "../assets/Untitled design (5).png";
 import image5 from "../assets/Untitled design (6).png";
 import image6 from "../assets/Untitled design (7).png";
 
 const lifestyleData = [
   { title: "Downtown Living", image: image1 },
-  { title: "Residential Community", image: image2 },
-  { title: "Marina Living", image: image3 },
   { title: "Suburban Escape", image: image4 },
   { title: "Beachfront Bliss", image: image5 },
   { title: "Skyline Retreat", image: image6 },

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import brochurePDF from "../assets/brochure.pdf";
+import brochurePDF from "../assets/VELVET VISTA BROCHURE CTC.pdf";
 
 interface Props {
   onClose: () => void;

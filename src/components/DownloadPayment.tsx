@@ -1,6 +1,6 @@
 // src/components/DownloadPaymentPlan.tsx
 import React, { useState, useEffect } from "react";
-import brochurePDF from "../assets/Payment_Plan.pdf"; // ✅ Import the PDF
+import brochurePDF from "../assets/COST SHEET (VELVET VISTA) april 2025.pdf"; // ✅ Import the PDF
 
 interface Props {
   onClose: () => void;
