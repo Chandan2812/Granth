@@ -12,6 +12,7 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [infoMsg, setInfoMsg] = useState("");
+  const [countryCode, setCountryCode] = useState("+91"); // Default India
 
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -87,7 +88,11 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...formData, otp }),
+          body: JSON.stringify({
+            ...formData,
+            phone: `${countryCode}${formData.phone}`,
+            otp,
+          }),
         }
       );
       const data = await res.json();
@@ -146,16 +151,37 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
             required
             className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
           />
-          <input
-            type="tel"
-            placeholder="Phone"
-            value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
-            required
-            className="w-full p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
-          />
+          <div className="flex gap-2">
+            <select
+              value={countryCode}
+              onChange={(e) => setCountryCode(e.target.value)}
+              className="w-1/3 p-2 border border-gray-300 dark:border-gray-600 bg-white dark:bg-zinc-900 text-black dark:text-white rounded"
+            >
+              <option value="+91">🇮🇳 +91</option>
+              <option value="+971">🇦🇪 +971</option>
+              <option value="+1">🇺🇸 +1</option>
+              <option value="+44">🇬🇧 +44</option>
+              {/* Add more countries as needed */}
+            </select>
+
+            <input
+              type="tel"
+              inputMode="numeric"
+              pattern="^[0-9]{7,15}$"
+              placeholder="Enter your phone"
+              value={formData.phone}
+              onChange={(e) => {
+                const value = e.target.value;
+                // Allow only digits
+                if (/^\d*$/.test(value)) {
+                  setFormData({ ...formData, phone: value });
+                }
+              }}
+              className="flex-1 bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+              required
+            />
+          </div>
+
           <button
             type="submit"
             disabled={loading}

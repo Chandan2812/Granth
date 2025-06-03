@@ -78,7 +78,7 @@ const ReviewSection = () => {
         {reviews.map((review, index) => (
           <div key={index} className="px-3">
             <div className="relative bg-white/10 dark:bg-white/5 backdrop-blur-md rounded-xl border border-white/10 dark:border-gray-800 p-6 shadow-lg h-full transition duration-300 hover:shadow-2xl">
-              <FaQuoteLeft className="absolute top-4 left-4 text-[var(--primary-color)] text-2xl opacity-30" />
+              <FaQuoteLeft className="absolute top-4 left-4 text-[var(--primary-color)] text-2xl" />
 
               <div className="mb-4 mt-6">
                 <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">

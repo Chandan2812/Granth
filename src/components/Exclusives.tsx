@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { projectPageData } from "../data/PropertyData";
-import { useNavigate } from "react-router-dom";
 
 const projectKeys = Object.keys(projectPageData) as (
   | "sawantwadi"
@@ -12,7 +11,6 @@ const projectKeys = Object.keys(projectPageData) as (
 
 export const Exclusives: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const navigate = useNavigate();
 
   const prevProject = () => {
     setCurrentIndex((prev) => (prev === 0 ? projectKeys.length - 1 : prev - 1));
@@ -27,25 +25,6 @@ export const Exclusives: React.FC = () => {
 
   if (!project) return <div>Project not found</div>;
 
-  // const liClass =
-  //   "bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded shadow-sm border border-gray-300 dark:border-gray-700 text-sm";
-
-  // const renderLimitedList = (items: string[]) => {
-  //   const limited = items.slice(0, MAX_ITEMS);
-  //   return (
-  //     <>
-  //       {limited.map((item, idx) => (
-  //         <li key={idx} className={liClass}>
-  //           {item}
-  //         </li>
-  //       ))}
-  //     </>
-  //   );
-  // };
-
-  const goToDetailsPage = () => {
-    navigate(`/projects/${currentProjectKey}`);
-  };
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white md:py-10 relative">
       <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway under">
@@ -84,22 +63,21 @@ export const Exclusives: React.FC = () => {
                 <h3 className="text-3xl  mb-1 text-[var(--primary-color)]">
                   {project.about.sectionTitle}
                 </h3>
-                <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">
+                <p className="text-lg text-gray-800 dark:text-gray-300 text-justify pt-10">
                   {project.about.description}
                 </p>
-                <p className="text-md text-gray-800 dark:text-gray-300 text-justify pt-10">
+                <p className="text-lg text-gray-800 dark:text-gray-300 text-justify pt-10">
                   {project.location.description}
                 </p>
               </div>
 
               {/* Explore Button */}
               <div className="pt-3">
-                <button
-                  onClick={goToDetailsPage}
-                  className="w-fit px-6 font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-2 rounded hover:opacity-90 transition"
-                >
-                  Explore Now
-                </button>
+                <a href={`/projects/${currentProjectKey}`}>
+                  <button className="w-fit px-6 font-light bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black py-2 rounded hover:opacity-90 transition">
+                    Explore Now
+                  </button>
+                </a>
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiSun, FiMoon, FiPhone } from "react-icons/fi";
-import logo from "../assets/logo2.png";
+import logo from "../assets/Granth logo (6).png";
 import {
   FaFacebook,
   FaInstagram,
@@ -42,7 +42,7 @@ const Navbar = () => {
     { label: "Buy", path: "/buy" },
     { label: "Rent", path: "/rent" },
     { label: "Sell", path: "/sell" },
-    { label: "Off-Plan", path: "/offplan" },
+    { label: "Upcoming Projects", path: "/offplan" },
     { label: "Blogs", path: "/blog" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },
@@ -75,7 +75,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-white dark:bg-black text-black dark:text-white font-raleway font-light dark:font-thin w-full fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800 transition-colors">
+      <nav className="bg-white dark:bg-black text-black dark:text-white font-raleway font-light  w-full fixed top-0 z-50 border-b border-gray-200 dark:border-gray-800 transition-colors">
         <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-24 items-center">
             {/* Mobile View */}
@@ -111,7 +111,7 @@ const Navbar = () => {
               <div className="flex items-center space-x-4">
                 <div className="h-20 pr-6 mr-6 border-r border-gray-600 dark:border-gray-400 flex items-center">
                   <a href="/">
-                    <img src={logo} alt="AX Logo" className="h-16" />
+                    <img src={logo} alt=" Logo" className="h-16" />
                   </a>
                 </div>
                 <div className="flex items-center gap-8">
@@ -120,7 +120,7 @@ const Navbar = () => {
                       key={index}
                       href={item.path}
                       onClick={() => setActiveItem(item.label)}
-                      className={`relative pb-2 text-sm text-inherit transition-colors hover:text-[var(--primary-color)] ${
+                      className={`relative pb-2 text-md  text-inherit transition-colors hover:text-[var(--primary-color)] ${
                         activeItem === item.label ? "font-light text-md" : ""
                       }`}
                     >
