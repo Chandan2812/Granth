@@ -50,7 +50,7 @@ const LifeStyleSection = () => {
         <button
           onClick={handlePrev}
           disabled={startIndex === 0}
-          className={`absolute -left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)] disabled:opacity-50 disabled:cursor-not-allowed`}
+          className={`absolute -left-2 md:left-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)] disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           <ChevronLeft size={80} />
         </button>
@@ -96,7 +96,7 @@ const LifeStyleSection = () => {
         <button
           onClick={handleNext}
           disabled={startIndex >= maxIndex}
-          className={`absolute -right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)]  disabled:opacity-50 disabled:cursor-not-allowed`}
+          className={`absolute right-0 md:right-10 top-1/2 -translate-y-1/2 z-20 text-[var(--primary-color)]  disabled:opacity-50 disabled:cursor-not-allowed`}
         >
           <ChevronRight size={80} />
         </button>
