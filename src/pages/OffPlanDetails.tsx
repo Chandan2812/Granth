@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import { Projects } from "../data/UpcomingProjects";
@@ -18,8 +18,14 @@ const OffPlansDetails: React.FC = () => {
 
   if (!project)
     return (
-      <div className="text-center py-20 text-white">Project Not Found</div>
+      <div className="text-center py-20 text-black dark:text-white">
+        Project Not Found
+      </div>
     );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const {
     name,
@@ -45,7 +51,7 @@ const OffPlansDetails: React.FC = () => {
   };
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <Navbar />
 
       <div className="w-full overflow-hidden">
@@ -55,45 +61,38 @@ const OffPlansDetails: React.FC = () => {
               <img
                 src={src}
                 alt={`Banner ${index}`}
-                className="w-full h-[95vh] object-cover"
+                className="w-full md:h-[95vh] h-[40vh] object-cover"
               />
             </div>
           ))}
         </Slider>
       </div>
 
-      {/* Welcome Section */}
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 className="text-4xl font-bold mb-4">{name}</h1>
-          <p className="text-gray-300 text-lg mb-6">{description}</p>
+          <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
+            {description}
+          </p>
 
-          <div className="flex  gap-4">
-            {/* Brochure Button */}
+          <div className="flex gap-4">
             <button
-              className="px-6 py-3 text-white bg-[var(--primary-color)] hover:opacity-80 font-semibold rounded-md transition"
-              onClick={() => {
-                setShowDownloadPopup(true);
-                console.log("Brochure button clicked");
-              }}
+              className="px-3 py-3 bg-[var(--primary-color)] text-white font-semibold rounded-md hover:opacity-80 transition"
+              onClick={() => setShowDownloadPopup(true)}
             >
               Download Brochure
             </button>
 
-            {/* Price List Button */}
             <button
-              className="px-6 py-3 text-[var(--primary-color)] border border-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
-              onClick={() => {
-                setViewPayment(true);
-                console.log("Price List button clicked");
-              }}
+              className="px-3 py-3 border border-[var(--primary-color)] text-[var(--primary-color)] dark:text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
+              onClick={() => setViewPayment(true)}
             >
               View Payment Plan
             </button>
           </div>
         </div>
 
-        {projectHighlights[3]?.videoUrl ? (
+        {projectHighlights[3]?.videoUrl && (
           <video
             src={projectHighlights[3].videoUrl}
             controls
@@ -101,19 +100,15 @@ const OffPlansDetails: React.FC = () => {
             muted
             className="rounded-xl shadow-lg w-full"
           />
-        ) : null}
+        )}
       </div>
 
-      {/* Project Highlights Box */}
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="bg-neutral-900 border border-gray-800 p-8 rounded-xl shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6 text-white">
-              Project Highlights
-            </h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-300">
+          <div className="bg-neutral-100 dark:bg-neutral-900 border border-gray-300 dark:border-gray-700 md:p-8 p-3 rounded-xl shadow-lg">
+            <h2 className="text-2xl font-semibold mb-6">Project Highlights</h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300">
               {highlights.map((point, idx) => {
-                // Highlight keywords
                 const formatted = point
                   .replace(
                     /(assured)/gi,
@@ -145,26 +140,20 @@ const OffPlansDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* RERA Section */}
       {rera.registered && (
-        <div className="py-16 bg-black max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center md:items-center justify-center gap-10">
-          {/* Left side - Text content */}
+        <div className="py-16 bg-white dark:bg-black max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl font-semibold mb-4 text-white">
-              {rera.title}
-            </h2>
-            <p className="text-gray-400 mb-2 max-w-xl mx-auto md:mx-0">
+            <h2 className="text-2xl font-semibold mb-4">{rera.title}</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-2">
               {rera.text1}
             </p>
-            <p className="text-yellow-400 font-bold text-lg mb-2">
+            <p className="text-yellow-500 font-bold text-lg mb-2">
               RERA No.: {rera.registrationId}
             </p>
-            <p className="text-gray-400 mb-6 max-w-xl mx-auto md:mx-0">
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
               {rera.text2}
             </p>
           </div>
-
-          {/* Right side - Image */}
           <div className="flex-1 flex justify-center">
             <img
               src={rera.image}
@@ -175,32 +164,29 @@ const OffPlansDetails: React.FC = () => {
         </div>
       )}
 
-      {/* Features & Amenities */}
-      <div className="py-16 ">
+      <div className="py-16">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-semibold mb-6 text-center">
             Features & Amenities
           </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 ">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
             {images.map((img, i) => (
               <img
                 key={i}
                 src={img}
                 alt={`Feature ${i}`}
-                className="rounded-lg "
+                className="rounded-lg"
               />
             ))}
           </div>
-
           <section>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-14">
               {featuresAndAmenities.map(({ label, icon: Icon }, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-5 border rounded-xl bg-white dark:bg-neutral-900 shadow hover:shadow-md transition"
+                  className="flex items-center gap-4 p-5 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-neutral-900 shadow hover:shadow-md transition"
                 >
-                  <Icon className="w-6 h-6 text-[var(--primary-color)]" />
+                  <Icon className="w-8 h-8 text-[var(--primary-color)]" />
                   <span className="text-gray-800 dark:text-gray-200 text-base">
                     {label}
                   </span>
@@ -211,21 +197,18 @@ const OffPlansDetails: React.FC = () => {
         </div>
       </div>
 
-      {/* Connectivity */}
-      <div className="bg-black py-16">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center md:items-start gap-10">
-          {/* Left side - List with custom icons */}
-          <ul className="flex-1 space-y-4 text-gray-300">
-            <h4 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white flex items-center  gap-2">
+      <div className="bg-white dark:bg-black py-16">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+          <ul className="flex-1 space-y-4 text-gray-800 dark:text-gray-300">
+            <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-green-600" />
-              Connectivity Of The Property            
+              Connectivity Of The Property
             </h4>
             {connectivity.places.map((place, index) => (
               <li key={index} className="flex items-center gap-3">
-                {/* Replace this SVG with your preferred icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-yellow-400 flex-shrink-0"
+                  className="h-5 w-5 text-yellow-500 dark:text-yellow-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -237,12 +220,11 @@ const OffPlansDetails: React.FC = () => {
                     d="M9 12l2 2 4-4"
                   />
                 </svg>
-                <span className="text-xl">{place}</span>
+                <span className="text-lg">{place}</span>
               </li>
             ))}
           </ul>
 
-          {/* Right side - Map */}
           <div className="flex-1 w-full md:w-auto">
             <iframe
               title="Map"
@@ -256,15 +238,16 @@ const OffPlansDetails: React.FC = () => {
       </div>
 
       <Footer />
-      {/* Modals */}
+
       {showDownloadPopup && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
           <DownloadBrochureForm onClose={() => setShowDownloadPopup(false)} />
         </div>
       )}
+
       {viewPayment && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <DownloadPaymentPlan onClose={() => setViewPayment(false)} /> 
+          <DownloadPaymentPlan onClose={() => setViewPayment(false)} />
         </div>
       )}
     </div>

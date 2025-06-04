@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Projects } from "../data/UpcomingProjects";
 import Navbar from "../components/Nav";
@@ -7,6 +7,9 @@ import PromptConsultation from "../components/PromptConsultation";
 
 export const OffPlan: React.FC = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div>
