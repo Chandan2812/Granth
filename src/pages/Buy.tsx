@@ -8,10 +8,6 @@ import PromptConsultation from "../components/PromptConsultation";
 export const BuyProjects: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleNavigate = (id: string) => {
-    navigate(`/buy/${id}`);
-  };
-
   return (
     <div>
       <Navbar />
@@ -39,7 +35,6 @@ export const BuyProjects: React.FC = () => {
                 <div
                   key={id}
                   className="flex flex-col md:flex-row bg-white dark:bg-neutral-900 shadow-lg hover:shadow-2xl rounded-2xl overflow-hidden transition-all duration-300 border border-gray-100 dark:border-neutral-700 group"
-                  onClick={() => handleNavigate(id)}
                 >
                   {/* Image */}
                   <div className="w-full md:w-1/2 h-[350px] overflow-hidden">
@@ -80,7 +75,7 @@ export const BuyProjects: React.FC = () => {
 
                     {/* CTA */}
                     <button
-                      onClick={() => navigate(`/projects/${id}`)}
+                      onClick={() => navigate(`/buy/${id}`)}
                       className="mt-4 self-start px-5 py-2 text-sm font-medium rounded-md bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] text-black hover:brightness-110 transition"
                     >
                       Explore
