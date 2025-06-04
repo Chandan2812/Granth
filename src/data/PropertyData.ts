@@ -2,7 +2,7 @@
 import image1 from "../assets/Screenshot 2025-06-03 152354.png";
 
 export const projectPageData = {
-  sawantwadi: {
+  velvet_vista: {
     hero: {
       title: "An epitome of elegance.",
       subtitle:

@@ -254,7 +254,7 @@ const ProjectDetails = () => {
         </section>
 
         {/* RERA Section */}
-        <section className="px-4 grid md:grid-cols-2 gap-10 items-center">
+        <section className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Officially RERA Registered

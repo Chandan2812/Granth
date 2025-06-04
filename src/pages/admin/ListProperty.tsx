@@ -17,7 +17,7 @@ function ListProperty() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  // const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
 
   useEffect(() => {
     fetchProperties();
@@ -40,24 +40,23 @@ function ListProperty() {
       });
   };
 
-  // const handleDelete = (id: string) => {
-  //   if (!confirm("Are you sure you want to delete this property?")) return;
+  const handleDelete = (id: string) => {
+    if (!confirm("Are you sure you want to delete this property?")) return;
 
-  //   setDeletingId(id);
-  //   fetch(`https://granth-backend.onrender.com/api/property/list/${id}`, {
-  //     method: "DELETE",
-  //   })
-  //     .then((res) => {
-  //       if (!res.ok) throw new Error("Failed to delete property");
-  //       // Remove deleted property from state
-  //       setProperties((prev) => prev.filter((p) => p._id !== id));
-  //       setDeletingId(null);
-  //     })
-  //     .catch((err) => {
-  //       alert("Error deleting property: " + err.message);
-  //       setDeletingId(null);
-  //     });
-  // };
+    setDeletingId(id);
+    fetch(`https://granth-backend.onrender.com/api/property/list/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to delete property");
+        setProperties((prev) => prev.filter((p) => p._id !== id));
+        setDeletingId(null);
+      })
+      .catch((err) => {
+        alert("Error deleting property: " + err.message);
+        setDeletingId(null);
+      });
+  };
 
   if (loading) return <p className="text-white p-4">Loading properties...</p>;
   if (error) return <p className="text-red-500 p-4">Error: {error}</p>;
@@ -82,7 +81,7 @@ function ListProperty() {
                   Submitted At
                 </th>
                 <th className="px-4 py-3 border-b border-gray-700">Message</th>
-                {/* <th className="px-4 py-3 border-b border-gray-700">Delete</th> */}
+                <th className="px-4 py-3 border-b border-gray-700">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -101,15 +100,15 @@ function ListProperty() {
                     {new Date(property.submittedAt).toLocaleString()}
                   </td>
                   <td className="px-4 py-3">{property.message}</td>
-                  {/* <td className="px-4 py-3">
+                  <td className="px-4 py-3">
                     <button
                       onClick={() => handleDelete(property._id)}
                       disabled={deletingId === property._id}
-                      className={`px-3 py-1 rounded  transition disabled:opacity-50 disabled:cursor-not-allowed`}
+                      className={`px-3 py-1 rounded text-sm font-medium bg-red-600 hover:bg-red-700 transition disabled:opacity-50 disabled:cursor-not-allowed`}
                     >
                       {deletingId === property._id ? "Deleting..." : "Delete"}
                     </button>
-                  </td> */}
+                  </td>
                 </tr>
               ))}
             </tbody>

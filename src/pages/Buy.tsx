@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import PromptConsultation from "../components/PromptConsultation";
 
 const projectKeys = Object.keys(projectPageData) as (
-  | "sawantwadi"
+  | "velvet_vista"
   | "baliHeights"
 )[];
 
@@ -91,7 +91,7 @@ export const BuyProjects: React.FC = () => {
 
                       {/* Features */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {highlights.map((feature, idx) => (
+                        {highlights.map((feature: any, idx: any) => (
                           <span
                             key={idx}
                             className="px-3 py-1 text-xs rounded-full border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-neutral-800 text-gray-800 dark:text-gray-200"
