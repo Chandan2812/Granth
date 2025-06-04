@@ -9,7 +9,7 @@ export const BuyProjects: React.FC = () => {
   const navigate = useNavigate();
 
   const handleNavigate = (id: string) => {
-    navigate(`/projects/${id}`);
+    navigate(`/buy/${id}`);
   };
 
   return (

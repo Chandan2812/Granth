@@ -24,6 +24,8 @@ import AdminLeads from "./pages/admin/AdminLeads";
 import ChatbotHistory from "./pages/admin/Chatbot";
 import ListProperty from "./pages/admin/ListProperty";
 import BuyDetails from "./pages/BuyDetails";
+import RentDetails from "./pages/RentDetails";
+import OffPlansDetails from "./pages/OffPlanDetails";
 
 function App() {
   return (
@@ -35,10 +37,12 @@ function App() {
         <Route path="/Blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/buy" element={<BuyProjects />} />
-        <Route path="/projects/:id" element={<BuyDetails />} />
+        <Route path="/buy/:id" element={<BuyDetails />} />
 
         <Route path="/rent" element={<RentProjects />} />
+        <Route path="/rent/:id" element={<RentDetails />} />
         <Route path="/offPlan" element={<OffPlan />} />
+        <Route path="/offPlan/:id" element={<OffPlansDetails />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/newsletter" element={<NewsletterForm />} />
