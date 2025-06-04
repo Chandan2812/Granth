@@ -33,10 +33,11 @@ export const Projects = [
     id: "velvet-vista",
     name: "Welcome to Velvet Vista",
     bannerImages: [Hero1, Hero2, Hero3, Hero4, Hero5, Hero6, Hero7, Hero8],
+    description:
+      "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",
     projectHighlights: [
       {
-        description:
-          "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",
+        place: "Goa",
       },
 
       {
@@ -96,7 +97,7 @@ export const Projects = [
         "10 mins to nearby beaches",
       ],
       embeddedMapUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5289433943596!2d73.08236697470188!3d19.083059252410142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be796d51b8b9c2f%3A0x5d77d4e7a7a6f4dc!2sDombivli%2C%20Maharashtra%20421001!5e0!3m2!1sen!2sin!4v1717470000000!5m2!1sen!2sin",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.789818600066!2d73.9965998748892!3d15.387865185197214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba9beb557f0d%3A0xb92a1fbc1dbc32af!2sGranth%20Vihar!5e0!3m2!1sen!2sin!4v1749032037328!5m2!1sen!2sin",
     },
   },
 ];

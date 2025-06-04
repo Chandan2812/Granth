@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Nav";
-import { projectPageData } from "../data/PropertyData";
+// import { projectPageData } from "../data/PropertyData";
 import { useParams } from "react-router-dom";
 import video from "../assets/WhatsApp Video 2025-05-28 at 2.54.11 PM (1).mp4";
 import { useEffect, useRef, useState } from "react";
@@ -62,6 +62,7 @@ const features = [
   { label: "Café/Tea Bar", icon: Coffee },
   { label: "Kids Play Area", icon: Baby },
 ];
+import { Projects } from "../data/UpcomingProjects";
 
 const ProjectDetails = () => {
   const [showDownloadPopup, setShowDownloadPopup] = useState(false);
@@ -90,9 +91,13 @@ const ProjectDetails = () => {
     }
   };
   const { key } = useParams();
-  const data = key
-    ? projectPageData[key as keyof typeof projectPageData]
-    : null;
+
+  const data =
+    (key &&
+      Object.entries(Projects).find(
+        ([k]) => k.toLowerCase() === key.toLowerCase()
+      )?.[1]) ||
+    null;
 
   if (!data) return <div>Project not found</div>;
 
@@ -347,13 +352,13 @@ const ProjectDetails = () => {
             </ul>
           </div>
           <div className="w-full h-80 md:h-full">
-            <iframe
-              src={data.location.mapEmbedUrl}
+            {/* <iframe
+              src={data.connectivity.embeddedMapUrl}
               className="w-full h-full rounded-xl border-none"
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            ></iframe> */}
           </div>
         </section>
       </div>

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sell from "./pages/Sell";
 import Blog from "./components/Blog";
 import BlogDetails from "./components/BlogDetails";
-import ProjectDetails from "./pages/ProjectDetails";
+// import ProjectDetails from "./pages/ProjectDetails";
 import { BuyProjects } from "./pages/Buy";
 import AboutPage from "./pages/AboutPage";
 import { RentProjects } from "./pages/Rent";
@@ -23,17 +23,20 @@ import AdminEmailer from "./pages/admin/AdminEmailer";
 import AdminLeads from "./pages/admin/AdminLeads";
 import ChatbotHistory from "./pages/admin/Chatbot";
 import ListProperty from "./pages/admin/ListProperty";
+import BuyDetails from "./pages/BuyDetails";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/projects/:key" element={<ProjectDetails />} />
+        {/* <Route path="/projects/:id" element={<ProjectDetails />} /> */}
         <Route path="/Sell" element={<Sell />} />
         <Route path="/Blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/buy" element={<BuyProjects />} />
+        <Route path="/projects/:id" element={<BuyDetails />} />
+
         <Route path="/rent" element={<RentProjects />} />
         <Route path="/offPlan" element={<OffPlan />} />
         <Route path="/about" element={<AboutPage />} />
