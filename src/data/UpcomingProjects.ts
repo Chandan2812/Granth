@@ -1,6 +1,6 @@
 import velvetBroucher from "../assets/Project/velvet vista/VELVET VISTA BROCHURE CTC.pdf";
 import velvetPaymentPlan from "../assets/Project/velvet vista/COST SHEET (VELVET VISTA) april 2025.pdf";
-import VelvetVideo from "../assets/Project/velvet vista/WhatsApp Video 2025-05-28 at 2.54.10 PM.mp4";
+import VelvetVideo from "../assets/Project/velvet vista/walkThrough.mp4";
 import Hero1 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152615.png";
 import Hero2 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152903.png";
 import Hero3 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152930.png";

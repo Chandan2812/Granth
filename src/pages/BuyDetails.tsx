@@ -97,6 +97,8 @@ const BuyDetails: React.FC = () => {
           <video
             src={projectHighlights[3].videoUrl}
             controls
+            autoPlay
+            muted
             className="rounded-xl shadow-lg w-full"
           />
         ) : null}
