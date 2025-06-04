@@ -88,7 +88,7 @@ const RentDetails: React.FC = () => {
                 console.log("Price List button clicked");
               }}
             >
-              View Price List
+              View Payment Plan
             </button>
           </div>
         </div>

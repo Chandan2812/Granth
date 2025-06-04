@@ -20,7 +20,7 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
   const downloadBrochure = () => {
     const link = document.createElement("a");
     link.href = brochurePDF;
-    link.download = "Brochure_Granth.pdf";
+    link.download = "Velvet_Vista.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
