@@ -23,7 +23,6 @@ const AdminLayout = () => {
       label: "Property Listings",
       to: "/admin/property_listing",
     },
-    { icon: <FaCommentDots />, label: "Leads", to: "/admin/leads" },
     { icon: <FaEnvelope />, label: "Newsletter", to: "/admin/newsletter" },
     { icon: <FaMailBulk />, label: "Emailer", to: "/admin/emailer" },
 

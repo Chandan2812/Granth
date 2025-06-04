@@ -44,31 +44,31 @@ const Dashboard = () => {
           title="Newsletter Subscribers"
           count={subscriberCount}
           icon={<FaUsers />}
-          gradient="from-pink-500 to-red-500"
+          gradient="from-pink-200 to-red-200"
         />
         <StatCard
           title="Sent Newsletters"
           count={newsletterCount}
           icon={<FaNewspaper />}
-          gradient="from-purple-500 to-indigo-500"
+          gradient="from-purple-200 to-indigo-200"
         />
         <StatCard
           title="Sent Emailers"
           count={emailerCount}
           icon={<FaEnvelope />}
-          gradient="from-green-400 to-blue-500"
+          gradient="from-green-200 to-blue-200"
         />
         <StatCard
           title="Leads Generated"
           count={contactCount}
           icon={<FaPhoneAlt />}
-          gradient="from-yellow-400 to-orange-500"
+          gradient="from-yellow-200 to-orange-200"
         />
         <StatCard
           title="Property Listings"
           count={propertyCount}
           icon={<FaBuilding />}
-          gradient="from-yellow-400 to-orange-500"
+          gradient="from-cyan-200 to-teal-200"
         />
       </div>
     </div>
@@ -84,13 +84,13 @@ interface StatCardProps {
 
 const StatCard = ({ title, count, icon, gradient }: StatCardProps) => (
   <div
-    className={`bg-gradient-to-r ${gradient} text-white p-6 rounded-2xl shadow-lg transition transform hover:scale-105`}
+    className={`bg-gradient-to-r ${gradient} text-gray-800 p-6 rounded-2xl shadow-md transition transform hover:scale-105`}
   >
     <div className="flex items-center justify-between mb-4">
       <div className="text-4xl">{icon}</div>
       <p className="text-4xl font-bold">{count}</p>
     </div>
-    <h3 className="text-xl font-semibold">{title}</h3>
+    <h3 className="text-lg font-semibold">{title}</h3>
   </div>
 );
 
