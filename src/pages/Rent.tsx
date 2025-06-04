@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import PromptConsultation from "../components/PromptConsultation";
 
 const projectKeys = Object.keys(projectPageData) as (
-  | "sawantwadi"
+  | "velvet_vista"
   | "baliHeights"
 )[];
 

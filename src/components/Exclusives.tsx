@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { projectPageData } from "../data/PropertyData";
 
 const projectKeys = Object.keys(projectPageData) as (
-  | "sawantwadi"
+  | "velvet_vista"
   | "baliHeights"
 )[];
 
