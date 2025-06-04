@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { Projects } from "../data/UpcomingProjects";
 import Navbar from "../components/Nav";
 import Footer from "../components/Footer";
-import { MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import DownloadBrochureForm from "../components/DownloadBrochureForm";
 import DownloadPaymentPlan from "../components/DownloadPayment";
 
@@ -39,29 +39,59 @@ const OffPlansDetails: React.FC = () => {
     connectivity,
   } = project;
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: true,
-  };
+  const SampleNextArrow = ({ onClick }: { onClick?: () => void }) => (
+    <div
+      onClick={onClick}
+      className="absolute hidden md:block top-1/2 right-4 z-10 transform -translate-y-1/2 bg-white dark:bg-black text-[var(--primary-color)] p-2 rounded-full shadow cursor-pointer hover:scale-105 transition"
+    >
+      <ChevronRight size={48} />
+    </div>
+  );
 
+  const SamplePrevArrow = ({ onClick }: { onClick?: () => void }) => (
+    <div
+      onClick={onClick}
+      className="absolute hidden md:block top-1/2 left-4 z-10 transform -translate-y-1/2 bg-white dark:bg-black text-[var(--primary-color)] p-2 rounded-full shadow cursor-pointer hover:scale-105 transition"
+    >
+      <ChevronLeft size={48} />
+    </div>
+  );
+
+  const settings = {
+    centerMode: true,
+    centerPadding: "20%", // desktop: peek sides
+    slidesToShow: 1,
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 500,
+    pauseOnHover: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 640, // below 640px (mobile)
+        settings: {
+          centerMode: false, // turn off center mode
+          centerPadding: "0px", // no side preview
+          slidesToShow: 1, // full‐width slide
+        },
+      },
+    ],
+  };
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <Navbar />
 
-      <div className="w-full overflow-hidden">
-        <Slider {...sliderSettings}>
+      <div className="w-full py-8">
+        <Slider {...settings}>
           {bannerImages.map((src, index) => (
-            <div key={index}>
+            <div key={index} className="px-2">
               <img
                 src={src}
-                alt={`Banner ${index}`}
-                className="w-full md:h-[95vh] h-[40vh] object-cover"
+                alt={`Image ${index}`}
+                className="rounded-lg object-cover md:h-[90vh] h-[40vh]  w-full shadow-md"
               />
             </div>
           ))}
@@ -70,7 +100,7 @@ const OffPlansDetails: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-4xl font-bold mb-4">{name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">{name}</h1>
           <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
             {description}
           </p>
@@ -107,7 +137,7 @@ const OffPlansDetails: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-neutral-100 dark:bg-neutral-900 border border-gray-300 dark:border-gray-700 md:p-8 p-3 rounded-xl shadow-lg">
             <h2 className="text-2xl font-semibold mb-6">Project Highlights</h2>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300 px-4">
               {highlights.map((point, idx) => {
                 const formatted = point
                   .replace(
@@ -130,7 +160,7 @@ const OffPlansDetails: React.FC = () => {
                 return (
                   <li
                     key={idx}
-                    className="list-disc list-inside"
+                    className="list-disc list-outside pl-5"
                     dangerouslySetInnerHTML={{ __html: formatted }}
                   />
                 );

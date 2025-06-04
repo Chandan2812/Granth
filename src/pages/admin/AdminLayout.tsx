@@ -8,7 +8,7 @@ import {
   FaBuilding,
 } from "react-icons/fa";
 import { Outlet, Link, useLocation } from "react-router-dom";
-import logo from "../../assets/logo2.png";
+import logo from "../../assets/Granth logo (6).png";
 
 const AdminLayout = () => {
   const location = useLocation();
