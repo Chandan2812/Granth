@@ -26,7 +26,7 @@ export const Exclusives: React.FC = () => {
   if (!project) return <div>Project not found</div>;
 
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white md:py-10 relative">
+    <div className="bg-white dark:bg-black text-black dark:text-white md:py-10 w-full relative">
       <h2 className="text-3xl md:text-4xl font-light  text-black dark:text-gray-100 text-center font-raleway under">
         Our Exclusive Projects
       </h2>
@@ -35,12 +35,12 @@ export const Exclusives: React.FC = () => {
         <button
           onClick={prevProject}
           aria-label="Previous Project"
-          className="absolute left-0 md:left-10 top-1/2 -translate-y-1/2 text-[var(--primary-color)] hover:opacity-80 z-20"
+          className="absolute -left-4 md:left-10 top-1/2 -translate-y-1/2 text-[var(--primary-color)] hover:opacity-80 z-20"
         >
           <ChevronLeft size={80} />
         </button>
 
-        <div className="max-w-6xl w-full flex items-center gap-4 shadow-lg rounded-lg bg-white dark:bg-neutral-900 p-8 relative z-10">
+        <div className="max-w-6xl w-full flex items-center gap-4 shadow-lg rounded-lg bg-white dark:bg-neutral-900 p-8 relative">
           {/* Main Content */}
           <div className="flex flex-col md:flex-row gap-6 w-full">
             {/* Left Side */}
@@ -87,7 +87,7 @@ export const Exclusives: React.FC = () => {
         <button
           onClick={nextProject}
           aria-label="Next Project"
-          className="absolute right-0 md:right-10 top-1/2 -translate-y-1/2 p-3  text-[var(--primary-color)] hover:opacity-80  z-20"
+          className="absolute -right-6 md:right-10 top-1/2 -translate-y-1/2 p-3  text-[var(--primary-color)] hover:opacity-80  z-20"
         >
           <ChevronRight size={80} />
         </button>

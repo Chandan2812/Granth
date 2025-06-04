@@ -145,21 +145,20 @@ export default function Hero() {
 
       {/* Left Content */}
       <div className="font-raleway font-light relative z-10 w-full sm:w-1/2 lg:w-2/5 px-4 sm:px-6 md:px-10 mb-8 lg:mb-0">
-        <h1 className="text-4xl leading-snug mb-6 uppercase">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl leading-snug mb-6 uppercase">
           Find Your Perfect Home or Invest in Goa with <br />
-          <span className="text-[var(--primary-color)] text-5xl font-semibold">
+          <span className="text-3xl sm:text-4xl md:text-5xl text-[var(--primary-color)] font-semibold">
             Granth Dream homes
           </span>
         </h1>
-        <p className="text-lg mb-8 text-white/80">
-          Your most
-          <span className="font-semibold"> Trusted & Reliable </span> Real
-          Estate Partner
+        <p className="text-base sm:text-lg mb-8 text-white/80">
+          Your most <span className="font-semibold"> Trusted & Reliable </span>{" "}
+          Real Estate Partner
         </p>
       </div>
 
       {/* Right Form */}
-      <div className="relative z-10 w-full sm:w-11/12 lg:w-[420px] bg-transparent p-8 shadow-xl backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
+      <div className="relative w-full sm:w-11/12 lg:w-[420px] bg-transparent p-8 shadow-xl backdrop-blur-md space-y-6 mt-5 font-raleway font-light transition-colors">
         <form
           onSubmit={step === 1 ? handleSendOtp : handleVerifyOtp}
           className="space-y-4"
@@ -184,13 +183,13 @@ export default function Hero() {
                 <label className="text-sm mb-1 block text-gray-300">
                   Phone Number
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <select
                     value={formData.countryCode}
                     onChange={(e) =>
                       setFormData({ ...formData, countryCode: e.target.value })
                     }
-                    className="bg-black p-3  border border-gray-300 dark:border-gray-700"
+                    className="w-full sm:w-auto bg-black p-3 border border-gray-300 dark:border-gray-700"
                   >
                     <option value="+91">🇮🇳 +91</option>
                     <option value="+1">🇺🇸 +1</option>
@@ -207,12 +206,11 @@ export default function Hero() {
                     value={formData.phone}
                     onChange={(e) => {
                       const value = e.target.value;
-                      // Allow only digits
                       if (/^\d*$/.test(value)) {
                         setFormData({ ...formData, phone: value });
                       }
                     }}
-                    className="flex-1 bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
+                    className="w-full bg-transparent backdrop-blur-sm p-3 text-black dark:text-white border border-gray-300 dark:border-gray-700"
                     required
                   />
                 </div>
