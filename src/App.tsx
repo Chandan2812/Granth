@@ -1,6 +1,11 @@
 import "./App.css";
 import Landing from "./pages/Landing";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Sell from "./pages/Sell";
 import Blog from "./components/Blog";
 import BlogDetails from "./components/BlogDetails";
@@ -27,9 +32,12 @@ import BuyDetails from "./pages/BuyDetails";
 import RentDetails from "./pages/RentDetails";
 import OffPlansDetails from "./pages/OffPlanDetails";
 
-function App() {
+function AppWrapper() {
+  const location = useLocation();
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
   return (
-    <Router>
+    <>
       <Routes>
         <Route path="/" element={<Landing />} />
         {/* <Route path="/projects/:id" element={<ProjectDetails />} /> */}
@@ -45,8 +53,8 @@ function App() {
         <Route path="/offPlan/:id" element={<OffPlansDetails />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/newsletter" element={<NewsletterForm />} />
-        <Route path="/emailer" element={<Emailer />} />
+        <Route path="/admin/sendnewsletter" element={<NewsletterForm />} />
+        <Route path="/admin/sendemailer" element={<Emailer />} />
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="newsletter" element={<NewsletterPage />} />
@@ -80,7 +88,15 @@ function App() {
           </a>
         </div>
       </div>
-      <Chatbot />
+      {!isAdminRoute && <Chatbot />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppWrapper />
     </Router>
   );
 }
