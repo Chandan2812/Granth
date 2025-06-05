@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from "../assets/logo2.png";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -96,18 +95,6 @@ const Emailer = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative">
-      {/* Navbar */}
-      <nav className="bg-gray-900 shadow px-6">
-        <a href="admin/emailer">
-          <img
-            src={logo}
-            alt="Mondus Logo"
-            className="h-20"
-            draggable="false"
-          />
-        </a>
-      </nav>
-
       {/* Main Content */}
       <div className="p-6 max-w-7xl mx-auto text-white">
         <h1 className="text-3xl font-bold mb-4 text-center">📧 Send Emailer</h1>

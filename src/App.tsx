@@ -53,8 +53,7 @@ function AppWrapper() {
         <Route path="/offPlan/:id" element={<OffPlansDetails />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin/sendnewsletter" element={<NewsletterForm />} />
-        <Route path="/admin/sendemailer" element={<Emailer />} />
+
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="newsletter" element={<NewsletterPage />} />
@@ -63,6 +62,8 @@ function AppWrapper() {
           <Route path="leads" element={<AdminLeads />} />
           <Route path="chatbot" element={<ChatbotHistory />} />
           <Route path="property_listing" element={<ListProperty />} />
+          <Route path="sendnewsletter" element={<NewsletterForm />} />
+          <Route path="sendemailer" element={<Emailer />} />
         </Route>
       </Routes>
       {/* Bottom Buttons */}

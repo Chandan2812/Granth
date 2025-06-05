@@ -35,7 +35,7 @@ const AdminLayout = () => {
     <div className="min-h-screen bg-black text-white font-raleway flex flex-col lg:flex-row">
       {/* Mobile Top Bar */}
       <div className="lg:hidden bg-[#111] flex items-center justify-between px-4 py-3 shadow-md relative z-50">
-        <a href="/">
+        <a href="/admin">
           <img src={logo} alt="logo" className="h-10 w-auto" />
         </a>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -71,7 +71,7 @@ const AdminLayout = () => {
 
       {/* Fixed Sidebar for Desktop */}
       <aside className="hidden lg:flex fixed top-0 left-0 h-full w-64 bg-[#111] shadow-md p-4 flex-col space-y-4 z-40">
-        <a href="/">
+        <a href="/admin">
           <img src={logo} alt="logo" className="h-14 w-auto mx-auto mb-2" />
         </a>
         <nav className="flex flex-col gap-2 text-sm">
