@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaComments, FaTimes } from "react-icons/fa";
 
 const Chatbot: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [messages, setMessages] = useState<
     { sender: "user" | "bot"; text: string }[]
   >([]);
@@ -13,31 +13,97 @@ const Chatbot: React.FC = () => {
     email: "",
   });
   const [userDetailsCaptured, setUserDetailsCaptured] = useState(false);
+  const [selectedPurpose, setSelectedPurpose] = useState<
+    null | "Buy" | "Sell" | "Rent"
+  >(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   const toggleChat = () => {
-    const newState = !open;
-    setOpen(newState);
-
-    if (newState) {
-      setMessages([
-        {
-          sender: "bot",
-          text: "👋 Welcome to Granth Dream Homes! May I know your name and email to assist you better?",
-        },
-      ]);
-    } else {
-      // Reset chat on close
-      setMessages([]);
-      setInput("");
-      setUserDetailsCaptured(false);
-      setUserInfo({ name: "", email: "" });
-    }
+    setOpen((prev) => !prev);
   };
 
+  // Scroll to bottom when messages update
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+  useEffect(() => {
+    try {
+      const savedMessages = sessionStorage.getItem("granth-chat-messages");
+      const savedUserInfo = sessionStorage.getItem("granth-chat-userInfo");
+      const savedUserDetailsCaptured = sessionStorage.getItem(
+        "granth-chat-userDetailsCaptured"
+      );
+      const savedSelectedPurpose = sessionStorage.getItem(
+        "granth-chat-purpose"
+      );
+
+      if (savedMessages) {
+        const parsedMessages = JSON.parse(savedMessages);
+        if (Array.isArray(parsedMessages)) {
+          setMessages(parsedMessages);
+        }
+      } else {
+        const welcome = {
+          sender: "bot" as const,
+          text: "👋 Welcome to Granth Dream Homes! May I know your name and email to assist you better?",
+        };
+        setMessages([welcome]);
+        sessionStorage.setItem(
+          "granth-chat-messages",
+          JSON.stringify([welcome])
+        );
+      }
+
+      if (savedUserInfo) setUserInfo(JSON.parse(savedUserInfo));
+      if (savedUserDetailsCaptured !== null)
+        setUserDetailsCaptured(savedUserDetailsCaptured === "true");
+      if (savedSelectedPurpose)
+        setSelectedPurpose(savedSelectedPurpose as "Buy" | "Sell" | "Rent");
+    } catch (err) {
+      console.error("Error parsing chatbot session data. Resetting chat.", err);
+      sessionStorage.clear();
+      const welcome = {
+        sender: "bot" as const,
+        text: "👋 Welcome to Granth Dream Homes! May I know your name and email to assist you better?",
+      };
+      setMessages([welcome]);
+      sessionStorage.setItem("granth-chat-messages", JSON.stringify([welcome]));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (messages.length === 0) {
+      const welcome = {
+        sender: "bot" as const,
+        text: "👋 Welcome to Granth Dream Homes! May I know your name and email to assist you better?",
+      };
+      setMessages([welcome]);
+      sessionStorage.setItem("granth-chat-messages", JSON.stringify([welcome]));
+    }
+  }, []);
+
+  // Keep sessionStorage in sync
+  useEffect(() => {
+    sessionStorage.setItem("granth-chat-messages", JSON.stringify(messages));
+  }, [messages]);
+
+  useEffect(() => {
+    sessionStorage.setItem("granth-chat-userInfo", JSON.stringify(userInfo));
+  }, [userInfo]);
+
+  useEffect(() => {
+    sessionStorage.setItem(
+      "granth-chat-userDetailsCaptured",
+      String(userDetailsCaptured)
+    );
+  }, [userDetailsCaptured]);
+
+  useEffect(() => {
+    if (selectedPurpose) {
+      sessionStorage.setItem("granth-chat-purpose", selectedPurpose);
+    }
+  }, [selectedPurpose]);
 
   const sendMessage = async () => {
     if (!input.trim() || loading) return;
@@ -52,7 +118,6 @@ const Chatbot: React.FC = () => {
       let botReply = "";
 
       if (!userDetailsCaptured) {
-        // Try to extract name and email from the input
         const emailMatch = trimmedInput.match(
           /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/
         );
@@ -65,17 +130,15 @@ const Chatbot: React.FC = () => {
           return;
         }
 
-        // Save user info
         const name = namePart;
         const email = emailMatch[0];
-
         setUserInfo({ name, email });
         setUserDetailsCaptured(true);
 
-        botReply = `Thanks ${name}! You can now ask me anything about our properties. 😊`;
+        botReply = `Thanks ${name}! What are you looking to do today?`;
+        setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
 
-        // Send user details + intro message to backend
-        await fetch("http://localhost:8000/api/chatbot", {
+        await fetch("https://granth-backend.onrender.com/api/chatbot", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -86,31 +149,32 @@ const Chatbot: React.FC = () => {
           }),
         });
 
-        setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
-      } else {
-        // Normal chatbot message
-        const res = await fetch(
-          "https://granth-backend.onrender.com/api/chatbot",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              user: userInfo,
-              message: trimmedInput,
-              chatHistory: [...messages, newUserMsg],
-            }),
-          }
-        );
-
-        const data = await res.json();
-
-        botReply =
-          res.ok && data.reply
-            ? data.reply
-            : "Sorry, something went wrong. Please try again.";
-
-        setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
+        return;
       }
+
+      if (!selectedPurpose) return;
+
+      const res = await fetch(
+        "https://granth-backend.onrender.com/api/chatbot",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            user: userInfo,
+            purpose: selectedPurpose,
+            message: trimmedInput,
+            chatHistory: [...messages, newUserMsg],
+          }),
+        }
+      );
+
+      const data = await res.json();
+      botReply =
+        res.ok && data.reply
+          ? data.reply
+          : "Sorry, something went wrong. Please try again.";
+
+      setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
     } catch (error) {
       console.error(error);
       setMessages((prev) => [
@@ -139,6 +203,7 @@ const Chatbot: React.FC = () => {
           <div className="bg-[var(--primary-color)] text-white px-4 py-2 font-bold rounded-t-lg">
             Chat with Granth Properties
           </div>
+
           <div className="flex-1 p-4 overflow-y-auto space-y-2 text-sm bg-gray-100">
             {messages.map((msg, i) => (
               <div
@@ -154,6 +219,49 @@ const Chatbot: React.FC = () => {
             ))}
             <div ref={messagesEndRef} />
           </div>
+
+          {/* Purpose Selection */}
+          {userDetailsCaptured && !selectedPurpose && (
+            <div className="flex justify-around p-2 gap-2 flex-wrap border-t">
+              {["Buy", "Sell", "Rent"].map((purpose) => (
+                <button
+                  key={purpose}
+                  className="bg-[var(--primary-color)] text-white px-4 py-1 rounded-full text-sm"
+                  onClick={async () => {
+                    setSelectedPurpose(purpose as "Buy" | "Sell" | "Rent");
+
+                    setMessages((prev) => [
+                      ...prev,
+                      { sender: "user", text: purpose },
+                      {
+                        sender: "bot",
+                        text: `Got it! You're interested in ${purpose.toLowerCase()}ing property. How can I help you today?`,
+                      },
+                    ]);
+
+                    await fetch(
+                      "https://granth-backend.onrender.com/api/chatbot",
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                          user: userInfo,
+                          purpose,
+                          message: purpose,
+                          isLead: true,
+                          chatHistory: messages,
+                        }),
+                      }
+                    );
+                  }}
+                >
+                  {purpose}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Input Area */}
           <div className="p-2 flex border-t">
             <input
               type="text"
@@ -166,12 +274,12 @@ const Chatbot: React.FC = () => {
                   ? "e.g. John Doe john@example.com"
                   : "Type your message..."
               }
-              disabled={loading}
+              disabled={loading || (userDetailsCaptured && !selectedPurpose)}
             />
             <button
               className="bg-[var(--primary-color)] text-white px-4 rounded-r"
               onClick={sendMessage}
-              disabled={loading}
+              disabled={loading || (userDetailsCaptured && !selectedPurpose)}
             >
               {loading ? "..." : "Send"}
             </button>
