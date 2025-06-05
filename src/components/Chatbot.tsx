@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaComments, FaTimes } from "react-icons/fa";
 
 const Chatbot: React.FC = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<
     { sender: "user" | "bot"; text: string }[]
   >([]);

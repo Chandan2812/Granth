@@ -66,7 +66,9 @@ const Footer = () => {
             <div className="w-20 border-t border-[var(--primary-color)]" />
           </div>
         </div>
-        <h2 className="text-2xl font-thin mt-5 md:mt-0">CONTACTS</h2>
+        <h2 className="hidden md:block text-2xl font-thin mt-5 md:mt-0">
+          CONTACTS
+        </h2>
       </div>
 
       {/* Mid horizontal line */}
