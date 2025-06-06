@@ -31,7 +31,7 @@ import {
 export const Projects = [
   {
     id: "velvet-vista",
-    name: "Welcome to Velvet Vista",
+    name: "Welcome to VELVET VISTA",
     bannerImages: [Hero1, Hero2, Hero3, Hero4, Hero5, Hero6, Hero7, Hero8],
     description:
       "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",
@@ -54,6 +54,7 @@ export const Projects = [
     ],
     highlights: [
       "Fully loaded serviced apartments",
+      "Attractive payment plans",
       "12% assured pre-rentals till possession on the amount paid",
       "Free stay for 12 nights every year",
       "30% discount on F&B services across all GHD Group properties",
@@ -62,7 +63,7 @@ export const Projects = [
       "One complimentary event per year for up to 500 guests",
     ],
     rera: {
-      title: "Officially RERA Registered",
+      title: "RERA APPROVED PROJECT",
       text1:
         "We're proud to announce that Velvet Vista by GHD Infra is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
       registrationId: "P51700055053",
@@ -76,12 +77,12 @@ export const Projects = [
       { label: "Housekeeping", icon: Brush },
       { label: "Laundry Services", icon: GiWashingMachine },
       { label: "24/7 Security and CCTV", icon: ShieldCheck },
-      { label: "Wi-Fi in Premises", icon: Wifi },
-      { label: "Single for Parks", icon: Car },
+      { label: "Wi-Fi", icon: Wifi },
+      { label: "Valet parking", icon: Car },
       { label: "Landscaped Gardens", icon: Leaf },
       { label: "Swimming Pool", icon: Waves },
       { label: "Multi-Purpose Courts", icon: Dumbbell },
-      { label: "Meditation Pavilion", icon: PersonStanding },
+      { label: "Meditation & Wellness ", icon: PersonStanding },
       { label: "Café in the Club", icon: Coffee },
       { label: "Kids Play Area", icon: Baby },
     ],

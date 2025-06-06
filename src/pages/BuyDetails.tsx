@@ -91,7 +91,7 @@ const BuyDetails: React.FC = () => {
               <img
                 src={src}
                 alt={`Image ${index}`}
-                className="rounded-lg object-cover md:h-[90vh] h-[40vh]  w-full shadow-md"
+                className="rounded-lg object-cover md:h-[100vh] h-[40vh]  w-full shadow-md"
               />
             </div>
           ))}
@@ -141,11 +141,31 @@ const BuyDetails: React.FC = () => {
               {highlights.map((point, idx) => {
                 const formatted = point
                   .replace(
-                    /(assured)/gi,
+                    /(Fully loaded)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
-                    /(discount)/gi,
+                    /(12% assured pre-rentals)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Attractive)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Minimum 5% lease guarantee)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(30% discount on F&B)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Royal Orchid Group of Hotels)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Free stay for 12 nights)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
@@ -153,7 +173,7 @@ const BuyDetails: React.FC = () => {
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
-                    /(complimentary)/gi,
+                    /(One complimentary)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   );
 
@@ -216,8 +236,8 @@ const BuyDetails: React.FC = () => {
                   key={index}
                   className="flex items-center gap-4 p-5 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-neutral-900 shadow hover:shadow-md transition"
                 >
-                  <Icon className="w-8 h-8 text-[var(--primary-color)]" />
-                  <span className="text-gray-800 dark:text-gray-200 text-base">
+                  <Icon className="w-8 text-[var(--primary-color)]" />
+                  <span className="text-gray-800 dark:text-gray-200 text-xs">
                     {label}
                   </span>
                 </div>

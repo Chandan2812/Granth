@@ -184,7 +184,7 @@ export const projectPageData = {
         "Landscaped Garden",
         "Common Swimming Pool",
         "Fitness Centre",
-        "Meditation Pavilion",
+        "Meditation & Wellness",
         "Café/Tea Bar",
       ],
     },
