@@ -80,6 +80,26 @@ const BuyDetails: React.FC = () => {
       },
     ],
   };
+  const highlightWords = [
+    "Mopa Airport",
+    "casino zone",
+    "Mall De Goa",
+    "NH66",
+    "Panjim City",
+    "beaches",
+  ];
+  const formatPlace = (text: string) => {
+    let formatted = text;
+    highlightWords.forEach((word) => {
+      const regex = new RegExp(`(${word})`, "gi");
+      formatted = formatted.replace(
+        regex,
+        `<span style="color: var(--primary-color); font-weight: 600;">$1</span>`
+      );
+    });
+    return formatted;
+  };
+
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <Navbar />
@@ -251,7 +271,7 @@ const BuyDetails: React.FC = () => {
           <ul className="flex-1 space-y-4 text-gray-800 dark:text-gray-300">
             <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2">
               <MapPin className="w-5 h-5 text-green-600" />
-              Connectivity Of The Property
+              {connectivity.title}
             </h4>
             {connectivity.places.map((place, index) => (
               <li key={index} className="flex items-center gap-3">
@@ -269,7 +289,11 @@ const BuyDetails: React.FC = () => {
                     d="M9 12l2 2 4-4"
                   />
                 </svg>
-                <span className="text-lg">{place}</span>
+
+                <span
+                  className="text-lg"
+                  dangerouslySetInnerHTML={{ __html: formatPlace(place) }}
+                />
               </li>
             ))}
           </ul>
