@@ -31,7 +31,7 @@ import {
 export const Projects = [
   {
     id: "velvet-vista",
-    name: "Welcome to VELVET VISTA",
+    name: "VELVET VISTA",
     bannerImages: [Hero1, Hero2, Hero3, Hero4, Hero5, Hero6, Hero7, Hero8],
     description:
       "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",

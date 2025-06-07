@@ -120,7 +120,10 @@ const BuyDetails: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            {" "}
+            Welcome to <span className="text-[#75253B]">{name}</span>
+          </h1>
           <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
             {description}
           </p>
@@ -143,12 +146,17 @@ const BuyDetails: React.FC = () => {
         </div>
 
         {projectHighlights[3]?.videoUrl && (
-          <video
-            src={projectHighlights[3].videoUrl}
-            controls
-            muted
-            className="rounded-xl shadow-lg w-full"
-          />
+          <div>
+            <h2 className="text-2xl font-semibold mb-4 underline">
+              <i>Walk Through </i>
+            </h2>
+            <video
+              src={projectHighlights[3].videoUrl}
+              controls
+              muted
+              className="rounded-xl shadow-lg w-full"
+            />
+          </div>
         )}
       </div>
 
