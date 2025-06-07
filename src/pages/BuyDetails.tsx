@@ -80,6 +80,30 @@ const BuyDetails: React.FC = () => {
       },
     ],
   };
+
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    pauseOnHover: false, // <-- important
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768, // mobile
+        settings: {
+          slidesToShow: 1,
+          infinite: true, // <-- make sure it's repeated inside
+          autoplay: true,
+          pauseOnHover: false,
+        },
+      },
+    ],
+  };
+
   const highlightWords = [
     "Mopa Airport",
     "casino zone",
@@ -246,16 +270,17 @@ const BuyDetails: React.FC = () => {
           <h2 className="text-2xl font-semibold mb-6 text-center">
             Features & Amenities
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <Slider {...sliderSettings} className="mb-6">
             {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`Feature ${i}`}
-                className="rounded-lg"
-              />
+              <div key={i} className="px-2">
+                <img
+                  src={img}
+                  alt={`Feature ${i}`}
+                  className="rounded-lg w-full h-auto object-cover"
+                />
+              </div>
             ))}
-          </div>
+          </Slider>
           <section>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-14">
               {featuresAndAmenities.map(({ label, icon: Icon }, index) => (
