@@ -146,7 +146,8 @@ const BuyDetails: React.FC = () => {
         <div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             {" "}
-            Welcome to <span className="text-[#75253B]">{name}</span>
+            Welcome to{" "}
+            <span className="text-[var(--primary-color)]">{name}</span>
           </h1>
           <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
             {description}
