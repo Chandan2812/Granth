@@ -80,18 +80,62 @@ const OffPlansDetails: React.FC = () => {
       },
     ],
   };
+
+  const sliderSettings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    pauseOnHover: false, // <-- important
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768, // mobile
+        settings: {
+          slidesToShow: 1,
+          infinite: true, // <-- make sure it's repeated inside
+          autoplay: true,
+          pauseOnHover: false,
+        },
+      },
+    ],
+  };
+
+  const highlightWords = [
+    "Mopa Airport",
+    "casino zone",
+    "Mall De Goa",
+    "NH66",
+    "Panjim City",
+    "beaches",
+  ];
+  const formatPlace = (text: string) => {
+    let formatted = text;
+    highlightWords.forEach((word) => {
+      const regex = new RegExp(`(${word})`, "gi");
+      formatted = formatted.replace(
+        regex,
+        `<span style="color: var(--primary-color); font-weight: 600;">$1</span>`
+      );
+    });
+    return formatted;
+  };
+
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <Navbar />
 
-      <div className="w-full py-8">
+      <div className="w-full ">
         <Slider {...settings}>
           {bannerImages.map((src, index) => (
             <div key={index} className="px-2">
               <img
                 src={src}
                 alt={`Image ${index}`}
-                className="rounded-lg object-cover md:h-[90vh] h-[40vh]  w-full shadow-md"
+                className="rounded-lg object-cover md:h-[100vh] h-[40vh]  w-full shadow-md"
               />
             </div>
           ))}
@@ -100,7 +144,11 @@ const OffPlansDetails: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">{name}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            {" "}
+            Welcome to{" "}
+            <span className="text-[var(--primary-color)]">{name}</span>
+          </h1>
           <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
             {description}
           </p>
@@ -114,7 +162,7 @@ const OffPlansDetails: React.FC = () => {
             </button>
 
             <button
-              className="px-3 py-3 border border-[var(--primary-color)] text-[var(--primary-color)] dark:text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
+              className="px-3 py-3 border border-[var(--primary-color)]  text-[var(--primary-color)]  hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
               onClick={() => setViewPayment(true)}
             >
               View Payment Plan
@@ -123,29 +171,56 @@ const OffPlansDetails: React.FC = () => {
         </div>
 
         {projectHighlights[3]?.videoUrl && (
-          <video
-            src={projectHighlights[3].videoUrl}
-            controls
-            autoPlay
-            muted
-            className="rounded-xl shadow-lg w-full"
-          />
+          <div>
+            <h2 className="text-2xl font-semibold mb-4 underline text-center">
+              <i>Walk Through </i>
+            </h2>
+            <video
+              src={projectHighlights[3].videoUrl}
+              controls
+              autoPlay
+              muted
+              className="rounded-xl shadow-lg h-[50vh] w-full"
+            />
+          </div>
         )}
       </div>
 
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-neutral-100 dark:bg-neutral-900 border border-gray-300 dark:border-gray-700 md:p-8 p-3 rounded-xl shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Project Highlights</h2>
+            <h2 className="text-2xl font-semibold mb-6 uppercase text-[var(--primary-color)]">
+              Project Highlights
+            </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300 px-4">
               {highlights.map((point, idx) => {
                 const formatted = point
                   .replace(
-                    /(assured)/gi,
+                    /(Fully loaded)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
-                    /(discount)/gi,
+                    /(12% assured pre-rentals)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Attractive)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Minimum 5% lease guarantee)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(30% discount on F&B)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Royal Orchid Group of Hotels)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Free stay for 12 nights)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
@@ -153,7 +228,7 @@ const OffPlansDetails: React.FC = () => {
                     '<span style="color: var(--primary-color)">$1</span>'
                   )
                   .replace(
-                    /(complimentary)/gi,
+                    /(One complimentary)/gi,
                     '<span style="color: var(--primary-color)">$1</span>'
                   );
 
@@ -173,11 +248,13 @@ const OffPlansDetails: React.FC = () => {
       {rera.registered && (
         <div className="py-16 bg-white dark:bg-black max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl font-semibold mb-4">{rera.title}</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[var(--primary-color)]">
+              {rera.title}
+            </h2>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
               {rera.text1}
             </p>
-            <p className="text-yellow-500 font-bold text-lg mb-2">
+            <p className="text-[var(--primary-color)] font-bold text-lg mb-2">
               RERA No.: {rera.registrationId}
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
@@ -196,19 +273,20 @@ const OffPlansDetails: React.FC = () => {
 
       <div className="py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-            Features & Amenities
+          <h2 className="text-2xl font-semibold mb-6 text-center uppercase text-[var(--primary-color)]">
+            features & Amenities
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+          <Slider {...sliderSettings} className="mb-6">
             {images.map((img, i) => (
-              <img
-                key={i}
-                src={img}
-                alt={`Feature ${i}`}
-                className="rounded-lg"
-              />
+              <div key={i} className="px-2">
+                <img
+                  src={img}
+                  alt={`Feature ${i}`}
+                  className="rounded-lg w-full h-auto object-cover"
+                />
+              </div>
             ))}
-          </div>
+          </Slider>
           <section>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-14">
               {featuresAndAmenities.map(({ label, icon: Icon }, index) => (
@@ -216,8 +294,8 @@ const OffPlansDetails: React.FC = () => {
                   key={index}
                   className="flex items-center gap-4 p-5 border border-gray-300 dark:border-gray-700 rounded-xl bg-white dark:bg-neutral-900 shadow hover:shadow-md transition"
                 >
-                  <Icon className="w-8 h-8 text-[var(--primary-color)]" />
-                  <span className="text-gray-800 dark:text-gray-200 text-base">
+                  <Icon className="w-8 text-[var(--primary-color)]" />
+                  <span className="text-gray-800 dark:text-gray-200 text-xs">
                     {label}
                   </span>
                 </div>
@@ -230,9 +308,9 @@ const OffPlansDetails: React.FC = () => {
       <div className="bg-white dark:bg-black py-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
           <ul className="flex-1 space-y-4 text-gray-800 dark:text-gray-300">
-            <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-[var(--primary-color)]">
               <MapPin className="w-5 h-5 text-green-600" />
-              Connectivity Of The Property
+              {connectivity.title}
             </h4>
             {connectivity.places.map((place, index) => (
               <li key={index} className="flex items-center gap-3">
@@ -250,7 +328,11 @@ const OffPlansDetails: React.FC = () => {
                     d="M9 12l2 2 4-4"
                   />
                 </svg>
-                <span className="text-lg">{place}</span>
+
+                <span
+                  className="text-lg"
+                  dangerouslySetInnerHTML={{ __html: formatPlace(place) }}
+                />
               </li>
             ))}
           </ul>
