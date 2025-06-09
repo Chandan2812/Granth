@@ -13,6 +13,7 @@ import ReraImg from "../assets/Project/velvet vista/WhatsApp Image 2025-06-03 at
 import image1 from "../assets/Project/velvet vista/image1.png";
 import image2 from "../assets/Project/velvet vista/image2.png";
 import image3 from "../assets/Project/velvet vista/image3.png";
+import image4 from "../assets/Project/velvet vista/image4.png";
 import { GiWashingMachine } from "react-icons/gi";
 import {
   ShieldCheck,
@@ -86,7 +87,7 @@ export const Projects = [
       { label: "Café in the Club", icon: Coffee },
       { label: "Kids Play Area", icon: Baby },
     ],
-    images: [image1, image2, image3],
+    images: [image1, image2, image3, image4],
     connectivity: {
       title: "Connectivity Of The Property",
       places: [
