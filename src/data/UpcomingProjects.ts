@@ -1,6 +1,6 @@
 import velvetBroucher from "../assets/Project/velvet vista/VELVET VISTA BROCHURE CTC.pdf";
 import velvetPaymentPlan from "../assets/Project/velvet vista/COST SHEET (VELVET VISTA) april 2025.pdf";
-import VelvetVideo from "../assets/Project/velvet vista/walkThrough.mp4";
+import VelvetVideo from "../assets/Project/velvet vista/video2.mp4";
 import Hero1 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152615.png";
 import Hero2 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152903.png";
 import Hero3 from "../assets/Project/velvet vista/Screenshot 2025-06-03 152930.png";
@@ -89,14 +89,14 @@ export const Projects = [
     ],
     images: [image1, image2, image3, image4],
     connectivity: {
-      title: "Connectivity Of The Property",
+      title: "CONNECTIVITY TO THE PROJECT",
       places: [
-        "25 minutes drive from Mopa Airport",
-        "10 minutes drive from casino zone",
-        "5 mins to Mall De Goa",
+        "25 minutes drive from MOPA AIRPORT",
+        "10 minutes drive from CASINO ZONE",
+        "5 mins to MALL DE GOA",
         "3 mins to NH66",
-        "10 mins to Panjim City",
-        "10 mins to nearby beaches",
+        "10 mins to PANJIM CITY",
+        "10 mins to nearby BEACHES",
       ],
       embeddedMapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.789818600066!2d73.9965998748892!3d15.387865185197214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba9beb557f0d%3A0xb92a1fbc1dbc32af!2sGranth%20Vihar!5e0!3m2!1sen!2sin!4v1749032037328!5m2!1sen!2sin",

@@ -128,7 +128,7 @@ const BuyDetails: React.FC = () => {
     <div className="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <Navbar />
 
-      <div className="w-full py-8">
+      <div className="w-full ">
         <Slider {...settings}>
           {bannerImages.map((src, index) => (
             <div key={index} className="px-2">
@@ -162,7 +162,7 @@ const BuyDetails: React.FC = () => {
             </button>
 
             <button
-              className="px-3 py-3 border border-[var(--primary-color)] text-[var(--primary-color)] dark:text-[var(--primary-color)] hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
+              className="px-3 py-3 border border-[var(--primary-color)]  text-[var(--primary-color)]  hover:bg-[var(--primary-color)] hover:text-white font-semibold rounded-md transition"
               onClick={() => setViewPayment(true)}
             >
               View Payment Plan
@@ -172,14 +172,15 @@ const BuyDetails: React.FC = () => {
 
         {projectHighlights[3]?.videoUrl && (
           <div>
-            <h2 className="text-2xl font-semibold mb-4 underline">
+            <h2 className="text-2xl font-semibold mb-4 underline text-center">
               <i>Walk Through </i>
             </h2>
             <video
               src={projectHighlights[3].videoUrl}
               controls
+              autoPlay
               muted
-              className="rounded-xl shadow-lg w-full"
+              className="rounded-xl shadow-lg h-[50vh] w-full"
             />
           </div>
         )}
@@ -188,7 +189,9 @@ const BuyDetails: React.FC = () => {
       <div className="py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-neutral-100 dark:bg-neutral-900 border border-gray-300 dark:border-gray-700 md:p-8 p-3 rounded-xl shadow-lg">
-            <h2 className="text-2xl font-semibold mb-6">Project Highlights</h2>
+            <h2 className="text-2xl font-semibold mb-6 uppercase text-[var(--primary-color)]">
+              Project Highlights
+            </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300 px-4">
               {highlights.map((point, idx) => {
                 const formatted = point
@@ -245,11 +248,13 @@ const BuyDetails: React.FC = () => {
       {rera.registered && (
         <div className="py-16 bg-white dark:bg-black max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-2xl font-semibold mb-4">{rera.title}</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-[var(--primary-color)]">
+              {rera.title}
+            </h2>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
               {rera.text1}
             </p>
-            <p className="text-yellow-500 font-bold text-lg mb-2">
+            <p className="text-[var(--primary-color)] font-bold text-lg mb-2">
               RERA No.: {rera.registrationId}
             </p>
             <p className="text-gray-700 dark:text-gray-300 mb-6">
@@ -268,8 +273,8 @@ const BuyDetails: React.FC = () => {
 
       <div className="py-16">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-            Features & Amenities
+          <h2 className="text-2xl font-semibold mb-6 text-center uppercase text-[var(--primary-color)]">
+            features & Amenities
           </h2>
           <Slider {...sliderSettings} className="mb-6">
             {images.map((img, i) => (
@@ -303,7 +308,7 @@ const BuyDetails: React.FC = () => {
       <div className="bg-white dark:bg-black py-16">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
           <ul className="flex-1 space-y-4 text-gray-800 dark:text-gray-300">
-            <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2">
+            <h4 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-[var(--primary-color)]">
               <MapPin className="w-5 h-5 text-green-600" />
               {connectivity.title}
             </h4>
