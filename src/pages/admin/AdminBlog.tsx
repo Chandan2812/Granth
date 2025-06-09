@@ -93,22 +93,25 @@ const AdminBlog = () => {
           <p className="text-gray-400">No blog posts found.</p>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full table-auto border-collapse border border-gray-700 text-sm sm:text-base">
+            <table className="w-full table-fixed border-collapse border border-gray-700 text-sm sm:text-base">
               <thead className="bg-[#1e1e1e] text-left">
                 <tr>
-                  <th className="px-4 py-3 border-b border-gray-700">Title</th>
-
-                  <th className="px-4 py-3 border-b border-gray-700">
+                  <th className="px-2 py-2 border-b border-gray-700 w-36 truncate">
+                    Title
+                  </th>
+                  <th className="px-2 py-2 border-b border-gray-700 w-40 truncate">
                     Excerpt
                   </th>
-                  <th className="px-4 py-3 border-b border-gray-700">
+                  <th className="px-2 py-2 border-b border-gray-700 w-48 truncate">
                     Content
                   </th>
-                  <th className="px-4 py-3 border-b border-gray-700">Author</th>
-                  <th className="px-4 py-3 border-b border-gray-700">
+                  <th className="px-2 py-2 border-b border-gray-700 w-24 truncate">
+                    Author
+                  </th>
+                  <th className="px-2 py-2 border-b border-gray-700 w-28 truncate">
                     Published
                   </th>
-                  <th className="px-4 py-3 border-b border-gray-700">
+                  <th className="px-2 py-2 border-b border-gray-700 w-24 truncate">
                     Actions
                   </th>
                 </tr>
@@ -119,33 +122,33 @@ const AdminBlog = () => {
                     key={blog._id}
                     className="even:bg-[#111] hover:bg-[#222] transition duration-200"
                   >
-                    <td className="px-4 py-3 max-w-xs truncate">
+                    <td className="px-2 py-2 truncate whitespace-nowrap">
                       {blog.title}
                     </td>
-
-                    <td className="px-4 py-3 max-w-xs truncate">
+                    <td className="px-2 py-2 truncate whitespace-nowrap">
                       {blog.excerpt}
                     </td>
-                    <td className="px-4 py-3 max-w-xs truncate">
+                    <td className="px-2 py-2 truncate whitespace-nowrap">
                       {blog.content}
                     </td>
-
-                    <td className="px-4 py-3">{blog.author}</td>
-                    <td className="px-4 py-3">
+                    <td className="px-2 py-2 truncate whitespace-nowrap">
+                      {blog.author}
+                    </td>
+                    <td className="px-2 py-2 truncate whitespace-nowrap">
                       {new Date(blog.datePublished).toLocaleDateString()}
                     </td>
-                    <td className="px-4 py-3 space-x-4">
+                    <td className="px-2 py-2 space-x-2">
                       <button
                         onClick={() => handleEdit(blog.slug)}
                         className="text-blue-600 hover:text-blue-700"
                       >
-                        <Edit />
+                        <Edit size={16} />
                       </button>
                       <button
                         onClick={() => handleDelete(blog.slug)}
                         className="text-red-600 hover:text-red-700"
                       >
-                        <Trash />
+                        <Trash size={16} />
                       </button>
                     </td>
                   </tr>
