@@ -79,7 +79,7 @@ const BlogPreview: React.FC = () => {
             >
               <div className="bg-white dark:bg-black rounded-lg h-[450px] flex flex-col overflow-hidden text-left">
                 <img
-                  src={`https://granth-backend.onrender.com${blog.coverImage}`}
+                  src={blog.coverImage}
                   alt={blog.title}
                   className="w-full h-48 object-cover rounded-t-lg"
                   draggable={false}

@@ -87,7 +87,7 @@ const Blog2 = () => {
             >
               <div className="bg-white dark:bg-black rounded-lg h-[450px] flex flex-col overflow-hidden text-left">
                 <img
-                  src={`https://granth-backend.onrender.com${post.coverImage}`}
+                  src={post.coverImage}
                   alt={post.title}
                   className="w-full h-[300px] object-fill rounded-t-lg"
                 />

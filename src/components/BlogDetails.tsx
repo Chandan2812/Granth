@@ -34,7 +34,7 @@ const Blog2Details = () => {
         } else {
           setBlog({
             title: found.title,
-            coverImage: `https://granth-backend.onrender.com${found.coverImage}`,
+            coverImage: found.coverImage,
             author: found.author,
             datePublished: found.datePublished,
             content: found.content,
