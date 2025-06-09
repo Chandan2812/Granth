@@ -1,94 +1,114 @@
-// BlogDetails.tsx
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
-import { blogs } from "../data/blogs"; // adjust path
-import Navbar from "./Nav";
-import Footer from "./Footer";
-import { ArrowLeft } from "lucide-react"; // At the top with other imports
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Navbar from "../components/Nav";
+import Footer from "../components/Footer";
+import { Share2 } from "lucide-react";
 
-const BlogDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
-  const blog = blogs.find((b) => b.id === Number(id));
+interface BlogType {
+  title: string;
+  coverImage: string;
+  author: string;
+  datePublished: string;
+  content: string;
+}
 
-  if (!blog)
-    return <div className="text-white text-center py-20">Blog not found.</div>;
+const Blog2Details = () => {
+  const { slug } = useParams();
+  const [blog, setBlog] = useState<BlogType | null>(null);
+  const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  });
+    const fetchBlog = async () => {
+      try {
+        const res = await axios.get(
+          `https://granth-backend.onrender.com/api/blogs/viewblog`
+        );
+        const blogList: any[] = res.data;
+
+        const found = blogList.find((b) => b.slug === slug);
+
+        if (!found) {
+          setError("Blog not found");
+        } else {
+          setBlog({
+            title: found.title,
+            coverImage: `https://granth-backend.onrender.com${found.coverImage}`,
+            author: found.author,
+            datePublished: found.datePublished,
+            content: found.content,
+          });
+        }
+      } catch (err) {
+        setError("Blog not found");
+      }
+    };
+
+    if (slug) fetchBlog();
+  }, [slug]);
+
+  const handleShare = async () => {
+    const url = window.location.href;
+
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({
+          title: blog?.title,
+          text: "Check out this blog from Granth!",
+          url,
+        });
+      } catch (error) {
+        console.error("Sharing failed:", error);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } catch (error) {
+        console.error("Copy failed:", error);
+      }
+    }
+  };
+
+  if (error)
+    return <div className="pt-40 text-center text-red-600">{error}</div>;
+  if (!blog) return <div className="pt-40 text-center">Loading...</div>;
 
   return (
-    <div className="">
+    <div className="bg-white text-black dark:bg-black dark:text-white">
       <Navbar />
-      <div className="bg-white dark:bg-black text-black dark:text-white py-20 px-4 sm:px-6 lg:px-8 mt-20">
-        <div className="max-w-4xl mx-auto">
-          <Link to="/blog" className="text-[#71ced0]  mb-6 inline-block">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-          </Link>
+      <div className="p-8 max-w-3xl mx-auto pt-40">
+        <h1 className="text-3xl font-bold mb-4">{blog.title}</h1>
+        <p className="text-gray-600 mb-2">
+          By {blog.author}- {new Date(blog.datePublished).toLocaleDateString()}
+        </p>
 
-          <h1 className="text-4xl font-bold mb-2">{blog.title}</h1>
-          <p className="text-sm text-gray-400 mb-6">
-            By {blog.author} • {blog.date} • {blog.readTime}
-          </p>
+        <img
+          src={blog.coverImage}
+          className="mb-4 w-full rounded"
+          alt={blog.title}
+        />
 
-          <img
-            src={blog.image}
-            alt={blog.title}
-            className="w-full rounded-lg mb-8"
-            draggable="false"
-          />
-
-          <p className="text-lg text-black dark:text-gray-300 mb-8">
-            {blog.shortDescription}
-          </p>
-
-          <div className="border border-gray-950 p-5 rounded-lg mb-10">
-            <h2 className="text-xl font-semibold text-[var(--primary-color)] mb-3">
-              Key Highlights:
-            </h2>
-            <ul className="list-disc list-inside space-y-1 text-gray-900 dark:text-white">
-              {blog.highlights.map((point, idx) => (
-                <li key={idx}>{point}</li>
-              ))}
-            </ul>
-          </div>
-
-          {blog.sections.map((section, index) => (
-            <div key={index} className="mb-10">
-              <h2 className="text-2xl font-bold text-[var(--primary-color)] mb-3">
-                {section.heading}
-              </h2>
-              {section.content && (
-                <p className="text-black dark:text-gray-300 mb-4">
-                  {section.content}
-                </p>
-              )}
-              {section.points && (
-                <ul className="list-disc list-inside space-y-1 text-black dark:text-gray-300 ">
-                  {section.points.map((p, i) => (
-                    <li key={i}>{p}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-
-          <div className="bg-white dark:bg-[#1a1a1a] border border-yellow-600 p-6 rounded-lg text-center mt-12">
-            <h2 className="text-2xl font-bold text-[var(--primary-color)]">
-              {blog.cta.title}
-            </h2>
-            <button className="mt-4 bg-yellow-600 hover:bg-yellow-700 text-black font-semibold py-2 px-6 rounded-lg transition">
-              {blog.cta.buttonLabel}
-            </button>
-            <p className="mt-2 text-sm text-[var(--primary-color)] italic">
-              {blog.cta.rating}
-            </p>
-          </div>
-        </div>
+        <div
+          className="prose max-w-none mb-6"
+          dangerouslySetInnerHTML={{ __html: blog.content }}
+        />
+        <button
+          onClick={handleShare}
+          className="flex items-center gap-2 px-4 py-2 rounded"
+        >
+          <Share2 size={18} />
+          {typeof navigator.share === "function" ? "Share" : "Copy Link"}
+        </button>
+        {copied && (
+          <p className="mt-2 text-green-500">Link copied to clipboard!</p>
+        )}
       </div>
       <Footer />
     </div>
   );
 };
 
-export default BlogDetails;
+export default Blog2Details;

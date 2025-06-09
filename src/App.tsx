@@ -7,9 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import Sell from "./pages/Sell";
-import Blog from "./components/Blog";
-import BlogDetails from "./components/BlogDetails";
-// import ProjectDetails from "./pages/ProjectDetails";
+
 import { BuyProjects } from "./pages/Buy";
 import AboutPage from "./pages/AboutPage";
 import { RentProjects } from "./pages/Rent";
@@ -32,6 +30,8 @@ import BuyDetails from "./pages/BuyDetails";
 import RentDetails from "./pages/RentDetails";
 import OffPlansDetails from "./pages/OffPlanDetails";
 import AdminBlog from "./pages/admin/AdminBlog";
+import Blog2 from "./components/Blog";
+import Blog2Details from "./components/BlogDetails";
 
 function AppWrapper() {
   const location = useLocation();
@@ -43,8 +43,8 @@ function AppWrapper() {
         <Route path="/" element={<Landing />} />
         {/* <Route path="/projects/:id" element={<ProjectDetails />} /> */}
         <Route path="/Sell" element={<Sell />} />
-        <Route path="/Blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
+        <Route path="/Blog" element={<Blog2 />} />
+        <Route path="/blogs/:slug" element={<Blog2Details />} />
         <Route path="/buy" element={<BuyProjects />} />
         <Route path="/buy/:id" element={<BuyDetails />} />
 
