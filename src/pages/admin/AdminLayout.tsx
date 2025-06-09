@@ -12,6 +12,7 @@ import {
 import { Outlet, Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Granth logo (6).png";
 import { useState } from "react";
+import { NotebookPen } from "lucide-react";
 
 const AdminLayout = () => {
   const location = useLocation();
@@ -29,6 +30,7 @@ const AdminLayout = () => {
     { icon: <FaEnvelope />, label: "Newsletter", to: "/admin/newsletter" },
     { icon: <FaMailBulk />, label: "Emailer", to: "/admin/emailer" },
     { icon: <FaRobot />, label: "Chatbot Leads", to: "/admin/chatbot" },
+    { icon: <NotebookPen />, label: "Blogs", to: "/admin/blogs" },
   ];
 
   return (

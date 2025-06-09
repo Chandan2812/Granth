@@ -5,6 +5,7 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaBuilding,
+  FaBook,
 } from "react-icons/fa";
 
 const Dashboard = () => {
@@ -13,6 +14,7 @@ const Dashboard = () => {
   const [emailerCount, setEmailerCount] = useState(0);
   const [contactCount, setContactCount] = useState(0);
   const [propertyCount, setPropertyCount] = useState(0);
+  const [blogsCount, setBlogsCount] = useState(0);
 
   useEffect(() => {
     fetch("https://granth-backend.onrender.com/subscribers")
@@ -34,6 +36,9 @@ const Dashboard = () => {
     fetch("https://granth-backend.onrender.com/api/property/list")
       .then((res) => res.json())
       .then((data) => setPropertyCount(data.length));
+    fetch("https://granth-backend.onrender.com/api/blogs/viewblog")
+      .then((res) => res.json())
+      .then((data) => setBlogsCount(data.length));
   }, []);
 
   return (
@@ -69,6 +74,12 @@ const Dashboard = () => {
           count={propertyCount}
           icon={<FaBuilding />}
           gradient="from-cyan-200 to-teal-200"
+        />
+        <StatCard
+          title="Blogs"
+          count={blogsCount}
+          icon={<FaBook />}
+          gradient="from-red-200 to-orange-200"
         />
       </div>
     </div>

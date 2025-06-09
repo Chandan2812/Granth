@@ -31,6 +31,7 @@ import ListProperty from "./pages/admin/ListProperty";
 import BuyDetails from "./pages/BuyDetails";
 import RentDetails from "./pages/RentDetails";
 import OffPlansDetails from "./pages/OffPlanDetails";
+import AdminBlog from "./pages/admin/AdminBlog";
 
 function AppWrapper() {
   const location = useLocation();
@@ -64,6 +65,7 @@ function AppWrapper() {
           <Route path="property_listing" element={<ListProperty />} />
           <Route path="sendnewsletter" element={<NewsletterForm />} />
           <Route path="sendemailer" element={<Emailer />} />
+          <Route path="blogs" element={<AdminBlog />} />
         </Route>
       </Routes>
       {/* Bottom Buttons */}

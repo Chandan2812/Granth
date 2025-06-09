@@ -25,9 +25,12 @@ const AdminLeads = () => {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:8000/api/leads/${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://granth-backend.onrender.com/api/leads/${id}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       if (res.ok) {
         setContacts((prev) => prev.filter((contact) => contact._id !== id));
