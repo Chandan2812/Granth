@@ -81,7 +81,7 @@ export const Projects = [
       { label: "Wi-Fi", icon: Wifi },
       { label: "Valet parking", icon: Car },
       { label: "Landscaped Gardens", icon: Leaf },
-      { label: "Swimming Pool", icon: Waves },
+      { label: "Infinity Swimming Pool", icon: Waves },
       { label: "Multi-Purpose Courts", icon: Dumbbell },
       { label: "Meditation & Wellness ", icon: PersonStanding },
       { label: "Café in the Club", icon: Coffee },
