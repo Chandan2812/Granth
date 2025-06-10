@@ -86,12 +86,6 @@ const BlogPreview: React.FC = () => {
                 />
                 <div className="p-6 flex flex-col flex-grow justify-between">
                   <div>
-                    {/* Show first tag as category if exists */}
-                    <span className="text-xs text-[var(--primary-color)] mb-1">
-                      {blog.tags && blog.tags.length > 0
-                        ? blog.tags[0]
-                        : "Blog"}
-                    </span>
                     <h3 className="text-base font-semibold text-black dark:text-white leading-snug mb-1 line-clamp-2">
                       {blog.title}
                     </h3>

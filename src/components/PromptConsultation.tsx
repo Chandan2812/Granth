@@ -148,10 +148,35 @@ const PromptConsultation = () => {
                     className="bg-white dark:bg-black text-black dark:text-white"
                   >
                     <option value="+91">🇮🇳 +91</option>
-                    <option value="+1">🇺🇸 +1</option>
                     <option value="+971">🇦🇪 +971</option>
+                    <option value="+1">🇺🇸 +1</option>
                     <option value="+44">🇬🇧 +44</option>
                     <option value="+61">🇦🇺 +61</option>
+                    <option value="+81">🇯🇵 +81</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+86">🇨🇳 +86</option>
+                    <option value="+82">🇰🇷 +82</option>
+                    <option value="+7">🇷🇺 +7</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+351">🇵🇹 +351</option>
+                    <option value="+90">🇹🇷 +90</option>
+                    <option value="+62">🇮🇩 +62</option>
+                    <option value="+63">🇵🇭 +63</option>
+                    <option value="+92">🇵🇰 +92</option>
+                    <option value="+880">🇧🇩 +880</option>
+                    <option value="+212">🇲🇦 +212</option>
+                    <option value="+20">🇪🇬 +20</option>
+                    <option value="+27">🇿🇦 +27</option>
+                    <option value="+254">🇰🇪 +254</option>
+                    <option value="+55">🇧🇷 +55</option>
+                    <option value="+52">🇲🇽 +52</option>
+                    <option value="+48">🇵🇱 +48</option>
+                    <option value="+31">🇳🇱 +31</option>
+                    <option value="+46">🇸🇪 +46</option>
+                    <option value="+47">🇳🇴 +47</option>
+                    <option value="+45">🇩🇰 +45</option>
                   </select>
 
                   <input

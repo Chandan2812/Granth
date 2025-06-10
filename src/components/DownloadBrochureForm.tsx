@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from "react";
-import brochurePDF from "../assets/VELVET VISTA BROCHURE CTC.pdf";
+import React, { useState, useEffect, useRef } from "react";
 
 interface Props {
   onClose: () => void;
+  brochureUrl: string;
 }
 
-const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
+const DownloadBrochureForm: React.FC<Props> = ({ onClose, brochureUrl }) => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [otp, setOtp] = useState("");
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [infoMsg, setInfoMsg] = useState("");
-  const [countryCode, setCountryCode] = useState("+91"); // Default India
+  const [countryCode, setCountryCode] = useState("+91");
+  const hasDownloadedRef = useRef(false);
 
   const validateEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const downloadBrochure = () => {
     const link = document.createElement("a");
-    link.href = brochurePDF;
-    link.download = "Velvet_Vista.pdf";
+    link.href = brochureUrl;
+    link.download = brochureUrl.split("/").pop() || "brochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -29,7 +30,8 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
 
   useEffect(() => {
     const savedUser = sessionStorage.getItem("formData");
-    if (savedUser) {
+    if (savedUser && !hasDownloadedRef.current) {
+      hasDownloadedRef.current = true; // ✅ Mark as downloaded
       downloadBrochure();
     }
   }, []);
@@ -161,7 +163,32 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
               <option value="+971">🇦🇪 +971</option>
               <option value="+1">🇺🇸 +1</option>
               <option value="+44">🇬🇧 +44</option>
-              {/* Add more countries as needed */}
+              <option value="+61">🇦🇺 +61</option>
+              <option value="+81">🇯🇵 +81</option>
+              <option value="+49">🇩🇪 +49</option>
+              <option value="+33">🇫🇷 +33</option>
+              <option value="+39">🇮🇹 +39</option>
+              <option value="+86">🇨🇳 +86</option>
+              <option value="+82">🇰🇷 +82</option>
+              <option value="+7">🇷🇺 +7</option>
+              <option value="+34">🇪🇸 +34</option>
+              <option value="+351">🇵🇹 +351</option>
+              <option value="+90">🇹🇷 +90</option>
+              <option value="+62">🇮🇩 +62</option>
+              <option value="+63">🇵🇭 +63</option>
+              <option value="+92">🇵🇰 +92</option>
+              <option value="+880">🇧🇩 +880</option>
+              <option value="+212">🇲🇦 +212</option>
+              <option value="+20">🇪🇬 +20</option>
+              <option value="+27">🇿🇦 +27</option>
+              <option value="+254">🇰🇪 +254</option>
+              <option value="+55">🇧🇷 +55</option>
+              <option value="+52">🇲🇽 +52</option>
+              <option value="+48">🇵🇱 +48</option>
+              <option value="+31">🇳🇱 +31</option>
+              <option value="+46">🇸🇪 +46</option>
+              <option value="+47">🇳🇴 +47</option>
+              <option value="+45">🇩🇰 +45</option>
             </select>
 
             <input
@@ -172,7 +199,6 @@ const DownloadBrochureForm: React.FC<Props> = ({ onClose }) => {
               value={formData.phone}
               onChange={(e) => {
                 const value = e.target.value;
-                // Allow only digits
                 if (/^\d*$/.test(value)) {
                   setFormData({ ...formData, phone: value });
                 }
