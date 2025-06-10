@@ -144,7 +144,7 @@ export const Projects = [
         file: skyPaymentPlan,
       },
       {
-        videoUrl: VelvetVideo,
+        videoUrl: "",
       },
     ],
     highlights: [
@@ -156,16 +156,6 @@ export const Projects = [
       ,
     ],
 
-    rera: {
-      title: "RERA APPROVED PROJECT",
-      text1:
-        "We're proud to announce that Velvet Vista by GHD Infra is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
-      registrationId: "P51700055053",
-      text2:
-        "This certification safeguards your investment, guarantees timely possession, and reflects our commitment to delivering trusted, high-quality developments with full regulatory compliance.",
-      registered: true,
-      image: ReraImg,
-    },
     featuresAndAmenities: [
       { label: "24-hour reception", icon: User },
       { label: "Library", icon: BookOpenText },

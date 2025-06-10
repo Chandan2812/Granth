@@ -146,7 +146,8 @@ const Footer = () => {
         <div className="space-y-4 lg:text-right">
           <h3 className="text-lg">Goa</h3>
           <p className="text-gray-700 dark:text-gray-200">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            625, Gera Imperium Star, Patto - Plaza, Panaji, <br /> Tiswadi
+            - Goa, 403001
           </p>
           <div className="flex justify-start lg:justify-end gap-4 pt-2 text-[var(--primary-color)] text-xl">
             <a

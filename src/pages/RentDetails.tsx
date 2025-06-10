@@ -181,21 +181,19 @@ const RentDetails: React.FC = () => {
               Project Highlights
             </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300 px-4">
-              {highlights
-                .filter((point): point is string => point !== undefined) // TypeScript type guard
-                .map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="list-disc list-outside pl-5"
-                    dangerouslySetInnerHTML={{ __html: point }}
-                  />
-                ))}
+              {highlights.map((point, idx) => (
+                <li
+                  key={idx}
+                  className="list-disc list-outside pl-5"
+                  dangerouslySetInnerHTML={{ __html: point ?? "" }}
+                />
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
-      {rera.registered && (
+      {rera?.registered && (
         <div className="py-16 bg-white dark:bg-black max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center gap-10">
           <div className="flex-1 text-center md:text-left">
             <h2 className="text-2xl font-semibold mb-4 text-[var(--primary-color)]">
