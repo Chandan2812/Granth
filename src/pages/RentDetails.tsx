@@ -39,6 +39,14 @@ const RentDetails: React.FC = () => {
     connectivity,
   } = project;
 
+  // ✅ Extract brochure and payment plan file URLs dynamically
+  const brochureItem = project.projectHighlights.find(
+    (item) => item.title === "Download Brochure"
+  );
+  const paymentPlanItem = project.projectHighlights.find(
+    (item) => item.title === "Payment Plan"
+  );
+
   const SampleNextArrow = ({ onClick }: { onClick?: () => void }) => (
     <div
       onClick={onClick}
@@ -351,15 +359,21 @@ const RentDetails: React.FC = () => {
 
       <Footer />
 
-      {showDownloadPopup && (
+      {showDownloadPopup && brochureItem?.file && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <DownloadBrochureForm onClose={() => setShowDownloadPopup(false)} />
+          <DownloadBrochureForm
+            onClose={() => setShowDownloadPopup(false)}
+            brochureUrl={brochureItem.file}
+          />
         </div>
       )}
 
-      {viewPayment && (
+      {viewPayment && paymentPlanItem?.file && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <DownloadPaymentPlan onClose={() => setViewPayment(false)} />
+          <DownloadPaymentPlan
+            onClose={() => setViewPayment(false)}
+            fileUrl={paymentPlanItem.file}
+          />
         </div>
       )}
     </div>

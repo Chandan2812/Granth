@@ -39,6 +39,14 @@ const BuyDetails: React.FC = () => {
     connectivity,
   } = project;
 
+  // ✅ Extract brochure and payment plan file URLs dynamically
+  const brochureItem = project.projectHighlights.find(
+    (item) => item.title === "Download Brochure"
+  );
+  const paymentPlanItem = project.projectHighlights.find(
+    (item) => item.title === "Payment Plan"
+  );
+
   const SampleNextArrow = ({ onClick }: { onClick?: () => void }) => (
     <div
       onClick={onClick}
@@ -102,6 +110,26 @@ const BuyDetails: React.FC = () => {
         },
       },
     ],
+  };
+
+  const highlightWords = [
+    "Mopa Airport",
+    "casino zone",
+    "Mall De Goa",
+    "NH66",
+    "Panjim City",
+    "beaches",
+  ];
+  const formatPlace = (text: string) => {
+    let formatted = text;
+    highlightWords.forEach((word) => {
+      const regex = new RegExp(`(${word})`, "gi");
+      formatted = formatted.replace(
+        regex,
+        `<span style="color: var(--primary-color); font-weight: 600;">$1</span>`
+      );
+    });
+    return formatted;
   };
 
   return (
@@ -173,13 +201,53 @@ const BuyDetails: React.FC = () => {
               Project Highlights
             </h2>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-gray-800 dark:text-gray-300 px-4">
-              {highlights.map((point, idx) => (
-                <li
-                  key={idx}
-                  className="list-disc list-outside pl-5"
-                  dangerouslySetInnerHTML={{ __html: point }}
-                />
-              ))}
+              {highlights.map((point, idx) => {
+                const formatted = point
+                  .replace(
+                    /(Fully loaded)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(12% assured pre-rentals)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Attractive)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Minimum 5% lease guarantee)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(30% discount on F&B)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Royal Orchid Group of Hotels)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(Free stay for 12 nights)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(guarantee|guaranteed)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  )
+                  .replace(
+                    /(One complimentary)/gi,
+                    '<span style="color: var(--primary-color)">$1</span>'
+                  );
+
+                return (
+                  <li
+                    key={idx}
+                    className="list-disc list-outside pl-5"
+                    dangerouslySetInnerHTML={{ __html: formatted }}
+                  />
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -271,7 +339,7 @@ const BuyDetails: React.FC = () => {
 
                 <span
                   className="text-lg"
-                  dangerouslySetInnerHTML={{ __html: place }}
+                  dangerouslySetInnerHTML={{ __html: formatPlace(place) }}
                 />
               </li>
             ))}
@@ -291,15 +359,21 @@ const BuyDetails: React.FC = () => {
 
       <Footer />
 
-      {showDownloadPopup && (
+      {showDownloadPopup && brochureItem?.file && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <DownloadBrochureForm onClose={() => setShowDownloadPopup(false)} />
+          <DownloadBrochureForm
+            onClose={() => setShowDownloadPopup(false)}
+            brochureUrl={brochureItem.file}
+          />
         </div>
       )}
 
-      {viewPayment && (
+      {viewPayment && paymentPlanItem?.file && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <DownloadPaymentPlan onClose={() => setViewPayment(false)} />
+          <DownloadPaymentPlan
+            onClose={() => setViewPayment(false)}
+            fileUrl={paymentPlanItem.file}
+          />
         </div>
       )}
     </div>
