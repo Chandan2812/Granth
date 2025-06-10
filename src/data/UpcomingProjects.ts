@@ -54,15 +54,16 @@ export const Projects = [
       },
     ],
     highlights: [
-      "Fully loaded serviced apartments",
-      "Attractive payment plans",
-      "12% assured pre-rentals till possession on the amount paid",
-      "Free stay for 12 nights every year",
-      "30% discount on F&B services across all GHD Group properties",
-      "Managed by Royal Orchid Group of Hotels",
-      "Minimum 5% lease guarantee with rental escalation for 20 years",
-      "One complimentary event per year for up to 500 guests",
+      "<span class='text-[var(--primary-color)]'>Fully loaded</span> serviced apartments",
+      "<span class='text-[var(--primary-color)]'>Attractive</span> payment plans",
+      "<span class='text-[var(--primary-color)]'>12% assured pre-rentals</span> till possession on the amount paid",
+      "<span class='text-[var(--primary-color)]'>Free stay for 12 nights</span> every year",
+      "<span class='text-[var(--primary-color)]'>30% discount on F&B</span> services across all GHD Group properties",
+      "Managed by <span class='text-[var(--primary-color)]'>Royal Orchid Group of Hotels</span>",
+      "<span class='text-[var(--primary-color)]'>Minimum 5% lease guarantee</span> with rental escalation for 20 years",
+      "<span class='text-[var(--primary-color)]'>One complimentary</span> event per year for up to 500 guests",
     ],
+
     rera: {
       title: "RERA APPROVED PROJECT",
       text1:
@@ -91,12 +92,12 @@ export const Projects = [
     connectivity: {
       title: "CONNECTIVITY TO THE PROJECT",
       places: [
-        "25 minutes drive from MOPA AIRPORT",
-        "10 minutes drive from CASINO ZONE",
-        "5 mins to MALL DE GOA",
-        "3 mins to NH66",
-        "10 mins to PANJIM CITY",
-        "10 mins to nearby BEACHES",
+        "25 minutes drive from <span class='text-[var(--primary-color)]'>MOPA AIRPORT</span>",
+        "10 minutes drive from <span class='text-[var(--primary-color)]'>CASINO ZONE</span>",
+        "5 mins to <span class='text-[var(--primary-color)]'>MALL DE GOA</span>",
+        "3 mins to <span class='text-[var(--primary-color)]'>NH66</span>",
+        "10 mins to <span class='text-[var(--primary-color)]'>PANJIM CITY</span>",
+        "10 mins to nearby <span class='text-[var(--primary-color)]'>BEACHES</span>",
       ],
       embeddedMapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.789818600066!2d73.9965998748892!3d15.387865185197214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba9beb557f0d%3A0xb92a1fbc1dbc32af!2sGranth%20Vihar!5e0!3m2!1sen!2sin!4v1749032037328!5m2!1sen!2sin",
