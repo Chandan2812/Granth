@@ -127,7 +127,7 @@ export const Projects = [
   {
     id: "sky-park",
     name: "SKY PARK ",
-    bannerImages: [sky1, sky2, sky3, sky4, sky5, sky6, sky7],
+    bannerImages: [sky2, sky3, sky1, sky4, sky5, sky6, sky7],
     description:
       "Discover a coastal haven where luxury meets convenience. Studio, 1 BHK & 2 BHK residences in a premium 9-floor high-rise with views of a beautifully spread *central waterbody & swimming pool",
     projectHighlights: [
