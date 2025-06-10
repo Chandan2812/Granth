@@ -1,3 +1,4 @@
+// ******************velvet vista*****************
 import velvetBroucher from "../assets/Project/velvet vista/VELVET VISTA BROCHURE CTC.pdf";
 import velvetPaymentPlan from "../assets/Project/velvet vista/COST SHEET (VELVET VISTA) april 2025.pdf";
 import VelvetVideo from "../assets/Project/velvet vista/video2.mp4";
@@ -27,8 +28,28 @@ import {
   PersonStanding,
   Brush,
   Baby,
+  User,
+  BookOpenText,
+  Luggage,
+  Warehouse,
+  Presentation,
+  Plane,
 } from "lucide-react";
 
+// ********************sky-park*********************
+import sky1 from "../assets/Project/sky park/Screenshot 2025-06-10 160513.png";
+import sky2 from "../assets/Project/sky park/Screenshot 2025-06-10 160930.png";
+import sky3 from "../assets/Project/sky park/Screenshot 2025-06-10 160713.png";
+import sky4 from "../assets/Project/sky park/Screenshot 2025-06-10 160823.png";
+import sky5 from "../assets/Project/sky park/Screenshot 2025-06-10 160839.png";
+import sky6 from "../assets/Project/sky park/Screenshot 2025-06-10 160854.png";
+import sky7 from "../assets/Project/sky park/Screenshot 2025-06-10 160958.png";
+import skyparkBrochure from "../assets/Project/sky park/SKY PARK BROCHURE P.pdf";
+import skyPaymentPlan from "../assets/Project/sky park/COST SHEET (SKY PARK)april new.pdf";
+import skyAminitiesImg1 from "../assets/Project/sky park/Untitled design (7).png";
+import skyAminitiesImg2 from "../assets/Project/sky park/Untitled design (8).png";
+import skyAminitiesImg3 from "../assets/Project/sky park/Untitled design (9).png";
+import skyAminitiesImg4 from "../assets/Project/sky park/Untitled design (6).png";
 export const Projects = [
   {
     id: "velvet-vista",
@@ -100,7 +121,81 @@ export const Projects = [
         "10 mins to nearby <span class='text-[var(--primary-color)]'>BEACHES</span>",
       ],
       embeddedMapUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3846.789818600066!2d73.9965998748892!3d15.387865185197214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba9beb557f0d%3A0xb92a1fbc1dbc32af!2sGranth%20Vihar!5e0!3m2!1sen!2sin!4v1749032037328!5m2!1sen!2sin",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15377.612739097844!2d73.8375154!3d15.516502099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc013f4c8c04f%3A0x89cba9fd382b48bf!2sPenha%20de%20Franc%2C%20Goa!5e0!3m2!1sen!2sin!4v1749554174197!5m2!1sen!2sin",
+    },
+  },
+  {
+    id: "sky-park",
+    name: "SKY PARK ",
+    bannerImages: [sky1, sky2, sky3, sky4, sky5, sky6, sky7],
+    description:
+      "Discover a coastal haven where luxury meets convenience. Studio, 1 BHK & 2 BHK residences in a premium 9-floor high-rise with views of a beautifully spread *central waterbody & swimming pool",
+    projectHighlights: [
+      {
+        place: "Goa",
+      },
+
+      {
+        title: "Download Brochure",
+        file: skyparkBrochure,
+      },
+      {
+        title: "Payment Plan",
+        file: skyPaymentPlan,
+      },
+      {
+        videoUrl: VelvetVideo,
+      },
+    ],
+    highlights: [
+      "Premium<span class='text-[var(--primary-color)]'>9-Storey Towers </span>",
+      " Waterbody & Swimming Pool<span class='text-[var(--primary-color)]'> View Apartments</span>",
+      " Beachside Living - <span class='text-[var(--primary-color)]'>Major Beaches 5–10 mins away </span>",
+      "<span class='text-[var(--primary-color)]'>Located Directly on NH66</span> – Excellent Road Access ",
+      "<span class='text-[var(--primary-color)]'>Thoughtfully Designed Studio</span>, 1 BHK & 2 BHK Units ",
+      ,
+    ],
+
+    rera: {
+      title: "RERA APPROVED PROJECT",
+      text1:
+        "We're proud to announce that Velvet Vista by GHD Infra is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
+      registrationId: "P51700055053",
+      text2:
+        "This certification safeguards your investment, guarantees timely possession, and reflects our commitment to delivering trusted, high-quality developments with full regulatory compliance.",
+      registered: true,
+      image: ReraImg,
+    },
+    featuresAndAmenities: [
+      { label: "24-hour reception", icon: User },
+      { label: "Library", icon: BookOpenText },
+      { label: "Laundry Services", icon: GiWashingMachine },
+      { label: "24/7 Security and CCTV", icon: ShieldCheck },
+      { label: "Luggage storage", icon: Luggage },
+      { label: "Accessible rooms", icon: Warehouse },
+      { label: "Meeting facilities", icon: Presentation },
+      { label: "Airport transfer service ", icon: Plane },
+      { label: "Café in the Club", icon: Coffee },
+      { label: "Spa & wellness centre", icon: PersonStanding },
+    ],
+    images: [
+      skyAminitiesImg1,
+      skyAminitiesImg2,
+      skyAminitiesImg3,
+      skyAminitiesImg4,
+    ],
+    connectivity: {
+      title: "PRIME CONNECTIVITY :",
+      places: [
+        "5 mins to<span class='text-[var(--primary-color)]'> MADGOAN MARKET</span>",
+        "10 mins to drive from <span class='text-[var(--primary-color)]'>BEACHES</span>",
+        "12 mins to to <span class='text-[var(--primary-color)]'>RAILWAY STATION</span>",
+        "20 mins to <span class='text-[var(--primary-color)]'>WILDLIFE SANCTUARIES</span>",
+        "25 mins to <span class='text-[var(--primary-color)]'>AIRPORT</span>",
+        "30 mins to nearby <span class='text-[var(--primary-color)]'>PANJIM CITY</span>",
+      ],
+      embeddedMapUrl:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3848.429291375244!2d73.952444!3d15.298887999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDE3JzU2LjAiTiA3M8KwNTcnMDguOCJF!5e0!3m2!1sen!2sin!4v1749553814875!5m2!1sen!2sin",
     },
   },
 ];
