@@ -20,7 +20,6 @@ import {
   ShieldCheck,
   Wifi,
   Car,
-  Dumbbell,
   Leaf,
   Waves,
   Coffee,
@@ -34,7 +33,21 @@ import {
   Warehouse,
   Presentation,
   Plane,
+  Utensils,
+  Trees,
+  TreePine,
+  Landmark,
+  Dumbbell,
+  TentTree,
+  Binoculars,
+  Trees as PalmTree, // reused
+  StretchVertical,
+  Sprout,
+  FerrisWheel,
+  LayoutDashboard,
+  Fence,
 } from "lucide-react";
+import { MdGolfCourse } from "react-icons/md";
 
 // ********************sky-park*********************
 import sky1 from "../assets/Project/sky park/Screenshot 2025-06-10 160513.png";
@@ -50,6 +63,23 @@ import skyAminitiesImg1 from "../assets/Project/sky park/Untitled design (7).png
 import skyAminitiesImg2 from "../assets/Project/sky park/Untitled design (8).png";
 import skyAminitiesImg3 from "../assets/Project/sky park/Untitled design (9).png";
 import skyAminitiesImg4 from "../assets/Project/sky park/Untitled design (6).png";
+
+// ************************SAWANTAWADI*********************************
+import sawantaBrowcher from "../assets/Project/sawantawadi/Brochure_The Elements.pdf";
+import sawantapaymentpaln from "../assets/Project/sawantawadi/Payment Plan_New Goa.pdf";
+import swantwadivideo from "../assets/Project/sawantawadi/Nature Travel Youtube Video Intro (1).mp4";
+import swanatImg1 from "../assets/Project/sawantawadi/17.png";
+import swanatImg2 from "../assets/Project/sawantawadi/1.png";
+import swanatImg3 from "../assets/Project/sawantawadi/5.png";
+import swanatImg4 from "../assets/Project/sawantawadi/7.png";
+import swanatImg5 from "../assets/Project/sawantawadi/2.png";
+import swanatImg6 from "../assets/Project/sawantawadi/4.png";
+import swanatImg7 from "../assets/Project/sawantawadi/3.png";
+import swanatCollage1 from "../assets/Project/sawantawadi/Untitled design (1).png";
+import swanatCollage2 from "../assets/Project/sawantawadi/Untitled design (2).png";
+import swanatCollage3 from "../assets/Project/sawantawadi/Untitled design (3).png";
+import swanatCollage4 from "../assets/Project/sawantawadi/Untitled design.png";
+
 export const Projects = [
   {
     id: "velvet-vista",
@@ -186,6 +216,79 @@ export const Projects = [
       ],
       embeddedMapUrl:
         "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3848.429291375244!2d73.952444!3d15.298887999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDE3JzU2LjAiTiA3M8KwNTcnMDguOCJF!5e0!3m2!1sen!2sin!4v1749553814875!5m2!1sen!2sin",
+    },
+  },
+  {
+    id: "Sawantwadi",
+    name: "SAWANTWADI",
+    bannerImages: [
+      swanatImg2,
+      swanatImg1,
+      swanatImg3,
+      swanatImg4,
+      swanatImg5,
+      swanatImg6,
+      swanatImg7,
+    ],
+    description:
+      "Sawantwadi, one of the upcoming under-construction housing societies in Sawantwadi. This society will have all basic facilities and amenities to suit homebuyer’s needs and requirements. Brought to you by Ankit Projexcel, Perto De Goa is scheduled for possession in Dec, 2026.",
+    projectHighlights: [
+      {
+        place: "Goa",
+      },
+
+      {
+        title: "Download Brochure",
+        file: sawantaBrowcher,
+      },
+      {
+        title: "Payment Plan",
+        file: sawantapaymentpaln,
+      },
+      {
+        videoUrl: swantwadivideo,
+      },
+    ],
+    highlights: [
+      "Premium<span class='text-[var(--primary-color)]'>9-Storey Towers </span>",
+      " Waterbody & Swimming Pool<span class='text-[var(--primary-color)]'> View Apartments</span>",
+      " Beachside Living - <span class='text-[var(--primary-color)]'>Major Beaches 5–10 mins away </span>",
+      "<span class='text-[var(--primary-color)]'>Located Directly on NH66</span> – Excellent Road Access ",
+      "<span class='text-[var(--primary-color)]'>Thoughtfully Designed Studio</span>, 1 BHK & 2 BHK Units ",
+      ,
+    ],
+
+    featuresAndAmenities: [
+      { label: "Cafeteria, Bar & Restaurant", icon: Utensils },
+      { label: "Golf Putting", icon: MdGolfCourse },
+      { label: "Stream Park", icon: Trees },
+      { label: "Forest Bathing & Park", icon: TreePine },
+      { label: "Amphitheatre", icon: Landmark },
+      { label: "Walking & Jogging Track", icon: TreePine },
+      { label: "Open Gym", icon: Dumbbell },
+      { label: "Leisure Pods", icon: TentTree },
+      { label: "Machan Viewing Point", icon: Binoculars },
+      { label: "Water lagoon with Palm", icon: Waves },
+      { label: "Grove Walk", icon: PalmTree },
+      { label: "Multipurpose Lawn", icon: StretchVertical },
+      { label: "Herb & Spice Garden", icon: Sprout },
+      { label: "Children’s Play Park", icon: FerrisWheel },
+      { label: "Senior Citizen’s Garden", icon: Fence },
+      { label: "Interactive Feature Walls", icon: LayoutDashboard },
+    ],
+    images: [swanatCollage1, swanatCollage2, swanatCollage3, swanatCollage4],
+    connectivity: {
+      title: "PRIME CONNECTIVITY :",
+      places: [
+        "25 mins to to<span class='text-[var(--primary-color)]'> MOPA AIRPORT</span>",
+        "5 mins to  from <span class='text-[var(--primary-color)]'>NH-66</span>",
+        "4 mins to  <span class='text-[var(--primary-color)]'>SAWANTWADI RAILWAY STATION</span>",
+        "10 mins to <span class='text-[var(--primary-color)]'>SAWANTWADI BUS STATION</span>",
+        "20 mins to <span class='text-[var(--primary-color)]'>BAECHES</span>",
+        "40 mins to  <span class='text-[var(--primary-color)]'>SAI BOLLYWOOD FILMCITY</span>",
+      ],
+      embeddedMapUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7573861.410348491!2d70.13463261885803!3d22.04291876247066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d2329a14bb3e1%3A0x16cd0d4926f485b2!2sRPS%20RUDROM!5e0!3m2!1sen!2sin!4v1749640419826!5m2!1sen!2sin",
     },
   },
 ];
