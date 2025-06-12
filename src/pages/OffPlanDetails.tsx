@@ -28,7 +28,6 @@ const OffPlansDetails: React.FC = () => {
   }, []);
 
   const {
-    name,
     description,
     bannerImages,
     featuresAndAmenities,
@@ -123,7 +122,7 @@ const OffPlansDetails: React.FC = () => {
               <img
                 src={src}
                 alt={`Image ${index}`}
-                className="rounded-lg object-cover md:h-[100vh] h-[40vh]  w-full shadow-md"
+                className="rounded-lg object-center md:h-[100vh] h-[40vh]  w-full shadow-md"
               />
             </div>
           ))}
@@ -133,9 +132,8 @@ const OffPlansDetails: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            {" "}
             Welcome to{" "}
-            <span className="text-[var(--primary-color)]">{name}</span>
+            <span style={{ color: project.nameColor }}>{project.name}</span>
           </h1>
           <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
             {description}

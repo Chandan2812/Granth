@@ -80,10 +80,32 @@ import swanatCollage2 from "../assets/Project/sawantawadi/Untitled design (2).pn
 import swanatCollage3 from "../assets/Project/sawantawadi/Untitled design (3).png";
 import swanatCollage4 from "../assets/Project/sawantawadi/Untitled design.png";
 
+// ************************************Casa Grande********************************
+import casaVideo from "../assets/Project/casa grande/casa grande.mp4";
+import casaBrowcher from "../assets/Project/casa grande/CASA GRANDE BROCHURE.pdf";
+import casapayment from "../assets/Project/casa grande/COST SHEET (CASA GRANDE) april 2025.pdf";
+import casa1 from "../assets/Project/casa grande/Screenshot 2025-06-12 163700.png";
+import casa2 from "../assets/Project/casa grande/Screenshot 2025-06-12 163316.png";
+import casa3 from "../assets/Project/casa grande/Screenshot 2025-06-12 163450.png";
+import casa4 from "../assets/Project/casa grande/Screenshot 2025-06-12 163502.png";
+import casa5 from "../assets/Project/casa grande/Screenshot 2025-06-12 163513.png";
+import casa6 from "../assets/Project/casa grande/Screenshot 2025-06-12 163536.png";
+import casa7 from "../assets/Project/casa grande/Screenshot 2025-06-12 163646.png";
+import casa8 from "../assets/Project/casa grande/Screenshot 2025-06-12 171840.png";
+import casacollage1 from "../assets/Project/casa grande/Untitled design (1).png";
+import casacollage2 from "../assets/Project/casa grande/Untitled design (2).png";
+import casacollage3 from "../assets/Project/casa grande/Untitled design (3).png";
+import casacollage4 from "../assets/Project/casa grande/Untitled design.png";
+import casarera from "../assets/Project/casa grande/rera.png";
+import { GiTennisRacket } from "react-icons/gi";
+import { FaSwimmingPool } from "react-icons/fa";
+import { GiSpookyHouse } from "react-icons/gi";
+
 export const Projects = [
   {
     id: "velvet-vista",
     name: "VELVET VISTA",
+    nameColor: "#75253b",
     bannerImages: [Hero1, Hero2, Hero3, Hero4, Hero5, Hero6, Hero7, Hero8],
     description:
       "Discover premium living with our studio, 1 BHK Standard, and 1 BHK Premium apartments — fully furnished with modern interiors and high-end finishes. Managed by a top-tier hospitality group, Velvet Vista ensures a luxurious, hotel-like experience for residents and hands-free income for investors.",
@@ -157,6 +179,7 @@ export const Projects = [
   {
     id: "sky-park",
     name: "SKY PARK ",
+    nameColor: "#87CEEB",
     bannerImages: [sky2, sky3, sky1, sky4, sky5, sky6, sky7],
     description:
       "Discover a coastal haven where luxury meets convenience. Studio, 1 BHK & 2 BHK residences in a premium 9-floor high-rise with views of a beautifully spread *central waterbody & swimming pool",
@@ -221,6 +244,7 @@ export const Projects = [
   {
     id: "Sawantwadi",
     name: "SAWANTWADI",
+    nameColor: "#0e9fbc",
     bannerImages: [
       swanatImg2,
       swanatImg1,
@@ -253,7 +277,7 @@ export const Projects = [
       "Premium<span class='text-[var(--primary-color)]'>9-Storey Towers </span>",
       " Waterbody & Swimming Pool<span class='text-[var(--primary-color)]'> View Apartments</span>",
       " Beachside Living - <span class='text-[var(--primary-color)]'>Major Beaches 5–10 mins away </span>",
-      "<span class='text-[var(--primary-color)]'>Located Directly on NH66</span> – Excellent Road Access ",
+      "<span class='text-[var(--primary-color)]'>90% Home Loan</span>Finance available from SBI bank.",
       "<span class='text-[var(--primary-color)]'>Thoughtfully Designed Studio</span>, 1 BHK & 2 BHK Units ",
       ,
     ],
@@ -289,6 +313,76 @@ export const Projects = [
       ],
       embeddedMapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7573861.410348491!2d70.13463261885803!3d22.04291876247066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d2329a14bb3e1%3A0x16cd0d4926f485b2!2sRPS%20RUDROM!5e0!3m2!1sen!2sin!4v1749640419826!5m2!1sen!2sin",
+    },
+  },
+  {
+    id: "casagrande",
+    name: "CASA GRANDE",
+    nameColor: "#038c85",
+    bannerImages: [casa1, casa8, casa2, casa3, casa4, casa5, casa6, casa7],
+    description:
+      "GHD GROUP welcomes you to the destination of the Wellness & lifestyle resort “GHD Aangan”. A little paradise spread over 26.5 acres green land facing a spectacular series of mountains. GHD Aangan is a Golf & wellness lifestyle resort managed by a well-known hotel management group",
+    projectHighlights: [
+      {
+        place: "Goa",
+      },
+
+      {
+        title: "Download Brochure",
+        file: casaBrowcher,
+      },
+      {
+        title: "Payment Plan",
+        file: casapayment,
+      },
+      {
+        videoUrl: casaVideo,
+      },
+    ],
+    highlights: [
+      "  <span class='text-[var(--primary-color)]'> 90% Home Loan Finance</span>available from SBI bank.",
+      "Project Area (Aprox)-<span class='text-[var(--primary-color)]'>26.5 acres </span>",
+      " Location-<span class='text-[var(--primary-color)]'> Vazre village, Ayi-Sanquelim Road, Dodamarg.</span>",
+      "  <span class='text-[var(--primary-color)]'>Ayurvedic </span>Experience",
+      "<span class='text-[var(--primary-color)]'>All Amenities</span>to do what you dreamed.",
+      "<span class='text-[var(--primary-color)]'>Guaranteed </span>rental from day one.",
+      ,
+    ],
+    rera: {
+      title: "RERA APPROVED PROJECT",
+      text1:
+        "We're proud to announce that GHD CASA GRANDE is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
+      registrationId: "P52900049552",
+      text2:
+        "This certification safeguards your investment, guarantees timely possession, and reflects our commitment to delivering trusted, high-quality developments with full regulatory compliance.",
+      registered: true,
+      image: casarera,
+    },
+
+    featuresAndAmenities: [
+      { label: "Cafeteria, Bar & Restaurant", icon: Utensils },
+      { label: "Golf Putting", icon: MdGolfCourse },
+      { label: "Stream Park", icon: Trees },
+      { label: "Tennis Court", icon: GiTennisRacket },
+      { label: "Swimming Pool", icon: FaSwimmingPool },
+      { label: "Club House", icon: GiSpookyHouse },
+      { label: "Open Gym", icon: Dumbbell },
+      { label: "Kids Pool", icon: FaSwimmingPool },
+    ],
+    images: [casacollage1, casacollage2, casacollage3, casacollage4],
+    connectivity: {
+      title: "PRIME CONNECTIVITY :",
+      places: [
+        "20 mins to to<span class='text-[var(--primary-color)]'> MOPA AIRPORT</span>",
+        "5 mins to  from <span class='text-[var(--primary-color)]'>NH-66</span>",
+        "10 mins to  <span class='text-[var(--primary-color)]'>THIVIM RAILWAY STATION</span>",
+        "31 km from <span class='text-[var(--primary-color)]'>GOS’s MOST FAMOUS BEACHES</span>",
+        "40  mins to <span class='text-[var(--primary-color)]'>PANJIM CITY</span>",
+        "40 mins to  <span class='text-[var(--primary-color)]'>VIBRANT CASINO ZONE</span>",
+        "5 mins to  <span class='text-[var(--primary-color)]'>DODAMARG</span>",
+      ],
+      embeddedMapUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.9698029341416!2d73.9905663!3d15.646596400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbf972e942902d9%3A0xeef35b28b91c0688!2sAangan%20by%20GHD%20GROUP!5e0!3m2!1sen!2sin!4v1749729562642!5m2!1sen!2sin",
     },
   },
 ];
