@@ -25,7 +25,7 @@ export const Exclusives: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-black text-black dark:text-white md:py-10 w-full relative">
-      <h2 className="text-3xl md:text-4xl font-light text-black dark:text-gray-100 text-center font-raleway under">
+      <h2 className="text-3xl md:text-4xl font-light text-black dark:text-gray-100 text-center font-raleway under mb-5">
         Our Exclusive Projects
       </h2>
 
@@ -48,10 +48,8 @@ export const Exclusives: React.FC = () => {
                 alt={`${currentProjectKey} main`}
                 className="w-full rounded-md object-cover mb-3"
               />
-              <h2 className="text-xl font-semibold capitalize">
-                {currentProjectKey}
-              </h2>
-              <p className="text-sm text-gray-500 dark:text-gray-400">Goa</p>
+
+              <p className="text-lg text-gray-600 dark:text-gray-300">Goa</p>
             </div>
 
             {/* Right */}

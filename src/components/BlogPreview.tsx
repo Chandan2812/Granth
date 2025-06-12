@@ -56,7 +56,7 @@ const BlogPreview: React.FC = () => {
   if (error) return <p className="text-center py-20 text-red-600">{error}</p>;
 
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8 border ">
+    <div className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8 ">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-light mb-6 text-black dark:text-gray-100 text-center">
           Featured Blogs
