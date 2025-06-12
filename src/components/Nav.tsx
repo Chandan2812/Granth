@@ -42,7 +42,7 @@ const Navbar = () => {
     { label: "Buy", path: "/buy" },
     { label: "Rent", path: "/rent" },
     { label: "Sell", path: "/sell" },
-    { label: "Upcoming Projects", path: "/offplan" },
+    { label: "Upcoming Projects", path: "/upcoming_properties" },
     { label: "Blogs", path: "/blog" },
     { label: "About Us", path: "/about" },
     { label: "Contact Us", path: "/contact" },

@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
-import logo from "../assets/logo2.png";
+import logo from "../assets/Granth logo (6).png";
 import { IoMdSend } from "react-icons/io";
 import { useState } from "react";
 
@@ -119,7 +119,7 @@ const Footer = () => {
               { label: "Buy Properties", path: "/buy" },
               { label: "Rent Properties", path: "/rent" },
               { label: "Sell Properties", path: "/sell" },
-              { label: "Off-Plan Properties", path: "/offplan" },
+              { label: "Upcoming Properties", path: "/upcoming_properties" },
             ],
             [
               { label: "Catalogs", path: "/catalogs" },

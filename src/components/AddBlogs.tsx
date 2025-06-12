@@ -32,6 +32,8 @@ const AddBlog = ({
     coverImage: null as File | null,
   });
 
+  const [submitting, setSubmitting] = useState(false);
+
   useEffect(() => {
     if (existingBlog) {
       setFormData({
@@ -50,7 +52,23 @@ const AddBlog = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+
+    // Auto-generate slug if the title is changing and the slug hasn't been manually modified
+    if (name === "title") {
+      const autoSlug = value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, "") // remove special chars
+        .trim()
+        .replace(/\s+/g, "-"); // replace spaces with -
+
+      setFormData((prev) => ({
+        ...prev,
+        title: value,
+        slug: existingBlog ? prev.slug : autoSlug, // don't overwrite if editing
+      }));
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +79,7 @@ const AddBlog = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
     const blogData = new FormData();
     blogData.append("title", formData.title);
     blogData.append("slug", formData.slug);
@@ -95,6 +114,8 @@ const AddBlog = ({
       }
     } catch (err) {
       alert(`Error ${existingBlog ? "updating" : "adding"} blog`);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -123,8 +144,8 @@ const AddBlog = ({
             onChange={handleChange}
             required
           />
-          <input
-            type="text"
+          <textarea
+            rows={3}
             name="excerpt"
             placeholder="Excerpt"
             className="w-full p-2 border"
@@ -174,9 +195,20 @@ const AddBlog = ({
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-[var(--primary-color)] text-white rounded"
+              className={`px-4 py-2 text-white rounded ${
+                submitting
+                  ? "bg-[var(--primary-color)] cursor-not-allowed"
+                  : "bg-[var(--primary-color)] hover:opacity-90"
+              }`}
+              disabled={submitting}
             >
-              {existingBlog ? "Update" : "Submit"}
+              {submitting
+                ? existingBlog
+                  ? "Updating..."
+                  : "Adding..."
+                : existingBlog
+                ? "Update"
+                : "Submit"}
             </button>
           </div>
         </form>

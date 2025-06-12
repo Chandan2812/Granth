@@ -50,7 +50,7 @@ function AppWrapper() {
 
         <Route path="/rent" element={<RentProjects />} />
         <Route path="/rent/:id" element={<RentDetails />} />
-        <Route path="/offPlan" element={<OffPlan />} />
+        <Route path="/upcoming_properties" element={<OffPlan />} />
         <Route path="/offPlan/:id" element={<OffPlansDetails />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
