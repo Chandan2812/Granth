@@ -17,7 +17,7 @@ interface Blog {
   // You can add more fields if needed
 }
 
-const BlogPreview: React.FC = () => {
+const LatestBlog: React.FC = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -40,7 +40,7 @@ const BlogPreview: React.FC = () => {
         );
 
         // Take only the latest 4
-        setBlogs(apiBlogs.slice(0, 4));
+        setBlogs(apiBlogs.slice(0, 3));
       } catch (err) {
         console.error(err);
         setError("Failed to load blogs.");
@@ -56,18 +56,14 @@ const BlogPreview: React.FC = () => {
   if (error) return <p className="text-center py-20 text-red-600">{error}</p>;
 
   return (
-    <div className="bg-white dark:bg-black text-black dark:text-white py-16 px-4 sm:px-6 lg:px-8 border ">
-      <div className="max-w-7xl mx-auto text-center">
+    <div className="bg-white dark:bg-black text-black dark:text-white px-4 sm:px-6 lg:px-8 pb-10 ">
+      <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-3xl md:text-4xl font-light mb-6 text-black dark:text-gray-100 text-center">
-          Featured Blogs
+          Latest Blogs
         </h2>
-        <p className="mt-2 text-black dark:text-gray-300 max-w-2xl mx-auto">
-          Catch up on the latest highlights from the trading and real estate
-          world.
-        </p>
       </div>
 
-      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {blogs.map((blog) => (
           <Link to={`/blogs/${blog.slug}`} key={blog._id}>
             <div
@@ -109,16 +105,16 @@ const BlogPreview: React.FC = () => {
         ))}
       </div>
 
-      <div className="text-center mt-10">
+      {/* <div className="text-center mt-10">
         <Link
           to="/blog"
           className="w-fit px-4 text-black bg-gradient-to-r from-[var(--primary-color)] via-[#e3c5b5] to-[var(--primary-color)] py-3 hover:opacity-90 transition"
         >
           View All Blogs
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
 
-export default BlogPreview;
+export default LatestBlog;

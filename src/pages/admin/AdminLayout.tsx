@@ -8,11 +8,11 @@ import {
   FaBuilding,
   FaBars,
   FaTimes,
+  FaRegFileAlt,
 } from "react-icons/fa";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import logo from "../../assets/Granth logo (6).png";
 import { useState } from "react";
-import { NotebookPen } from "lucide-react";
 
 const AdminLayout = () => {
   const location = useLocation();
@@ -30,7 +30,7 @@ const AdminLayout = () => {
     { icon: <FaEnvelope />, label: "Newsletter", to: "/admin/newsletter" },
     { icon: <FaMailBulk />, label: "Emailer", to: "/admin/emailer" },
     { icon: <FaRobot />, label: "Chatbot Leads", to: "/admin/chatbot" },
-    { icon: <NotebookPen />, label: "Blogs", to: "/admin/blogs" },
+    { icon: <FaRegFileAlt />, label: "Blogs", to: "/admin/blogs" },
   ];
 
   return (
@@ -76,7 +76,7 @@ const AdminLayout = () => {
         <a href="/admin">
           <img src={logo} alt="logo" className="h-14 w-auto mx-auto mb-2" />
         </a>
-        <nav className="flex flex-col gap-2 text-sm">
+        <nav className="flex flex-col gap-2 text-md">
           {navItems.map(({ icon, label, to }) => (
             <NavItem
               key={to}
