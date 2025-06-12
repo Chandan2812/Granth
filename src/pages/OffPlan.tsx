@@ -44,7 +44,7 @@ export const OffPlan: React.FC = () => {
                     <img
                       src={bannerImages[1]}
                       alt={name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-full transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
 

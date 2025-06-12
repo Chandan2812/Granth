@@ -118,11 +118,11 @@ const OffPlansDetails: React.FC = () => {
       <div className="w-full ">
         <Slider {...settings}>
           {bannerImages.map((src, index) => (
-            <div key={index} className="px-2">
+            <div key={index} className="px-2 py-7">
               <img
                 src={src}
                 alt={`Image ${index}`}
-                className="rounded-lg object-center md:h-[100vh] h-[40vh]  w-full shadow-md"
+                className="rounded-lg md:object-full object-full md:h-[100vh] h-[40vh]  w-full shadow-md"
               />
             </div>
           ))}
