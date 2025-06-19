@@ -1,6 +1,6 @@
 import AboutSection from "../components/AboutSection";
 import BlogPreview from "../components/BlogPreview";
-import { Exclusives } from "../components/Exclusives";
+// import { Exclusives } from "../components/Exclusives";
 
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
@@ -21,7 +21,7 @@ function Landing() {
       <Hero />
       <AboutSection />
       <WhatWeDoSection />
-      <Exclusives />
+      {/* <Exclusives /> */}
       <HoverCardSection />
       <ListProperty />
       <LifeStyleSection />
