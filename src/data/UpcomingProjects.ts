@@ -101,6 +101,44 @@ import { GiTennisRacket } from "react-icons/gi";
 import { FaSwimmingPool } from "react-icons/fa";
 import { GiSpookyHouse } from "react-icons/gi";
 
+// ************************************************* GHD ARMONIA **************************************************
+import armoniaBrowcher from "../assets/Project/ghd armonia/GHD ARMONIA BROCHURE 3.pdf";
+import armoniaPrice from "../assets/Project/ghd armonia/GHD ARMONIA Price list.pdf";
+import armonia1 from "../assets/Project/ghd armonia/1.png";
+import armonia2 from "../assets/Project/ghd armonia/2.png";
+import armonia3 from "../assets/Project/ghd armonia/3.png";
+import armonia4 from "../assets/Project/ghd armonia/4.png";
+import armonia5 from "../assets/Project/ghd armonia/5.png";
+import armonia6 from "../assets/Project/ghd armonia/6.png";
+import armonia7 from "../assets/Project/ghd armonia/7.png";
+
+// **************************************************** ORCHID HOMES *************************************************
+import orchidBrowcher from "../assets/Project/orchid homes/Brochure Orchid homes.pdf";
+import orchidPaymentPlan from "../assets/Project/orchid homes/COST SHEET (ORCHID HOMES) April 2025.pdf";
+import orchidVideo from "../assets/Project/orchid homes/orchidvideo.mp4";
+import orchid2 from "../assets/Project/orchid homes/2.png";
+import orchid3 from "../assets/Project/orchid homes/3.png";
+import orchid4 from "../assets/Project/orchid homes/4.png";
+import orchid5 from "../assets/Project/orchid homes/5.png";
+import orchid6 from "../assets/Project/orchid homes/6.png";
+import orchid7 from "../assets/Project/orchid homes/7.png";
+import orchid8 from "../assets/Project/orchid homes/8.png";
+import orchid9 from "../assets/Project/orchid homes/9.png";
+import {
+  FaConciergeBell,
+  FaShuttleVan,
+  FaUtensils,
+  FaShoppingBag,
+  FaSpa,
+  FaKey,
+  FaBroom,
+  FaDumbbell,
+  FaMapMarkedAlt,
+} from "react-icons/fa";
+import { GiCardPick } from "react-icons/gi";
+import { MdFitnessCenter, MdRoomService } from "react-icons/md";
+import { BsReception4 } from "react-icons/bs";
+
 export const Projects = [
   {
     id: "velvet-vista",
@@ -383,6 +421,173 @@ export const Projects = [
       ],
       embeddedMapUrl:
         "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3841.9698029341416!2d73.9905663!3d15.646596400000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbf972e942902d9%3A0xeef35b28b91c0688!2sAangan%20by%20GHD%20GROUP!5e0!3m2!1sen!2sin!4v1749729562642!5m2!1sen!2sin",
+    },
+  },
+  {
+    id: "armonia",
+    name: "GHD ARMONIA",
+    nameColor: "#b59e09",
+    bannerImages: [
+      armonia2,
+      armonia1,
+      armonia3,
+      armonia4,
+      armonia5,
+      armonia6,
+      armonia7,
+    ],
+    description:
+      "GHD Armonia captures the true spirit of Goa—where sun-kissed beaches meet vibrant coastal life. Enjoy golden sands and water sports by day, and lively nightlife by night. Savor rich local flavors at cozy cafés or unwind in lush greenery and historic charm. From festive carnivals to peaceful escapes, every visit becomes a cherished memory at GHD Armonia.",
+    projectHighlights: [
+      {
+        place: "Goa",
+      },
+
+      {
+        title: "Download Brochure",
+        file: armoniaBrowcher,
+      },
+      {
+        title: "Payment Plan",
+        file: armoniaPrice,
+      },
+      {
+        videoUrl: "",
+      },
+    ],
+    highlights: [
+      "  <span class='text-[var(--primary-color)]'> Beauitiful </span>landscaping.",
+      "  <span class='text-[var(--primary-color)]'>Vibrant & hand crafted </span>tiles",
+      "Designed for your<span class='text-[var(--primary-color)]'>comfort and lifestyles. </span>",
+      "<span class='text-[var(--primary-color)]'>Indo - portugese</span>architecture in bedroom",
+      " A washroom steped in<span class='text-[var(--primary-color)]'> history & style.</span>",
+      "Proper <span class='text-[var(--primary-color)]'>seepage protection.</span>",
+      ,
+    ],
+    // rera: {
+    //   title: "RERA APPROVED PROJECT",
+    //   text1:
+    //     "We're proud to announce that GHD CASA GRANDE is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
+    //   registrationId: "P52900049552",
+    //   text2:
+    //     "This certification safeguards your investment, guarantees timely possession, and reflects our commitment to delivering trusted, high-quality developments with full regulatory compliance.",
+    //   registered: true,
+    //   image: casarera,
+    // },
+
+    featuresAndAmenities: [
+      { label: "Cafeteria, Bar & Restaurant", icon: Utensils },
+      { label: "Golf Putting", icon: MdGolfCourse },
+      { label: "Stream Park", icon: Trees },
+      { label: "Tennis Court", icon: GiTennisRacket },
+      { label: "Swimming Pool", icon: FaSwimmingPool },
+      { label: "Club House", icon: GiSpookyHouse },
+      { label: "Open Gym", icon: Dumbbell },
+      { label: "Kids Pool", icon: FaSwimmingPool },
+    ],
+    images: [casacollage1, casacollage2, casacollage3, casacollage4],
+    connectivity: {
+      title: "PRIME CONNECTIVITY :",
+      places: [
+        "30 mins from<span class='text-[var(--primary-color)]'> MOPA AIRPORT</span>",
+        "10 mins from <span class='text-[var(--primary-color)]'>MAPUSA MARKET</span>",
+        "5 mins from <span class='text-[var(--primary-color)]'>THIVIM RAILWAY STATION</span>",
+        "10 mins from <span class='text-[var(--primary-color)]'>SCHOOLS & HOSPITALS</span>",
+        "30  mins from <span class='text-[var(--primary-color)]'>NORTH GOA BEACHES</span>",
+        "30 mins from  <span class='text-[var(--primary-color)]'>ONSHORE CASINOS</span>",
+      ],
+      embeddedMapUrl:
+        "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3842.1735330483302!2d73.86542899999999!3d15.635745000000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDM4JzA4LjciTiA3M8KwNTEnNTUuNSJF!5e0!3m2!1sen!2sin!4v1750333686964!5m2!1sen!2sin",
+    },
+  },
+  {
+    id: "Orchid",
+    name: "ORCHID HOMES",
+    nameColor: "#71297d",
+    bannerImages: [
+      orchid2,
+      orchid5,
+      orchid4,
+      orchid3,
+      orchid6,
+      orchid7,
+      orchid8,
+      orchid9,
+    ],
+    description:
+      "Orchid Homes blends countryside charm with cosmopolitan sophistication and a relaxed resort vibe. This exclusive green, gated community offers end-to-end maintenance and premium amenities, including a hilltop infinity pool with stunning views, a fully-equipped fitness center with spa, a clubhouse with a restaurant, and a convenience store. With top-notch build quality, finishes, and services, Orchid Homes promises a lifestyle that’s both luxurious and effortless—an experience you’ll want to be part of.",
+    projectHighlights: [
+      {
+        place: "Goa",
+      },
+
+      {
+        title: "Download Brochure",
+        file: orchidBrowcher,
+      },
+      {
+        title: "Payment Plan",
+        file: orchidPaymentPlan,
+      },
+      {
+        videoUrl: orchidVideo,
+      },
+    ],
+    highlights: [
+      "  <span class='text-[var(--primary-color)]'> Studio (462 sq ft) & 1BHK (592sq ft)</span>options.",
+      "  <span class='text-[var(--primary-color)]'>₹15,000-19,700 Minimum Guaranteed rental</span>monthly income.",
+      "<span class='text-[var(--primary-color)]'>90% SBI Loan</span>, 10:90 Payment Plan.",
+      " Premium Amenities<span class='text-[var(--primary-color)]'>Club House, Infinity Pool, Valet Parking & more.</span>",
+      "Lifetime<span class='text-[var(--primary-color)]'>Free Maintenance</span>",
+      "<span class='text-[var(--primary-color)]'>Seperate entrance</span>rental for residences.",
+      ,
+    ],
+    rera: {
+      title: "RERA APPROVED PROJECT",
+      text1:
+        "We're proud to announce that GHD ORCHID HOMES is now officially RERA approved, offering complete transparency and legal assurance to all homebuyers.",
+      registrationId: "P52900025443",
+      text2:
+        "This certification safeguards your investment, guarantees timely possession, and reflects our commitment to delivering trusted, high-quality developments with full regulatory compliance.",
+      registered: true,
+      image: casarera,
+    },
+
+    featuresAndAmenities: [
+      { label: "Housekeeping", icon: FaBroom },
+      { label: "Swimming Pool", icon: FaSwimmingPool },
+      { label: "Butler Service", icon: MdRoomService },
+      { label: "Shopping", icon: FaShoppingBag },
+      { label: "Grand Lobby & Reception", icon: BsReception4 },
+      { label: "Travel Services", icon: FaShuttleVan },
+      { label: "Spa", icon: FaSpa },
+      { label: "Concierge", icon: FaConciergeBell },
+      { label: "Fitness Centre", icon: MdFitnessCenter },
+      { label: "Valet Parking", icon: FaKey },
+      { label: "Fine Dining", icon: FaUtensils },
+      { label: "24x7 Smart Card Access", icon: GiCardPick },
+      { label: "Snooker Room", icon: GiSpookyHouse },
+      { label: "Cafeteria, Bar & Restaurant", icon: FaUtensils },
+      { label: "Golf Putting", icon: MdGolfCourse },
+      { label: "Stream Park", icon: FaMapMarkedAlt },
+      { label: "Tennis Court", icon: GiTennisRacket },
+      { label: "Club House", icon: GiSpookyHouse },
+      { label: "Open Gym", icon: FaDumbbell },
+      { label: "Kids Pool", icon: FaSwimmingPool },
+    ],
+    images: [casacollage1, casacollage2, casacollage3, casacollage4],
+    connectivity: {
+      title: "PRIME CONNECTIVITY :",
+      places: [
+        "30 mins from <span class='text-[var(--primary-color)]'>MOPA INTERNATIONAL AIRPORT</span>",
+        "30 mins from <span class='text-[var(--primary-color)]'>PANAJI - CAPITAL OF GOA</span>",
+        "30 mins from <span class='text-[var(--primary-color)]'>NORTH GOA BEACHES</span>",
+        "Well connected via <span class='text-[var(--primary-color)]'>NH-17 & NH-4</span>",
+        "Located in <span class='text-[var(--primary-color)]'>TOURISM DEVELOPMENT ZONE</span>",
+        "Part of <span class='text-[var(--primary-color)]'>SINDHUDURG - A SCENIC GREEN DISTRICT</span>",
+      ],
+      embeddedMapUrl:
+        "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4859.793672483369!2d73.9871309!3d15.6713588!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbf91007351bf13%3A0xfa87c5ed7e3f5413!2sORCHID%20BY%20GHD!5e1!3m2!1sen!2sin!4v1750338303678!5m2!1sen!2sin",
     },
   },
 ];

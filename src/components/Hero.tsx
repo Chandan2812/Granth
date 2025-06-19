@@ -140,7 +140,7 @@ export default function Hero() {
             draggable="false"
           />
         </div>
-        <div className="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40 z-10"></div>
       </div>
 
       {/* Left Content */}
