@@ -111,6 +111,10 @@ import armonia4 from "../assets/Project/ghd armonia/4.png";
 import armonia5 from "../assets/Project/ghd armonia/5.png";
 import armonia6 from "../assets/Project/ghd armonia/6.png";
 import armonia7 from "../assets/Project/ghd armonia/7.png";
+import arclg1 from "../assets/Project/ghd armonia/Untitled design (1).png";
+import arclg2 from "../assets/Project/ghd armonia/Untitled design (2).png";
+import arclg3 from "../assets/Project/ghd armonia/Untitled design (3).png";
+import arclg4 from "../assets/Project/ghd armonia/Untitled design.png";
 
 // **************************************************** ORCHID HOMES *************************************************
 import orchidBrowcher from "../assets/Project/orchid homes/Brochure Orchid homes.pdf";
@@ -124,6 +128,11 @@ import orchid6 from "../assets/Project/orchid homes/6.png";
 import orchid7 from "../assets/Project/orchid homes/7.png";
 import orchid8 from "../assets/Project/orchid homes/8.png";
 import orchid9 from "../assets/Project/orchid homes/9.png";
+import orchidClg1 from "../assets/Project/orchid homes/Untitled design (5).png";
+import orchidClg2 from "../assets/Project/orchid homes/Untitled design (6).png";
+import orchidClg3 from "../assets/Project/orchid homes/Untitled design (7).png";
+import orchidClg4 from "../assets/Project/orchid homes/Untitled design (8).png";
+
 import {
   FaConciergeBell,
   FaShuttleVan,
@@ -485,7 +494,7 @@ export const Projects = [
       { label: "Open Gym", icon: Dumbbell },
       { label: "Kids Pool", icon: FaSwimmingPool },
     ],
-    images: [casacollage1, casacollage2, casacollage3, casacollage4],
+    images: [arclg1, arclg2, arclg3, arclg4],
     connectivity: {
       title: "PRIME CONNECTIVITY :",
       places: [
@@ -575,7 +584,7 @@ export const Projects = [
       { label: "Open Gym", icon: FaDumbbell },
       { label: "Kids Pool", icon: FaSwimmingPool },
     ],
-    images: [casacollage1, casacollage2, casacollage3, casacollage4],
+    images: [orchidClg1, orchidClg2, orchidClg3, orchidClg4],
     connectivity: {
       title: "PRIME CONNECTIVITY :",
       places: [
